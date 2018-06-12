@@ -22,6 +22,7 @@ namespace BeeFly
         public ProcessingSpawn()
         {
             Homebrew.Timer.Add(0.1f, () => Spawn());
+
         }
         void Spawn()
         {
