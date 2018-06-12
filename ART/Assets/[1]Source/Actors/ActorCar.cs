@@ -7,16 +7,12 @@ using Homebrew;
 
 namespace BeeFly
 {
-    class ActorTag:Actor
+    class ActorCar : Actor
     {
-        [FoldoutGroup("Setup")] public List<DataTag> IDs;
 
         protected override void Setup()
         {
-            for (int i = 0; i < IDs.Count; i++)
-            {
-                tags.Add(IDs[i].id);
-            }
+            
         }
     }
 }
