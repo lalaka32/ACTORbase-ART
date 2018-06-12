@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb7b54ce37f594a4d8dfc2d7264fe8d0, type: 3}
+  m_Name: FactoryCross
+  m_EditorClassIdentifier: 
+  prefabOfCross: {fileID: 1778912106229350, guid: 2f69e282c4d5c68498e3824b7217e0ec,
+    type: 2}
