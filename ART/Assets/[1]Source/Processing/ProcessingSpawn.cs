@@ -41,7 +41,7 @@ namespace BeeFly
                 {
                     for (int indexTL = 0; indexTL < Cross.actors[indexCross].Get<DataSpotTrafficLight>().Positions.Count; indexTL++)
                     {
-                        Toolbox.Get<FactoryTrafficLight>().SpawnTL(Cross.actors[indexCross].Get<DataSpotTrafficLight>().Positions[indexTL].selfTransform.position, Quaternion.identity, Cross.actors[indexCross].selfTransform);
+                        Toolbox.Get<FactoryTrafficLight>().SpawnTL(Cross.actors[indexCross].Get<DataSpotTrafficLight>().Positions[indexTL].selfTransform.position, Cross.actors[indexCross].Get<DataSpotTrafficLight>().Positions[indexTL].selfTransform.rotation, Cross.actors[indexCross].selfTransform);
                     }
                 }
                 //наверн сразу заспавнить всё а потом уже разбираться 
@@ -50,8 +50,15 @@ namespace BeeFly
                 {
                     for (int indexSign = 0; indexSign < Cross.actors[indexCross].Get<DataSpotTrafficSign>().Positions.Count; indexSign++)
                     {
-                        Toolbox.Get<FactorySign>().SpawnSignMain(Cross.actors[indexCross].Get<DataSpotTrafficSign>().Positions[indexSign].selfTransform.position, Quaternion.identity, Cross.actors[indexCross].selfTransform);
-                        Toolbox.Get<FactorySign>().SpawnSignSecondary(Cross.actors[indexCross].Get<DataSpotTrafficSign>().Positions[indexSign].selfTransform.position, Quaternion.identity, Cross.actors[indexCross].selfTransform);
+                        Toolbox.Get<FactorySign>().SpawnSignMain(Cross.actors[indexCross].Get<DataSpotTrafficSign>().Positions[indexSign].selfTransform.position, Cross.actors[indexCross].Get<DataSpotTrafficSign>().Positions[indexSign].selfTransform.rotation, Cross.actors[indexCross].selfTransform);
+                        Toolbox.Get<FactorySign>().SpawnSignSecondary(Cross.actors[indexCross].Get<DataSpotTrafficSign>().Positions[indexSign].selfTransform.position, Cross.actors[indexCross].Get<DataSpotTrafficSign>().Positions[indexSign].selfTransform.rotation, Cross.actors[indexCross].selfTransform);
+                    }
+                }
+                if (Cross.actors[indexCross].Get<DataSpotOfCars>() != null)
+                {
+                    for (int indexCar = 0; indexCar < Cross.actors[indexCross].Get<DataSpotOfCars>().Positions.Count; indexCar++)
+                    {
+                        Toolbox.Get<FactoryCar>().SpawnCar(Cross.actors[indexCross].Get<DataSpotOfCars>().Positions[indexCar].selfTransform.position, Cross.actors[indexCross].Get<DataSpotOfCars>().Positions[indexCar].selfTransform.rotation, Cross.actors[indexCross].selfTransform);
                     }
                 }
             }  

@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f15bb2a47c5e44bbae09fc38ea6f8c, type: 3}
   m_Name: TL
   m_EditorClassIdentifier: 
-  prefabOfTrafficLight: {fileID: 1752539167213502, guid: 266d1e23a843d754c9947ef6226c9acc,
+  prefabOfTrafficLight: {fileID: 1073737229853954, guid: 266d1e23a843d754c9947ef6226c9acc,
     type: 2}

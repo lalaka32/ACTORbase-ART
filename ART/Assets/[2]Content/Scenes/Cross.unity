@@ -447,6 +447,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c43b92c1c296297419c4fe5697a495fa, type: 2}
   - {fileID: 11400000, guid: f5dd1d00f0f9a734180ef4eb2da7e0fa, type: 2}
   - {fileID: 11400000, guid: 35938b351fa171444a593c60c5bf90a1, type: 2}
+  - {fileID: 11400000, guid: cfca82fa58a8c8e40b7b10bf3f8380b7, type: 2}
   ScenesToKeep:
   - sceneKernel
   SceneDependsOn:
