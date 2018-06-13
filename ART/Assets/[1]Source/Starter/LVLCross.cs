@@ -11,7 +11,7 @@ namespace BeeFly
     {
         protected override void Setup()
         {
-            Homebrew.Toolbox.Add<ProcessingSpawn>();
+            Toolbox.Add<ProcessingSpawn>();
         }
     }
 }

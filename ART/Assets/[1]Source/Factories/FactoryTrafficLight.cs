@@ -18,7 +18,8 @@ namespace BeeFly
 
         public Transform SpawnTL(Vector3 pos, Quaternion rot, Transform parent)
         {
-            var transform = this.Populate(Pool.Entities, prefabOfTrafficLight, pos, rot, parent);
+            var transform = this.Populate(Pool.Entities, prefabOfTrafficLight, pos, rot);
+            transform.parent = parent;
             TrafficLights.Add(transform);
             return transform;
         }

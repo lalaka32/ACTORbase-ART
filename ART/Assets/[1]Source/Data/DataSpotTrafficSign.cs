@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 using Homebrew;
 
 namespace BeeFly
 {
-    [System.Serializable]
-    public struct DataTag
+    [Serializable]
+    public class DataSpotTrafficSign : IData
     {
-        [TagFilter(typeof(Tag))] public int id;
+        public List<ActorTag> Positions;
+
+        public void Dispose(){}
     }
 }
