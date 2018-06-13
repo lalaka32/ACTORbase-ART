@@ -9,16 +9,18 @@ namespace BeeFly
 {
     class ActorCross : Actor
     {
-        [FoldoutGroup("Setup")] public List<DataSpot> SpotsOfCars;
-        [FoldoutGroup("Setup")] public List<DataSpot> SpotsOfSigns;
-        [FoldoutGroup("Setup")] public List<DataSpot> SpotsOfTrafficLight;
+        [FoldoutGroup("Setup")] public DataSpotOfCars SpotsOfCars;
+        [FoldoutGroup("Setup")] public DataSpotTrafficSign SpotsOfSigns;
+        [FoldoutGroup("Setup")] public DataSpotTrafficLight SpotsOfTrafficLight;
 
         protected override void Setup()
         {
-            foreach (DataSpot item in SpotsOfCars)
-            {
-                Add(item);
-            }
+
+            Add(SpotsOfCars);
+            Add(SpotsOfSigns);
+            Add(SpotsOfTrafficLight);
+
+            tags.Add(Tag.OneLane);
         }
     }
 }

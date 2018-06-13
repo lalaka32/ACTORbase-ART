@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Homebrew;
 using UnityEngine;
+using Homebrew;
 
 namespace BeeFly
 {
-    [Serializable]
-    class DataSpot : IData
+    [CreateAssetMenu(fileName = "FactoryCross", menuName = "Factories/FactoryCross")]
+    class FactoryCar : Factory
     {
         [SerializeField]
-        ActorTag position;
+        GameObject prefabOfCar;
 
-        public void Dispose(){}
+
     }
 }

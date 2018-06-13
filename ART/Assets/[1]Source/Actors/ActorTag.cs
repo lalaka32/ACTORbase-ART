@@ -7,7 +7,7 @@ using Homebrew;
 
 namespace BeeFly
 {
-    class ActorTag:Actor
+    public class ActorTag:Actor
     {
         [FoldoutGroup("Setup")] public List<DataTag> IDs;
 
