@@ -22,7 +22,6 @@ class CrossManager : ManagerBase
         //    Cross.GetComponent<DefaultInitializationErrorHandler>().enabled = true;
         //    Cross.GetComponent<TurnOffBehaviour>().enabled = true;
         //    Cross.GetComponent<DefaultTrackableEventHandler>().enabled = true;
-
         //}
         Cross.transform.eulerAngles= new Vector3 (0, 0, 0);
     }

@@ -38,8 +38,6 @@ public class InstantceParticular : MonoBehaviour, ITrackableEventHandler{
         
         ToolBox.Get<UIManager>().SetUIForRevision();
 
-        
-
         RoadSituation RS = ToolBox.Get<ProcessingAnsvers>().lvlSituat[ToolBox.Get<SettingsPlayer>().numberOfRevisionQuestion];
         ToolBox.Get<TrafficLightManager>().GenerationTrafficLight(RS, ToolBox.Get<CrossManager>().Cross.transform);
 

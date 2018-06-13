@@ -161,7 +161,7 @@ MonoBehaviour:
   selfTransform: {fileID: 0}
   state: 0
   hashCode: 0
-  spotsRespawn:
+  IDs:
   - id: 1
 --- !u!1 &347894581
 GameObject:

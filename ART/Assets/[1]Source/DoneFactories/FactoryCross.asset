@@ -11,5 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb7b54ce37f594a4d8dfc2d7264fe8d0, type: 3}
   m_Name: FactoryCross
   m_EditorClassIdentifier: 
-  prefabOfCross: {fileID: 1778912106229350, guid: 2f69e282c4d5c68498e3824b7217e0ec,
+  prefabOfCross: {fileID: 1794192996740910, guid: 944cd5c6b7a22e643aaf18b9ab47395e,
+    type: 2}
+  prefabOfTrafficLight: {fileID: 1757880858266486, guid: ad2310b8b6bbeb84e9fa032c714965c6,
+    type: 2}
+  prefabOFSignMain: {fileID: 1076208416385730, guid: 923a9f8eae8950042952377700e1a679,
+    type: 2}
+  prefabOFSignSecondary: {fileID: 1919808851853312, guid: 62260bc96534a8f44b40503e8012593c,
     type: 2}
