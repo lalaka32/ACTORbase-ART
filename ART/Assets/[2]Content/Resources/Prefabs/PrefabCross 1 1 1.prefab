@@ -500,9 +500,7 @@ MonoBehaviour:
   selfTransform: {fileID: 0}
   state: 0
   hashCode: 0
-  spotsRespawn:
-  - id: 24
-  - id: 4
+  IDs: []
 --- !u!114 &114219143249185386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -522,9 +520,7 @@ MonoBehaviour:
   selfTransform: {fileID: 0}
   state: 0
   hashCode: 0
-  spotsRespawn:
-  - id: 24
-  - id: 4
+  IDs: []
 --- !u!114 &114287461448502970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -544,9 +540,7 @@ MonoBehaviour:
   selfTransform: {fileID: 0}
   state: 0
   hashCode: 0
-  spotsRespawn:
-  - id: 13
-  - id: 2
+  IDs: []
 --- !u!114 &114420551271209994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -566,9 +560,7 @@ MonoBehaviour:
   selfTransform: {fileID: 0}
   state: 0
   hashCode: 0
-  spotsRespawn:
-  - id: 13
-  - id: 2
+  IDs: []
 --- !u!114 &114508631580197230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -588,9 +580,7 @@ MonoBehaviour:
   selfTransform: {fileID: 0}
   state: 0
   hashCode: 0
-  spotsRespawn:
-  - id: 13
-  - id: 2
+  IDs: []
 --- !u!114 &114525207012622626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -610,9 +600,7 @@ MonoBehaviour:
   selfTransform: {fileID: 0}
   state: 0
   hashCode: 0
-  spotsRespawn:
-  - id: 24
-  - id: 3
+  IDs: []
 --- !u!114 &114558705860084622
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -632,9 +620,7 @@ MonoBehaviour:
   selfTransform: {fileID: 0}
   state: 0
   hashCode: 0
-  spotsRespawn:
-  - id: 24
-  - id: 3
+  IDs: []
 --- !u!114 &114614699717437452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -654,9 +640,7 @@ MonoBehaviour:
   selfTransform: {fileID: 0}
   state: 0
   hashCode: 0
-  spotsRespawn:
-  - id: 24
-  - id: 3
+  IDs: []
 --- !u!114 &114666842025975624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -676,9 +660,7 @@ MonoBehaviour:
   selfTransform: {fileID: 0}
   state: 0
   hashCode: 0
-  spotsRespawn:
-  - id: 13
-  - id: 2
+  IDs: []
 --- !u!114 &114697610779249886
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -698,9 +680,7 @@ MonoBehaviour:
   selfTransform: {fileID: 0}
   state: 0
   hashCode: 0
-  spotsRespawn:
-  - id: 24
-  - id: 3
+  IDs: []
 --- !u!114 &114972552755037972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -720,9 +700,7 @@ MonoBehaviour:
   selfTransform: {fileID: 0}
   state: 0
   hashCode: 0
-  spotsRespawn:
-  - id: 24
-  - id: 4
+  IDs: []
 --- !u!114 &114981490470856124
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -742,6 +720,4 @@ MonoBehaviour:
   selfTransform: {fileID: 0}
   state: 0
   hashCode: 0
-  spotsRespawn:
-  - id: 24
-  - id: 4
+  IDs: []
