@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Homebrew;
 using UnityEngine;
+using Homebrew;
 
 namespace BeeFly
 {
     [Serializable]
-    class DataSpot : IData
+    public class DataSpotTrafficSign : IData
     {
-        [SerializeField]
-        ActorTag position;
+        public List<ActorTag> Positions;
 
         public void Dispose(){}
     }

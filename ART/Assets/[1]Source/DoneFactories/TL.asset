@@ -8,8 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb7b54ce37f594a4d8dfc2d7264fe8d0, type: 3}
-  m_Name: FactoryCrossSpots
+  m_Script: {fileID: 11500000, guid: 22f15bb2a47c5e44bbae09fc38ea6f8c, type: 3}
+  m_Name: TL
   m_EditorClassIdentifier: 
-  prefabOfCross: {fileID: 1969104574466732, guid: 9a4d98c973c4ddd41854fea2768695b9,
+  prefabOfTrafficLight: {fileID: 1073737229853954, guid: 266d1e23a843d754c9947ef6226c9acc,
     type: 2}

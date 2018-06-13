@@ -10,7 +10,7 @@ namespace BeeFly
     public static partial class Tag
     {
         [TagField(categoryName = "SpawnPoints")]
-        public const int Cross = 1;
+        public const int SpawnerOfCross = 1;
 
         [TagField(categoryName = "Cross")]
         public const int CarPosition = 2;
@@ -18,6 +18,10 @@ namespace BeeFly
         public const int TLPosition = 3;
         [TagField(categoryName = "Cross")]
         public const int SignPosition = 4;
+        
+        //их всех нужно объеденить мб типо slot 1 
+        //а там будет и машина и светофор и знак
+        //и всё что нам ещё нужно
 
         [TagField(categoryName = "Cross/SpawnPointsCar")]//тэги для 4-х позиций
         public const int FirstPositionOfCar = 10;//если перецк больше чем однопол то хз
@@ -28,6 +32,7 @@ namespace BeeFly
         [TagField(categoryName = "Cross/SpawnPointsCar")]
         public const int ForthPositionOfCar = 13;
 
+        //Это мб пригодится для выборки наших светофоров 
         [TagField(categoryName = "Cross/SpawnPointsTL")]
         public const int FirstPositionOfTrafficLight = 21;
         [TagField(categoryName = "Cross/SpawnPointsTL")]
@@ -37,6 +42,7 @@ namespace BeeFly
         [TagField(categoryName = "Cross/SpawnPointsTL")]
         public const int ForthPositionOfTrafficLight = 24;
 
+        //Это мб пригодится для выборки наших знаков 
         [TagField(categoryName = "Cross/SpawnPointsSign")]
         public const int FirstPositionOfSign = 31;
         [TagField(categoryName = "Cross/SpawnPointsSign")]
@@ -45,5 +51,14 @@ namespace BeeFly
         public const int ThirtPositionOfSign = 33;
         [TagField(categoryName = "Cross/SpawnPointsSign")]
         public const int ForthPositionOfSign = 34;
+
+        [TagField(categoryName = "Cross/TypeOfCross")]
+        public const int OneLane = 41;
+        [TagField(categoryName = "Cross/TypeOfCross")]
+        public const int TwoLane = 42;
+        [TagField(categoryName = "Cross/TypeOfCross")]
+        public const int ThreeLane = 43;
+        [TagField(categoryName = "Cross/TypeOfCross")]
+        public const int RoundLane = 44;
     }
 }

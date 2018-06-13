@@ -8,8 +8,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb7b54ce37f594a4d8dfc2d7264fe8d0, type: 3}
-  m_Name: FactoryCrossSpots
+  m_Script: {fileID: 11500000, guid: 8527801e92f619f4ab57b957570e7b38, type: 3}
+  m_Name: FactoryCar
   m_EditorClassIdentifier: 
-  prefabOfCross: {fileID: 1969104574466732, guid: 9a4d98c973c4ddd41854fea2768695b9,
-    type: 2}
+  prefabOfCar: {fileID: 100000, guid: dccadb3506945824cb94697c55decf4d, type: 3}
