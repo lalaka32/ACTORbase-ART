@@ -7,12 +7,12 @@ using Homebrew;
 
 namespace BeeFly
 {
-    class LVLCross :Homebrew.Starter
+    class BehaviorPriority : Behavior
     {
-        protected override void Setup()
+        [Bind] DataPriority priority;
+        void SetPriority()
         {
-            Toolbox.Add<ProcessingSpawn>();
-            Toolbox.Add<ProsessingPositions>();
+
         }
     }
 }
