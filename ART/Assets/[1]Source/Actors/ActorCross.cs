@@ -7,20 +7,26 @@ using Homebrew;
 
 namespace BeeFly
 {
-    class ActorCross : Actor
+    public class ActorCross : Actor,ITick
     {
-        [FoldoutGroup("Setup")] public DataSpotOfCars SpotsOfCars;
-        [FoldoutGroup("Setup")] public DataSpotTrafficSign SpotsOfSigns;
-        [FoldoutGroup("Setup")] public DataSpotTrafficLight SpotsOfTrafficLight;
+        [FoldoutGroup("SpawnSpots")] public DataSpotOfCars SpotsOfCars;
+        [FoldoutGroup("SpawnSpots")] public DataSpotTrafficSign SpotsOfSigns;
+        [FoldoutGroup("SpawnSpots")] public DataSpotTrafficLight SpotsOfTrafficLight;
+
+        public DataCarsLocation dataCarsLocation;
 
         protected override void Setup()
         {
-
             Add(SpotsOfCars);
             Add(SpotsOfSigns);
             Add(SpotsOfTrafficLight);
 
-            tags.Add(Tag.OneLane);
+            Add(dataCarsLocation);
+
+            //Add<BehaviorTest>();
+            Add<BehaviorMove>();
+
+            tags.Add(Tag.Cross);
         }
     }
 }
