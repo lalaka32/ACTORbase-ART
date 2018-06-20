@@ -7,6 +7,7 @@ using Homebrew;
 
 namespace BeeFly
 {
+
     class ActorCar : Actor
     {
         //бля я падумал было бы прикольна менять приритет динамиески
@@ -17,7 +18,7 @@ namespace BeeFly
         public DataBlueprint blueprint;
 
         [FoldoutGroup("Setup")] public DataPriority priority;
-        [FoldoutGroup("Setup")] public DataDirection direction;
+        [FoldoutGroup("Setup")] public Direction direction;
 
         public DataComperativeCars comperativeCars;
 
@@ -30,7 +31,10 @@ namespace BeeFly
             Add(comperativeCars);
 
             tags.Add(Tag.Car);
-            //direction.direction, position.position
         }
+    }
+    public enum Direction
+    {
+        Right, Forward, Left
     }
 }
