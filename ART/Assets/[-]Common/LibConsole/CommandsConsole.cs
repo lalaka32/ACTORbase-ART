@@ -15,8 +15,5 @@ public abstract class CommandsConsole : ScriptableObject {
     {
 	   return Toolbox.Get<ProcessingConsole>().Help();
     }
-	
-	
-
 }
 }

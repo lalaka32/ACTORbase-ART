@@ -9,10 +9,13 @@ namespace BeeFly
 {
     public class ActorCross : Actor,ITick
     {
+        //Это лист по спотами для спавна манин
         [FoldoutGroup("SpawnSpots")] public DataSpotOfCars SpotsOfCars;
+        //Это лист по спотами для спавна знаков
         [FoldoutGroup("SpawnSpots")] public DataSpotTrafficSign SpotsOfSigns;
+        //Это лист по спотами для спавна светофоров
         [FoldoutGroup("SpawnSpots")] public DataSpotTrafficLight SpotsOfTrafficLight;
-
+        //Тут уже храним присутствующие машины
         public DataCarsLocation dataCarsLocation;
 
         protected override void Setup()
@@ -23,8 +26,7 @@ namespace BeeFly
 
             Add(dataCarsLocation);
 
-            //Add<BehaviorTest>();
-            Add<BehaviorMove>();
+            Add<BehaviorTest>();
 
             tags.Add(Tag.Cross);
         }

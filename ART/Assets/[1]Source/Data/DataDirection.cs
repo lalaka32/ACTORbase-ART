@@ -8,9 +8,9 @@ using Homebrew;
 namespace BeeFly
 {
     [Serializable]
-    class DataDirection : IData
+    public class DataDirection : IData
     {
-        public int direction;
+        public Direction direction;
         public void Dispose(){}
     }
 }
