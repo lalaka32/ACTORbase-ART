@@ -32,7 +32,6 @@ namespace BeeFly
             //Место каунт чило кросов чтобы спавнит
             for (int iCross = 0; iCross < CrossSpawnerSpots.actors.Count; iCross++)
             {
-                
                 //В спавн передавать тип переца
                 Transform crossTransform= Toolbox.Get<FactoryCross>().Spawn(CrossSpawnerSpots.actors[iCross].transform.position, Quaternion.identity, WorldParenters.None);
                 Toolbox.Get<FactoryCross>().Cross.eulerAngles = new Vector3(-90, 0, 0);
@@ -58,11 +57,14 @@ namespace BeeFly
                 if (Cross.actors[iCross].Get<DataSpotOfCars>() != null)
                 {
                     //Тут рандомить позишн
-                    for (int iCar = 0; iCar < Cross.actors[iCross].Get<DataSpotOfCars>().Positions.Count; iCar++)
+                    Cross.actors[iCross].Get<DataSpotOfCars>().Positions.Shaffle();
+                    for (int iCar = 0; iCar < Toolbox.Get<DataGameSession>().dataRoadSituation.CountOfCars; iCar++)
                     {
                         var car = Toolbox.Get<FactoryCar>().SpawnCar(Cross.actors[iCross].Get<DataSpotOfCars>().Positions[iCar].selfTransform.position, Cross.actors[iCross].Get<DataSpotOfCars>().Positions[iCar].selfTransform.rotation, crossTransform, Cross.actors[iCross].Get<DataSpotOfCars>().Positions[iCar].directions);
-                        Cross.actors[iCross].Get<DataCarsLocation>().positions.Add(iCar, car.GetComponent<ActorCar>()); 
+                        Cross.actors[iCross].Get<DataCarsLocation>().positions.Add(iCar, car.GetComponent<ActorCar>());
                     }
+                    Debug.Log("HI");
+                    Toolbox.Get<FactoryCar>().Cars.ReturnRandom().GetComponent<ActorCar>().tags.Add(Tag.PlayerCar);
                 }
             }
         }

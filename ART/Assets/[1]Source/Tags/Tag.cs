@@ -72,6 +72,8 @@ namespace BeeFly
         [TagField(categoryName = "Car/Directions")]
         public const int DirectionNone = 55;
 
+        [TagField(categoryName = "Entity")]
+        public const int PlayerCar = 60;
         [TagField(categoryName ="Entity")]
         public const int Car = 61;
         [TagField(categoryName = "Entity")]

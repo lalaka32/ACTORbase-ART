@@ -11,8 +11,10 @@ namespace BeeFly
     {
         protected override void Setup()
         {
+            Toolbox.Get<DataGameSession>().SetRoadData();
             Toolbox.Add<ProcessingSpawn>();
             Toolbox.Add<ProsessingPositions>();
+            Toolbox.Add<ProcessingCamera>();
         }
     }
 }
