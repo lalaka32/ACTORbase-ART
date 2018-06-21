@@ -24,7 +24,7 @@ namespace BeeFly
             {
                 if (cross.actors[iCross].Get<DataCarsLocation>() != null)
                 {
-                    int lengthOfCarSpots = cross.actors[iCross].Get<DataSpotOfCars>().Positions.Count;
+                    int lengthOfCarSpots = Toolbox.Get<DataGameSession>().dataRoadSituation.CountOfCars;
                     for (int iSpot = 0; iSpot < lengthOfCarSpots; iSpot++)
                     {
                         Actor settingCar = cross.actors[iCross].Get<DataCarsLocation>().positions[iSpot];

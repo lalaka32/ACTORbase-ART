@@ -33,18 +33,11 @@ namespace BeeFly
         //Нужно думать
         public void SetCarWithRandomData(ActorCar actorCar, Direction[] directions)
         {
-            //Возможно лучше не сувать это в тэг, а сделать процессинг
-            //в котором указать верные позиции. Теги для указания 
-            //Состояния объекта а не для указания позиций
             Direction rand = directions.Random();
-            actorCar.direction = (rand);
-            //Debug.Log((actorCar.direction-1).ToString());
-            actorCar.tags.Add((int)rand+ 50);
-            //actorCar.tags.Add(actorCar.Get<DataPosition>().position);//Исправить
 
-            //actorCar.Add<DataFinalPosition>().finPosition =
-            //actorCar.Get<DataDirection>().direction + actorCar.Get<DataPosition>().position;
-            //actorCar.tags.Add(actorCar.Get<DataFinalPosition>().finPosition);
+            actorCar.direction = (rand);
+
+            actorCar.tags.Add((int)rand+ Tag.DirectionRight);
         }
     }
 }
