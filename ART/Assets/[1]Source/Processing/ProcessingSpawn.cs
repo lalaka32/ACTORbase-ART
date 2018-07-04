@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace BeeFly
 {
-    class ProcessingSpawn : ProcessingBase, IMustBeWiped
+    class ProcessingSpawn : ProcessingBase, IMustBeWiped, IRecieve<SignalRespawn>
     {
         //Мда чёт пока не идёт у меня мыслей
         //Я думаю как разделать наши группы чтобы
@@ -26,6 +26,28 @@ namespace BeeFly
         {
             Homebrew.Timer.Add(0.2f, () => Spawn());
         }
+
+        public void HandleSignal(SignalRespawn arg)
+        {
+            for (int iCross = 0; iCross < CrossSpawnerSpots.actors.Count; iCross++)
+            {
+                Toolbox.Get<DataGameSession>().NumberOfVoprosa++;
+                foreach (var car in cars)
+                {
+                    if (car != null)
+                    {
+                        Toolbox.Destroy(car.gameObject);
+                    }
+                }
+                Toolbox.Get<DataGameSession>().SetRoadData();
+                Cross.actors[iCross].Get<DataCarsLocation>().positions.Clear();
+                if (Cross.actors[iCross].Get<DataSpotOfCars>() != null)
+                {
+                    SpawnCars(Cross.actors[iCross]);
+                }
+            }
+        }
+        List<Transform> cars = new List<Transform>();
         void Spawn()
         {
             //Ставить столько перекрёствов сколько захочет плеер
@@ -33,7 +55,7 @@ namespace BeeFly
             for (int iCross = 0; iCross < CrossSpawnerSpots.actors.Count; iCross++)
             {
                 //В спавн передавать тип переца
-                Transform crossTransform= Toolbox.Get<FactoryCross>().Spawn(CrossSpawnerSpots.actors[iCross].transform.position, Quaternion.identity, WorldParenters.None);
+                Transform crossTransform = Toolbox.Get<FactoryCross>().Spawn(CrossSpawnerSpots.actors[iCross].transform.position, Quaternion.identity, WorldParenters.None);
                 Toolbox.Get<FactoryCross>().Cross.eulerAngles = new Vector3(-90, 0, 0);
 
                 //Место этого уловия что угодно и у нас динамически настроваемый перец
@@ -47,7 +69,7 @@ namespace BeeFly
                 //наверн сразу заспавнить всё а потом уже разбираться 
                 //где что стоит или не стоит 
                 if (Cross.actors[iCross].Get<DataSpotTrafficSign>() != null)
-                {                       
+                {
                     for (int iTrafficSign = 0; iTrafficSign < Cross.actors[iCross].Get<DataSpotTrafficSign>().Positions.Count; iTrafficSign++)
                     {
                         Toolbox.Get<FactorySign>().SpawnSignMain(Cross.actors[iCross].Get<DataSpotTrafficSign>().Positions[iTrafficSign].selfTransform.position, Cross.actors[iCross].Get<DataSpotTrafficSign>().Positions[iTrafficSign].selfTransform.rotation, crossTransform.Find("Signs"));
@@ -56,17 +78,23 @@ namespace BeeFly
                 }
                 if (Cross.actors[iCross].Get<DataSpotOfCars>() != null)
                 {
-                    //Тут рандомить позишн
-                    Cross.actors[iCross].Get<DataSpotOfCars>().Positions.Shaffle();
-                    for (int iCar = 0; iCar < Toolbox.Get<DataGameSession>().dataRoadSituation.CountOfCars; iCar++)
-                    {
-                        var car = Toolbox.Get<FactoryCar>().SpawnCar(Cross.actors[iCross].Get<DataSpotOfCars>().Positions[iCar].selfTransform.position, Cross.actors[iCross].Get<DataSpotOfCars>().Positions[iCar].selfTransform.rotation, crossTransform, Cross.actors[iCross].Get<DataSpotOfCars>().Positions[iCar].directions);
-                        Cross.actors[iCross].Get<DataCarsLocation>().positions.Add(iCar, car.GetComponent<ActorCar>());
-                    }
-                    Debug.Log("HI");
-                    Toolbox.Get<FactoryCar>().Cars.ReturnRandom().GetComponent<ActorCar>().tags.Add(Tag.PlayerCar);
+                    SpawnCars(Cross.actors[iCross]);
                 }
+
             }
         }
+        void SpawnCars(Actor cross)
+        {
+            //Тут рандомить позишн
+            cross.Get<DataSpotOfCars>().Positions.Shaffle();
+            for (int iCar = 0; iCar < Toolbox.Get<DataGameSession>().dataRoadSituation.CountOfCars; iCar++)
+            {
+                var car = Toolbox.Get<FactoryCar>().SpawnCar(cross.Get<DataSpotOfCars>().Positions[iCar].selfTransform.position, cross.Get<DataSpotOfCars>().Positions[iCar].selfTransform.rotation, cross.selfTransform, cross.Get<DataSpotOfCars>().Positions[iCar].directions);
+                cars.Add(car);
+                cross.Get<DataCarsLocation>().positions.Add(iCar, car.GetComponent<ActorCar>());
+            }
+            cross.Get<DataCarsLocation>().positions.Random().tags.Add(Tag.PlayerCar);
+        }
+
     }
 }

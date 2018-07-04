@@ -31,6 +31,11 @@ namespace Homebrew
             return listToShaffle;
 
         }
+        public static V Random<K,V>(this Dictionary<K, V> dictionary)
+        {
+
+            return dictionary.ElementAt(_r.Next(0, dictionary.Count)).Value;
+        }
         #region OLD
 
         public static float ClampAngle(this float angle, float min, float max)
