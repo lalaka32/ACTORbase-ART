@@ -42,7 +42,7 @@ class SignManager : ManagerBase
         {
             TS = new Dictionary<Position, TrafficSign>(3);
 
-            InstantiateTrafficSign(road.posRotSign, road.CoutOfSigns, parent);
+            InstantiateTrafficSign(road.posRotSign, road.CountOfSigns, parent);
         }
     }
     public void ClearSigns()
@@ -55,10 +55,12 @@ class SignManager : ManagerBase
         {
             foreach (GameObject sign in signArray)
             {
-                Destroy(sign);
+                if (sign!=null)
+                {
+                    Destroy(sign);
+                }
             }
-        }
-        
+        }   
     }
     public void GenerationTrafficSigns()
     {

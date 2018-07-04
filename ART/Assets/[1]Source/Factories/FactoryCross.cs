@@ -17,9 +17,6 @@ namespace BeeFly
 
         public Transform Cross { get;private set; }
 
-        /// <summary>
-        /// Please use it first
-        /// </summary>
         public Transform Spawn(Vector3 pos, Quaternion rot,WorldParenters perent)
         {
             Cross = this.Populate(Pool.Entities, prefabOfCross, pos,rot,null,perent);
