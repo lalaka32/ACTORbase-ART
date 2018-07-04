@@ -16,7 +16,7 @@ public class RoadSituation
         VIP = vIP;
         this.directions = directions;
         this.trafficSign = trafficSign;
-        CoutOfSigns = coutOfSigns;
+        CountOfSigns = coutOfSigns;
         this.posRotSign = posRotSign;
         this.trafficLight = trafficLight;
         CoutOfLights = coutOfLights;
@@ -29,7 +29,7 @@ public class RoadSituation
     public Direction[] directions { get; private set; }
 
     public TrafficSign trafficSign { get; private set; }
-    public int CoutOfSigns { get; private set; }
+    public int CountOfSigns { get; private set; }
     public PositionRotation[] posRotSign { get; private set; }
 
     public TrafficLight trafficLight { get; private set; }

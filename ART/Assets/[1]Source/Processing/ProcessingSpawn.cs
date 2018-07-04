@@ -41,7 +41,7 @@ namespace BeeFly
                 {
                     for (int iTrafficLight = 0; iTrafficLight < Cross.actors[iCross].Get<DataSpotTrafficLight>().Positions.Count; iTrafficLight++)
                     {
-                        Toolbox.Get<FactoryTrafficLight>().SpawnTL(Cross.actors[iCross].Get<DataSpotTrafficLight>().Positions[iTrafficLight].selfTransform.position, Cross.actors[iCross].Get<DataSpotTrafficLight>().Positions[iTrafficLight].selfTransform.rotation, crossTransform);
+                        Toolbox.Get<FactoryTrafficLight>().SpawnTL(Cross.actors[iCross].Get<DataSpotTrafficLight>().Positions[iTrafficLight].selfTransform.position, Cross.actors[iCross].Get<DataSpotTrafficLight>().Positions[iTrafficLight].selfTransform.rotation, crossTransform.Find("Lights"));
                     }
                 }
                 //наверн сразу заспавнить всё а потом уже разбираться 
@@ -50,8 +50,8 @@ namespace BeeFly
                 {                       
                     for (int iTrafficSign = 0; iTrafficSign < Cross.actors[iCross].Get<DataSpotTrafficSign>().Positions.Count; iTrafficSign++)
                     {
-                        Toolbox.Get<FactorySign>().SpawnSignMain(Cross.actors[iCross].Get<DataSpotTrafficSign>().Positions[iTrafficSign].selfTransform.position, Cross.actors[iCross].Get<DataSpotTrafficSign>().Positions[iTrafficSign].selfTransform.rotation, crossTransform);
-                        Toolbox.Get<FactorySign>().SpawnSignSecondary(Cross.actors[iCross].Get<DataSpotTrafficSign>().Positions[iTrafficSign].selfTransform.position, Cross.actors[iCross].Get<DataSpotTrafficSign>().Positions[iTrafficSign].selfTransform.rotation, crossTransform);
+                        Toolbox.Get<FactorySign>().SpawnSignMain(Cross.actors[iCross].Get<DataSpotTrafficSign>().Positions[iTrafficSign].selfTransform.position, Cross.actors[iCross].Get<DataSpotTrafficSign>().Positions[iTrafficSign].selfTransform.rotation, crossTransform.Find("Signs"));
+                        Toolbox.Get<FactorySign>().SpawnSignSecondary(Cross.actors[iCross].Get<DataSpotTrafficSign>().Positions[iTrafficSign].selfTransform.position, Cross.actors[iCross].Get<DataSpotTrafficSign>().Positions[iTrafficSign].selfTransform.rotation, crossTransform.Find("Signs"));
                     }
                 }
                 if (Cross.actors[iCross].Get<DataSpotOfCars>() != null)
