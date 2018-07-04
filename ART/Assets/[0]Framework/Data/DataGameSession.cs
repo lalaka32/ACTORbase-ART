@@ -15,12 +15,13 @@ namespace Homebrew
 	[CreateAssetMenu(fileName = "DataGameSession", menuName = "Data/DataGameSession")]
 	public class DataGameSession : DataGame
 	{
-        public DataRoadSituation dataRoadSituation;
+        public DataRoadSituation dataRoadSituation = new DataRoadSituation();
+        public int NumberOfVoprosa { get; set; }
         public void SetRoadData()
         {
-            dataRoadSituation = new DataRoadSituation();
             dataRoadSituation.CountOfCars = Random.Range(2, 4);
             dataRoadSituation.VIP = Convert.ToBoolean(Random.Range(0,2));
+            dataRoadSituation.IndexOfVIP = Random.Range(1, dataRoadSituation.CountOfCars);
         }
 		public void CleanSession()
 		{
@@ -37,5 +38,7 @@ namespace Homebrew
     {
         public int CountOfCars { get;  set; }
         public bool VIP { get;  set; }
+        public int IndexOfVIP { get; set; }
+        public bool Sign { get; set; }
     }
 }
