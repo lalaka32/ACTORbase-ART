@@ -6,17 +6,18 @@ Date:       5/21/2018 9:08 PM
 ================================================================*/
 
 
+using BeeFly;
 using UnityEngine;
 
 namespace Homebrew
 {
     public class BehaviorTest : Behavior, ITick
     {
-        [Bind] private DataTest test;
-
         public override void OnTick()
         {
-            Debug.Log(test.Test.ToString());
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+            }
         }
     }
 }

@@ -8,8 +8,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8527801e92f619f4ab57b957570e7b38, type: 3}
-  m_Name: FactoryCar
+  m_Script: {fileID: 11500000, guid: 270481230cd849e3a3dfedc74c399f82, type: 3}
+  m_Name: ScenesList
   m_EditorClassIdentifier: 
-  prefabOfCar: {fileID: 1482078833977388, guid: 492f8f8bb6733b14aa2087ec4ca6878c,
-    type: 2}
+  scenesNames:
+  - sceneTest
+  - sceneKernel
+  - sceneUI
+  - Cross

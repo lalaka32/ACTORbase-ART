@@ -4,15 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Homebrew;
-using UnityEngine;
 
 namespace BeeFly
 {
     [Serializable]
-    public class DataSpotOfCars : IData
+    public class DataComperativeCars : IData
     {
-        public List<ActorCarSpot> Positions;
-
-        public void Dispose() { }
+        public Dictionary<int, Actor> comperative = new Dictionary<int, Actor>();
+        public void Dispose(){}
     }
 }
