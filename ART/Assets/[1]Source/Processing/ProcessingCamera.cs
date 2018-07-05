@@ -19,12 +19,11 @@ namespace BeeFly
         }
         public void SetLocation(Transform transSneaking, Vector3 vector3)
         {
-            var cam = Camera.main;
-            //Debug.Log();
-            cam.gameObject.transform.position = new Vector3(0, 0, 0);
+            GameObject cam = GameObject.Find("[KERNEL]/Cameras/camera_main");
             Vector3 backVector = transSneaking.forward * vector3.x;
-            cam.transform.position = transSneaking.position + backVector + (vector3.y * Vector3.up);
-            cam.transform.eulerAngles = transSneaking.localEulerAngles;
+            cam.transform.position = transSneaking.position;
+            cam.transform.rotation = transSneaking.rotation;
+            cam.transform.Rotate(new Vector3( 90,0,0));
         }
     }
 }

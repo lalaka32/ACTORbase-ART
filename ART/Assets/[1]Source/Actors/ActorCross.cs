@@ -26,8 +26,6 @@ namespace BeeFly
 
             Add(dataCarsLocation);
 
-            Add<BehaviorTest>();
-
             tags.Add(Tag.Cross);
         }
     }
