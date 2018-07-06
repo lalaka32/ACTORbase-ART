@@ -41,10 +41,13 @@ namespace BeeFly
                 }
                 Toolbox.Get<DataGameSession>().SetRoadData();
                 Cross.actors[iCross].Get<DataCarsLocation>().positions.Clear();
+                //Тут не только кор чистить но и знаки и светофоры
                 if (Cross.actors[iCross].Get<DataSpotOfCars>() != null)
                 {
                     SpawnCars(Cross.actors[iCross]);
+                    ProcessingSignals.Default.Send<SignalCarSpawn>();
                 }
+
             }
         }
         List<Transform> cars = new List<Transform>();
@@ -79,6 +82,7 @@ namespace BeeFly
                 if (Cross.actors[iCross].Get<DataSpotOfCars>() != null)
                 {
                     SpawnCars(Cross.actors[iCross]);
+                    ProcessingSignals.Default.Send<SignalCarSpawn>();
                 }
 
             }

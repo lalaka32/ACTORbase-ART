@@ -4,22 +4,27 @@ using System.Linq;
 using System.Text;
 using Enums;
 using UnityEngine;
+using Homebrew;
 
-class LeftTL : PriorityTL
+namespace BeeFly
 {
-    public override void SetPriority(Dictionary<ComperativeLocation, Car> comperative, Car settingCar)
+    class LeftTL : PriorityTL
+{
+    public override void SetPriority(DataComperativeCars comperative, Actor settingCar)
     {
         
-        Car observeCar;
-        base.SetPriority(comperative, settingCar);
+        //Car observeCar;
+        //base.SetPriority(comperative, settingCar);
 
-        if (comperative.TryGetValue(ComperativeLocation.Front, out observeCar))
-        {
-            if (observeCar.Direction != Direction.Left)
-            {
-                settingCar.priority++;
-            }
-        }
+        //if (comperative.TryGetValue(ComperativeLocation.Front, out observeCar))
+        //{
+        //    if (observeCar.Direction != Direction.Left)
+        //    {
+        //        settingCar.priority++;
+        //    }
+        //}
     }
+}
+
 }
 

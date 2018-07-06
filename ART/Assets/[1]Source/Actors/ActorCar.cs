@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 using Homebrew;
 
 namespace BeeFly
-{
-
+{ 
     class ActorCar : Actor
     {
         //бля я падумал было бы прикольна менять приритет динамиески
@@ -29,7 +28,7 @@ namespace BeeFly
             Add(priority);
             Add(direction);
             Add(comperativeCars);
-
+            
             tags.Add(Tag.Car);
         }
     }

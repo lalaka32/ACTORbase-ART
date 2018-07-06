@@ -1,10 +1,14 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using Enums;
+using Homebrew;
 
-public class DirectionRight : IDirectionitatible
+namespace BeeFly
 {
-    public void SetPriority(Dictionary<ComperativeLocation, Car> comperative, Car settingCar)
+    public class DirectionRight : IDirectionable
     {
+        public void SetPriority(DataComperativeCars comperative, Actor settingCar)
+        {
+        }
     }
 }
