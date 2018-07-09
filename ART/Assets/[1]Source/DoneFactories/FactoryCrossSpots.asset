@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb7b54ce37f594a4d8dfc2d7264fe8d0, type: 3}
   m_Name: FactoryCrossSpots
   m_EditorClassIdentifier: 
-  prefabOfCross: {fileID: 1633877174551966, guid: 9b475bbfbbe574e4f923a46c214b4514,
+  prefabOfCross: {fileID: 1003438551383638, guid: 9b475bbfbbe574e4f923a46c214b4514,
     type: 2}

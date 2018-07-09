@@ -48,8 +48,7 @@ namespace BeeFly
                 }
                 Toolbox.Get<DataGameSession>().SetRoadData();
                 Cross.actors[iCross].Get<DataCarsLocation>().positions.Clear();
-                cars.Clear();
-                signs.Clear();
+                cars.Clear(); signs.Clear(); tls.Clear();
                 if (Cross.actors[iCross].Get<DataSpotOfCars>() != null)
                 {
                     SpawnCars(Cross.actors[iCross]);
