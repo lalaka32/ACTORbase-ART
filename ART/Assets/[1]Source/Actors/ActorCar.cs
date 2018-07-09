@@ -8,7 +8,7 @@ using Homebrew;
 namespace BeeFly
 {
 
-    class ActorCar : Actor
+    public class ActorCar : Actor, IPoolable
     {
         //бля я падумал было бы прикольна менять приритет динамиески
         //типо стоит на светофоре на зелёном прошоло там 10 сек он уже переключился на красный
@@ -31,6 +31,16 @@ namespace BeeFly
             Add(comperativeCars);
 
             tags.Add(Tag.Car);
+        }
+        public void OnSpawn()
+        {
+            
+
+        }
+        public void OnDespawn()
+        {
+
+
         }
     }
     public enum Direction

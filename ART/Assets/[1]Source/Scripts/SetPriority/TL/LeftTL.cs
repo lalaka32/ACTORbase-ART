@@ -9,7 +9,7 @@ class LeftTL : PriorityTL
 {
     public override void SetPriority(Dictionary<ComperativeLocation, Car> comperative, Car settingCar)
     {
-        
+
         Car observeCar;
         base.SetPriority(comperative, settingCar);
 

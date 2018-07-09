@@ -83,13 +83,13 @@ class UIManager : ManagerBase
         #endregion
         Canvas.gameObject.transform.Find("Win").Find("Next").GetComponent<Button>().onClick.AddListener(delegate
         {
-           GameObject.Find("[SETUP]").GetComponent<Instantiate>().Restart = true;
+            GameObject.Find("[SETUP]").GetComponent<Instantiate>().Restart = true;
         });
         Canvas.gameObject.transform.Find("Lose").Find("Next").GetComponent<Button>().onClick.AddListener(delegate
         {
-            if (ToolBox.Get<ProcessingAnsvers>().mistakesese.Count<1)
+            if (ToolBox.Get<ProcessingAnsvers>().mistakesese.Count < 1)
             {
-                Debug.Log(ToolBox.Get<ProcessingAnsvers>().mistakesese.Count+ "ToolBox.Get<ProcessingAnsvers>().mistakesese.Count");
+                Debug.Log(ToolBox.Get<ProcessingAnsvers>().mistakesese.Count + "ToolBox.Get<ProcessingAnsvers>().mistakesese.Count");
                 ToolBox.Get<ProcessingAnsvers>().mistakesese.Add(ToolBox.Get<ProcessingAnsvers>().lvlSituat.Count);
                 GameObject.Find("[SETUP]").GetComponent<Instantiate>().Restart = true;
             }
@@ -100,7 +100,7 @@ class UIManager : ManagerBase
             }
         });
     }
-    
+
     public void ShowLoseMenu()
     {
         Canvas.gameObject.transform.Find("Lose").gameObject.SetActive(true);
@@ -146,7 +146,7 @@ class UIManager : ManagerBase
         Canvas.gameObject.transform.Find("Win").Find("Next").GetComponent<Button>().onClick.AddListener(delegate
         {
             //new Color(255, 104, 0)
-            ToolBox.Get<ProcessingAnsvers>().mistakesese.Remove(ToolBox.Get<SettingsPlayer>().numberOfRevisionQuestion+1);
+            ToolBox.Get<ProcessingAnsvers>().mistakesese.Remove(ToolBox.Get<SettingsPlayer>().numberOfRevisionQuestion + 1);
             ShowResults();
         });
         Canvas.gameObject.transform.Find("Lose").Find("Next").GetComponent<Button>().onClick.AddListener(delegate
@@ -168,7 +168,7 @@ class UIManager : ManagerBase
             Debug.Log(ToolBox.Get<ProcessingAnsvers>().mistakesese[i].ToString());
             ConclusionMenu.transform.Find(ToolBox.Get<ProcessingAnsvers>().mistakesese[i].ToString()).GetComponent<Image>().color = Color.red;
         }
-        ConclusionMenu.transform.Find("Text").GetComponent<Text>().text = (ToolBox.Get<ProcessingAnsvers>().lvlSituat.Count-ToolBox.Get<ProcessingAnsvers>().mistakesese.Count)+" out of " + ToolBox.Get<ProcessingAnsvers>().lvlSituat.Count + ""+ ConclusionMenu.transform.Find("Text").GetComponent<Text>().text;
+        ConclusionMenu.transform.Find("Text").GetComponent<Text>().text = (ToolBox.Get<ProcessingAnsvers>().lvlSituat.Count - ToolBox.Get<ProcessingAnsvers>().mistakesese.Count) + " out of " + ToolBox.Get<ProcessingAnsvers>().lvlSituat.Count + "" + ConclusionMenu.transform.Find("Text").GetComponent<Text>().text;
         ConclusionMenu.transform.Find("Home").GetComponent<Button>().onClick.AddListener(delegate
         {
             ShowMainMenu();
@@ -256,22 +256,22 @@ class UIManager : ManagerBase
     }
     public void ClearBottons()
     {
-        
+
         foreach (GameObject item in buttons)
         {
             item.SetActive(false);
         }
-        
+
     }
     public void ClearPrefab()
     {
-        if (Canvas!=null)
+        if (Canvas != null)
         {
             Destroy(Canvas);
         }
-        
+
     }
-        public void SetTimerValue(float time)
+    public void SetTimerValue(float time)
     {
         Canvas.transform.Find("Timer").GetComponentInChildren<Text>().text = string.Format("{0:f2}", time);
     }
