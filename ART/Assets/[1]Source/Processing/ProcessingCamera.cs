@@ -23,7 +23,7 @@ namespace BeeFly
             Vector3 backVector = transSneaking.forward * vector3.x;
             cam.transform.position = transSneaking.position;
             cam.transform.rotation = transSneaking.rotation;
-            cam.transform.Rotate(new Vector3( 90,0,0));
+            //cam.transform.Rotate(new Vector3( 0,0,0));
         }
     }
 }

@@ -20,7 +20,7 @@ namespace BeeFly
         
         public Transform SpawnCar(Vector3 pos, Quaternion rot, Transform parent, Direction[] directions)
         {
-            var transform = this.Populate(Pool.Entities, prefabOfCar, pos, rot);
+            var transform = this.Populate(Pool.None, prefabOfCar, pos, rot);
             transform.parent = parent;
             Cars.Add(transform);
             if (prefabOfCar.GetComponent<ActorCar>() != null)

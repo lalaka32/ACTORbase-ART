@@ -21,7 +21,9 @@ namespace Homebrew
         {
             dataRoadSituation.CountOfCars = Random.Range(2, 4);
             dataRoadSituation.VIP = Convert.ToBoolean(Random.Range(0,2));
+            dataRoadSituation.Sign = Convert.ToBoolean(Random.Range(0, 2));
             dataRoadSituation.IndexOfVIP = Random.Range(1, dataRoadSituation.CountOfCars);
+            dataRoadSituation.TrafficLight = (TrafficL)Random.Range(0, 3);
         }
 		public void CleanSession()
 		{
@@ -40,5 +42,8 @@ namespace Homebrew
         public bool VIP { get;  set; }
         public int IndexOfVIP { get; set; }
         public bool Sign { get; set; }
+        public TrafficL TrafficLight { get; set; }
     }
 }
+
+    public enum TrafficL : byte { off, on, empty }

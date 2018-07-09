@@ -19,7 +19,7 @@ namespace BeeFly
 
         public Transform Spawn(Vector3 pos, Quaternion rot,WorldParenters perent)
         {
-            Cross = this.Populate(Pool.Entities, prefabOfCross, pos,rot,null,perent);
+            Cross = this.Populate(Pool.None, prefabOfCross, pos,rot,null,perent);
             Cross.name = "Cross";
             
             return Cross;

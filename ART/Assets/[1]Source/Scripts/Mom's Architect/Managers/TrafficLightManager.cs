@@ -104,18 +104,18 @@ class TrafficLightManager : ManagerBase
 
     public void Clear()
     {
-        if (TL!=null)
+        if (TL != null)
         {
             foreach (GameObject item in TL)
             {
                 Destroy(item);
             }
         }
-        if (PosTL!= null)
+        if (PosTL != null)
         {
             PosTL = null;
         }
-        
+
     }
 }
 
