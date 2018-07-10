@@ -1,55 +1,59 @@
 ﻿using System.Collections.Generic;
 using Enums;
 using UnityEngine;
+using Homebrew;
 
-class LeftDirectionQvalent : IDirectionitatible
+namespace BeeFly
 {
-    public void SetPriority(Dictionary<ComperativeLocation, Car> comperative, Car settingCar)
+    class LeftDirectionQvalent : IDirectionable
     {
-        Car observeCar;
-
-        if (comperative.TryGetValue(ComperativeLocation.Right, out observeCar))
+        public void SetPriority(DataComperativeCars comperative, Actor settingCar)
         {
-            settingCar.priority++;
-            if (observeCar.Direction == Direction.Forward)
+            Actor observeCar;
+
+            if (comperative.comperative.TryGetValue((int)ComperativeLocation.Right, out observeCar))
             {
-                if (comperative.TryGetValue(ComperativeLocation.Front, out observeCar))
+                settingCar.Get<DataPriority>().priority++;
+                if (observeCar.Get<DataDirection>().direction == Direction.Forward)
                 {
-                    settingCar.priority++;
-                }
-            }
-            else if (observeCar.Direction == Direction.Left)
-            {
-                if (comperative.TryGetValue(ComperativeLocation.Front, out observeCar))
-                {
-                    settingCar.priority++;
-                }
-                else
-                {
-                    if (comperative.TryGetValue(ComperativeLocation.Left, out observeCar))
+                    if (comperative.comperative.TryGetValue((int)ComperativeLocation.Front, out observeCar))
                     {
-                        if (observeCar.Direction== Direction.Right)
+                        settingCar.Get<DataPriority>().priority++;
+                    }
+                }
+                else if (observeCar.Get<DataDirection>().direction == Direction.Left)
+                {
+                    if (comperative.comperative.TryGetValue((int)ComperativeLocation.Front, out observeCar))
+                    {
+                        settingCar.Get<DataPriority>().priority++;
+                    }
+                    else
+                    {
+                        if (comperative.comperative.TryGetValue((int)ComperativeLocation.Left, out observeCar))
                         {
-                            settingCar.priority++;
+                            if (observeCar.Get<DataDirection>().direction == Direction.Right)
+                            {
+                                settingCar.Get<DataPriority>().priority++;
+                            }
                         }
                     }
                 }
             }
-        }
-        else if (comperative.TryGetValue(ComperativeLocation.Front, out observeCar))
-        {
-            if (observeCar.Direction == Direction.Right)
+            else if (comperative.comperative.TryGetValue((int)ComperativeLocation.Front, out observeCar))
             {
-                settingCar.priority++;
-            }
-            else if (observeCar.Direction == Direction.Forward)
-            {
-                if (!comperative.TryGetValue(ComperativeLocation.Left, out observeCar))
+                if (observeCar.Get<DataDirection>().direction == Direction.Right)
                 {
-                    settingCar.priority++;
+                    settingCar.Get<DataPriority>().priority++;
+                }
+                else if (observeCar.Get<DataDirection>().direction == Direction.Forward)
+                {
+                    if (!comperative.comperative.TryGetValue((int)ComperativeLocation.Left, out observeCar))
+                    {
+                        settingCar.Get<DataPriority>().priority++;
+                    }
                 }
             }
+            
         }
-        Debug.Log(" Pos : " + settingCar.Position + " direction : " + settingCar.Direction + " Prior : " + settingCar.priority);
     }
 }

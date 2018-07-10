@@ -3,22 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Enums;
+using Homebrew;
 
-class LeftUnqvalent : Unqvalent
+namespace BeeFly
 {
-    public override void SetPriority(Dictionary<ComperativeLocation, Car> comperative, Car settingCar)
+    class LeftUnqvalent : Unqvalent
     {
-        Car observeCar;
-
-        base.SetPriority(comperative, settingCar);
-
-        if (comperative.TryGetValue(ComperativeLocation.Front, out observeCar))
+        public override void SetPriority(DataComperativeCars comperative, Actor settingCar)
         {
-            if (observeCar.Direction != Direction.Left)
-            {
-                settingCar.priority++;
-            }
+            //Car observeCar;
+
+            //base.SetPriority(comperative, settingCar);
+
+            //if (comperative.TryGetValue(ComperativeLocation.Front, out observeCar))
+            //{
+            //    if (observeCar.Direction != Direction.Left)
+            //    {
+            //        settingCar.priority++;
+            //    }
+            //}
         }
     }
 }
-

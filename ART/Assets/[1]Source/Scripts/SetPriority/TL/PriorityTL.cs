@@ -4,39 +4,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
-
-class PriorityTL : IDirectionitatible
+using Homebrew;
+namespace BeeFly
 {
-    public virtual void SetPriority(Dictionary<ComperativeLocation, Car> comperative, Car settingCar)
+    class PriorityTL : IDirectionable
     {
-        TrafficLight trafficSignal = ToolBox.Get<TrafficLightManager>().PosTL[settingCar.Position];
-
-        Car observeCarLeft;
-        Car observeCarRight;
-
-
-        if (trafficSignal == TrafficLight.Red)
+        public virtual void SetPriority(DataComperativeCars comperative, Actor settingCar)
         {
-            if (comperative.ContainsKey(ComperativeLocation.Left) || comperative.ContainsKey(ComperativeLocation.Right))
-            {
-                settingCar.priority++;
-            }
+            //TrafficLight trafficSignal = ToolBox.Get<TrafficLightManager>().PosTL[settingCar.Position];
 
-            if (comperative.TryGetValue(ComperativeLocation.Left, out observeCarLeft) && comperative.TryGetValue(ComperativeLocation.Right, out observeCarRight))
-            {
-                if (observeCarLeft.Direction == Direction.Left && observeCarRight.Direction != Direction.Left)
-                {
-                    settingCar.priority++;
-                }
-                else if (observeCarRight.Direction == Direction.Left && observeCarLeft.Direction != Direction.Left)
-                {
-                    settingCar.priority++;
-                }
+            //Car observeCarLeft;
+            //Car observeCarRight;
 
-            }
+
+            //if (trafficSignal == TrafficLight.Red)
+            //{
+            //    if (comperative.ContainsKey(ComperativeLocation.Left) || comperative.ContainsKey(ComperativeLocation.Right))
+            //    {
+            //        settingCar.priority++;
+            //    }
+
+            //    if (comperative.TryGetValue(ComperativeLocation.Left, out observeCarLeft) && comperative.TryGetValue(ComperativeLocation.Right, out observeCarRight))
+            //    {
+            //        if (observeCarLeft.Direction == Direction.Left && observeCarRight.Direction != Direction.Left)
+            //        {
+            //            settingCar.priority++;
+            //        }
+            //        else if (observeCarRight.Direction == Direction.Left && observeCarLeft.Direction != Direction.Left)
+            //        {
+            //            settingCar.priority++;
+            //        }
+
+            //    }
+
+            //}
 
         }
-
     }
 }
+
 

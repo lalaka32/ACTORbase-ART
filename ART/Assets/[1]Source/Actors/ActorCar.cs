@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 using Homebrew;
 
 namespace BeeFly
+<<<<<<< HEAD
 {
 
     public class ActorCar : Actor, IPoolable
+=======
+{ 
+    class ActorCar : Actor
+>>>>>>> 534b94e84f74c3fb2bcc6a54500ea754df407593
     {
         //бля я падумал было бы прикольна менять приритет динамиески
         //типо стоит на светофоре на зелёном прошоло там 10 сек он уже переключился на красный
@@ -29,7 +34,7 @@ namespace BeeFly
             Add(priority);
             Add(direction);
             Add(comperativeCars);
-
+            
             tags.Add(Tag.Car);
         }
         public void OnSpawn()
