@@ -68,9 +68,8 @@ namespace Homebrew
 			fieldInput.onSubmit.AddListener(AddToConsole);
 			fieldInput.onValueChanged.AddListener(ChangeText);
 			Toolbox.Get<ProcessingUpdate>().Add(this);
-            
 
-            Timer.Add(UnityEngine.Time.deltaTime, () => EventSystem.current.SetSelectedGameObject(fieldInput.gameObject));
+			Timer.Add(UnityEngine.Time.deltaTime, () => EventSystem.current.SetSelectedGameObject(fieldInput.gameObject));
 			fieldInput.caretPosition = 1;
 			tickDebug = 0.0f;
 			RenderDebug();

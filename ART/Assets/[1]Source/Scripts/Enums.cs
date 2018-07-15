@@ -9,6 +9,6 @@ namespace Enums
     public enum TrafficSign { Main, Secondary, Empty }//stop
     //public enum Direction : byte { Right = 0, Forward, Left }
     public enum Priority : byte { First = 0, Second, Third, Fourth }
-    public enum Position : sbyte { First, Second, Third, Fourth }
+    //public enum Position : sbyte { First, Second, Third, Fourth }
     public enum ComperativeLocation { Right, Front, Left }
 }

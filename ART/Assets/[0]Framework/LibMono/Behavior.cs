@@ -104,6 +104,15 @@ namespace Homebrew
 		}
 
 
+		protected virtual void OnSpawn()
+		{
+		}
+
+		protected virtual void OnDespawn()
+		{
+		}
+
+
 		public void Enable(bool isEnabled)
 		{
 			if (isEnabled)
@@ -124,6 +133,12 @@ namespace Homebrew
 				actor.signals.Remove(this);
 				OnDisable();
 			}
+		}
+
+		public void Spawn(bool isSpawned)
+		{
+			if (isSpawned) OnSpawn();
+			else OnDespawn();
 		}
 
 		public void Dispose()

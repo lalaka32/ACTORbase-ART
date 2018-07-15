@@ -8,14 +8,14 @@ using UnityEngine;
 
 namespace BeeFly
 {
-    class ProsessingPositions : ProcessingBase, IMustBeWiped
+    class ProsessingPositions : ProcessingBase,IReceive<SignalCarSpawn>, IMustBeWiped
     {
         [GroupBy(Tag.Cross)]
         Group cross;
 
-        public ProsessingPositions()
+        public void HandleSignal(SignalCarSpawn arg)
         {
-            Homebrew.Timer.Add(0.1f, () => SetPositions());
+            SetPositions();
         }
 
         private void SetPositions()
@@ -24,25 +24,31 @@ namespace BeeFly
             {
                 if (cross.actors[iCross].Get<DataCarsLocation>() != null)
                 {
-                    int lengthOfCarSpots = Toolbox.Get<DataGameSession>().dataRoadSituation.CountOfCars;
-                    for (int iSpot = 0; iSpot < lengthOfCarSpots; iSpot++)
+                    int lengthOfCars = Toolbox.Get<DataGameSession>().dataRoadSituation.CountOfCars;
+                    for (int iSpot = 0; iSpot < lengthOfCars; iSpot++)
                     {
                         Actor settingCar = cross.actors[iCross].Get<DataCarsLocation>().positions[iSpot];
                         if (settingCar != null)
                         {
                             int comperativePosition = iSpot;
-                            for (int jSpot = 1; jSpot < lengthOfCarSpots; jSpot++)
+                            for (int jSpot = 1; jSpot < lengthOfCars; jSpot++)
                             {
-                                if ((jSpot + iSpot) > lengthOfCarSpots-1)
+                                if ((jSpot + iSpot) > lengthOfCars-1)
                                 {
-                                    comperativePosition = jSpot + iSpot - lengthOfCarSpots;
+                                    comperativePosition = jSpot + iSpot - lengthOfCars;
                                 }
                                 else
                                 {
                                     comperativePosition = jSpot + iSpot;
                                 }
+                                
                                 Actor comperativeActor = cross.actors[iCross].Get<DataCarsLocation>().positions[comperativePosition];
-                                settingCar.Get<DataComperativeCars>().comperative.Add(comperativePosition, comperativeActor);
+                                if (comperativeActor!=null)
+                                {
+                                    settingCar.Get<DataComperativeCars>().comperative.Add(comperativePosition, comperativeActor);
+                                   // Debug.Log("comperativePosition"+ comperativePosition + "---------------- comperativeActor" + comperativeActor);
+                                }
+                                
                             }
                         }
                     }

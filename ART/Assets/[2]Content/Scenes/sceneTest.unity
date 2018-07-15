@@ -128,7 +128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &188741521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,8 +148,9 @@ MonoBehaviour:
   selfTransform: {fileID: 0}
   state: 0
   hashCode: 0
-  t:
-    Test: 0
+  dataMove:
+    x: 0
+    y: 0
 --- !u!4 &188741522
 Transform:
   m_ObjectHideFlags: 0
@@ -192,10 +193,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   factories: []
   ScenesToKeep:
-  - sceneKernel
+  - {fileID: 11400000, guid: 9b21835dcc04ac647b03cf896e9bede4, type: 2}
   SceneDependsOn:
-  - sceneUI
-  - sceneKernel
+  - {fileID: 11400000, guid: 9b21835dcc04ac647b03cf896e9bede4, type: 2}
+  - {fileID: 11400000, guid: ef11e46fac8590646b6ae450cce4d591, type: 2}
 --- !u!4 &1997273605
 Transform:
   m_ObjectHideFlags: 0

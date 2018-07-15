@@ -9,15 +9,10 @@ namespace BeeFly
 { 
     class ActorCar : Actor
     {
-        //бля я падумал было бы прикольна менять приритет динамиески
-        //типо стоит на светофоре на зелёном прошоло там 10 сек он уже переключился на красный
-        //а плеер стоит и он обратно и чтобы у него были разные приоры при разном свете)))
-        //Ещё добавить при столкновении тряку экрана
-
-        public DataBlueprint blueprint;
+        //public DataBlueprint blueprint;
 
         [FoldoutGroup("Setup")] public DataPriority priority;
-        [FoldoutGroup("Setup")] public Direction direction;
+        [FoldoutGroup("Setup")] public DataDirection direction;
 
         public DataComperativeCars comperativeCars;
 
@@ -28,20 +23,22 @@ namespace BeeFly
             Add(priority);
             Add(direction);
             Add(comperativeCars);
+
+            //Add<BehaviourDeath>();
+            Add<BehaviorPriority>();
+            //Add<BehaviourRecieveGlobalSignal>();
+            Add<BehaviourDebugOut>();
             
             tags.Add(Tag.Car);
         }
-        public void OnSpawn()
+        protected override void OnBeforeDestroy()
         {
-            
-
-        }
-        public void OnDespawn()
-        {
-
-
+            OnDisable();
         }
     }
+
+
+
     public enum Direction
     {
         Right, Forward, Left

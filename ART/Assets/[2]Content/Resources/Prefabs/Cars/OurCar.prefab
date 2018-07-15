@@ -690,7 +690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pool: 0
-  destroyDelayTime: 1
+  destroyDelayTime: 0
   time:
     isActive: 1
     timeScale: 1
@@ -701,4 +701,5 @@ MonoBehaviour:
     blueprint: {fileID: 0}
   priority:
     priority: 0
-  direction: 0
+  direction:
+    direction: 0

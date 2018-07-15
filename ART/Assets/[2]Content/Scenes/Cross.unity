@@ -668,10 +668,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 35938b351fa171444a593c60c5bf90a1, type: 2}
   - {fileID: 11400000, guid: cfca82fa58a8c8e40b7b10bf3f8380b7, type: 2}
   ScenesToKeep:
-  - sceneKernel
+  - {fileID: 11400000, guid: 9b21835dcc04ac647b03cf896e9bede4, type: 2}
   SceneDependsOn:
-  - sceneKernel
-  - sceneUI
+  - {fileID: 11400000, guid: 9b21835dcc04ac647b03cf896e9bede4, type: 2}
+  - {fileID: 11400000, guid: ef11e46fac8590646b6ae450cce4d591, type: 2}
 --- !u!114 &1871787043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -683,7 +683,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0180a408a7254787b8509b1be5c1c52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nodes:
-  - pool: 1
-    prefab: {fileID: 1094165576063806, guid: a7d31afe85fde4646862edced48f76aa, type: 2}
-    createdObjs: []
+  nodes: []

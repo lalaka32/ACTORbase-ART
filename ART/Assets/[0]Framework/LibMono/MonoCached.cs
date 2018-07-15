@@ -23,7 +23,17 @@ namespace Homebrew
 
 		[HideInInspector] public Time time;
 		[HideInInspector] public Transform selfTransform;
+		[HideInInspector] public ProcessingSignals signals;
 		[HideInInspector, EnumFlag] public EntityState state;
+
+		#endregion
+
+		#region PROCESSING SIGNALS
+
+		public void SignalDispatch<T>(T val = default(T))
+		{
+			signals.Send(val);
+		}
 
 		#endregion
 
@@ -59,23 +69,40 @@ namespace Homebrew
 			OnEnable();
 		}
 
+
+		public void Spawn(bool arg)
+		{
+			if (arg) OnSpawn();
+			else OnDespawn();
+		}
+
 		public void HandleTimeScale(float val)
 		{
 			time.timeScale = val;
 			OnTimeScaleChanged();
 		}
 
+
 		public virtual void OnEnable()
 		{
 			if (state.HasState(EntityState.OnHold)) return;
 			state &= ~EntityState.Released;
-
+			signals.Add(this);
 			ProcessingUpdate.Default.Add(this);
 		}
 
 		public virtual void OnDisable()
 		{
+			signals.Remove(this);
 			ProcessingUpdate.Default.Remove(this);
+		}
+
+		protected virtual void OnSpawn()
+		{
+		}
+
+		protected virtual void OnDespawn()
+		{
 		}
 
 
@@ -104,9 +131,10 @@ namespace Homebrew
 			state &= ~EntityState.Enabled;
 			state &= ~EntityState.OnHold;
 
+			OnBeforeDestroy();
+
 			if (pool == Pool.None)
 			{
-				OnBeforeDestroy();
 				Destroy(gameObject, destroyDelayTime == 0 ? Time.DeltaTime : destroyDelayTime);
 				return;
 			}
