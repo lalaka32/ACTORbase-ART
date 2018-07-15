@@ -7,7 +7,6 @@ public class CarCollision : MonoBehaviour {
     GameObject othercar;
     void OnCollisionEnter(UnityEngine.Collision collision)
     {
-        
         if ( collision.gameObject.transform.parent.transform.parent.tag == "BotCar"| collision.gameObject.transform.parent.transform.parent.tag =="VIP")
         {
             othercar = collision.gameObject;

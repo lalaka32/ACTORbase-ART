@@ -177,6 +177,7 @@ namespace Homebrew
 		}
 	}
 
+
 	public enum ConsoleMessage
 	{
 		ERROR,

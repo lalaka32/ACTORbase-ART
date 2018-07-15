@@ -10,7 +10,6 @@ namespace BeeFly
 {
     class ComponentMenu : MonoCached
     {
-
         public void Restart()
         {
             ProcessingSignals.Default.Send<SignalRespawn>();

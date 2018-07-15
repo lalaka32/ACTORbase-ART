@@ -23,7 +23,7 @@ namespace BeeFly
 
         public Transform SpawnSignMain(Vector3 pos, Quaternion rot,Transform parent)
         {
-            var transform = this.Populate(Pool.Entities, prefabOFSignMain, pos, rot);
+            var transform = this.Populate(Pool.None, prefabOFSignMain, pos, rot);
             //transform.eulerAngles = new Vector3(-90, 0, 0);
             transform.parent = parent;
             TrafficSignsMain.Add(transform);
@@ -31,7 +31,7 @@ namespace BeeFly
         }
         public Transform SpawnSignSecondary(Vector3 pos, Quaternion rot, Transform parent)
         {
-            var transform = this.Populate(Pool.Entities, prefabOFSignSecondary, pos, rot);
+            var transform = this.Populate(Pool.None, prefabOFSignSecondary, pos, rot);
             //transform.eulerAngles = new Vector3(-90, 0, 0);
             transform.parent = parent;
             TrafficSignsSecondary.Add(transform);

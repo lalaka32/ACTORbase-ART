@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/[2]Content/Scenes/Cross.unity
     guid: 70cce5e656f8bf441a0e2f92338a4991
+  - enabled: 1
+    path: Assets/[2]Content/Scenes/sceneCross.unity
+    guid: 5d8102b1e63d8e848975f52aa1087bbe

@@ -12,6 +12,7 @@ namespace BeeFly
     {
         [FoldoutGroup("Setup")] public List<DataTag> IDs;
         [FoldoutGroup("Setup")] public Direction[] directions;
+        [FoldoutGroup("Setup")] public Position position;
 
         protected override void Setup()
         {
@@ -20,6 +21,12 @@ namespace BeeFly
                 tags.Add(IDs[i].id);
             }
             Add(directions);
+            Add(position);
         }
+        
+    }
+    public enum Position
+    {
+        First, Second, Third, Fourth
     }
 }

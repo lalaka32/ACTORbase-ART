@@ -103,7 +103,7 @@ namespace Homebrew
 
 			foreach (var pair in data)
 			{
-				var needToBeWiped = pair.Value as IMustBeWiped;
+				var needToBeWiped = pair.Value as IMustBeWipedOut;
 				if (needToBeWiped != null) toWipe.Add(pair.Key);
 
 				var needToBeCleaned = pair.Value as IDisposable;
@@ -117,5 +117,17 @@ namespace Homebrew
 				data.Remove(toWipe[i]);
 			}
 		}
+		
+		public static void DisposeObject(object obj)
+		{
+			if (isQuittingOrChangingScene()) return;
+
+			var disposable = obj as IDisposable;
+			if (disposable != null)
+			{
+				disposable.Dispose();
+			}
+		}
+		
 	}
 }

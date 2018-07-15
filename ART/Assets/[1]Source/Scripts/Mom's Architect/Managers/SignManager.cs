@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using BeeFly;
 
 [CreateAssetMenu(fileName = "SignManager", menuName = "Managers/SignManager")]
 class SignManager : ManagerBase

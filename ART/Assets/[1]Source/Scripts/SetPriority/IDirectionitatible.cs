@@ -1,7 +1,11 @@
 ﻿using System.Collections.Generic;
 using Enums;
+using Homebrew;
 
-public interface IDirectionitatible
+namespace BeeFly
 {
-     void SetPriority(Dictionary<ComperativeLocation, Car> comperative, Car settingCar);
+    public interface IDirectionable
+    {
+        void SetPriority(DataComperativeCars comperative, Actor settingCar);
+    }
 }

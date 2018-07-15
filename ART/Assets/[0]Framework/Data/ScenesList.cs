@@ -7,13 +7,13 @@ Date:       2/9/2018  7:22 PM
 
 using System.Collections.Generic;
 using UnityEngine;
-namespace Homebrew
+namespace Homebrew{
+
+[System.Serializable]
+[CreateAssetMenu(fileName = "SceneList", menuName = "Data/ScenesList")]
+public class ScenesList : ScriptableObject
 {
-    [CreateAssetMenu(fileName = "ScenesList", menuName = "Data/ScenesList")]
-    [System.Serializable]
-    public class ScenesList : ScriptableObject
-    {
-        public List<string> scenesNames;
-    }
+	public List<string> scenesNames;
+}
 
 }

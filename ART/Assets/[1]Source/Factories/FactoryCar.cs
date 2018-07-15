@@ -15,8 +15,6 @@ namespace BeeFly
         GameObject prefabOfCar;
 
         public List<Transform> Cars { get; private set; } = new List<Transform>();
-
-        System.Random rand = new System.Random();
         
         public Transform SpawnCar(Vector3 pos, Quaternion rot, Transform parent, Direction[] directions)
         {
@@ -33,11 +31,10 @@ namespace BeeFly
         //Нужно думать
         public void SetCarWithRandomData(ActorCar actorCar, Direction[] directions)
         {
-            Direction rand = directions.Random();
-
-            actorCar.direction = rand;
-
-            actorCar.tags.Add((int)rand+ Tag.DirectionRight);
+            //Direction rand = directions.Random();
+            
+            actorCar.direction.direction = Direction.Forward;
+            actorCar.tags.Add(Tag.DirectionRight);
         }
     }
 }

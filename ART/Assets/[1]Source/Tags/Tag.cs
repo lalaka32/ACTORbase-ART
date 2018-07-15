@@ -80,5 +80,8 @@ namespace BeeFly
         public const int VIP = 62;
         [TagField(categoryName = "Entity")]
         public const int Cross = 63;
+
+        [TagField(categoryName = "State")]
+        public const int Dead = 70;
     }
 }

@@ -10,10 +10,10 @@ using UnityEngine;
 
 namespace Homebrew
 {
-    [CreateAssetMenu(fileName = "DataGameSettings", menuName = "Data/DataGameSettings")]
-    public class DataGameSettings : DataGame
-    {
-
-
-    }
+	[CreateAssetMenu(fileName = "DataGameSettings", menuName = "Data/DataGameSettings")]
+	public class DataGameSettings : DataGame
+	{
+ 
+	 
+	}
 }
