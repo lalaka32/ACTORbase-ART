@@ -9,7 +9,7 @@ using Homebrew;
 namespace BeeFly
 {
     [CreateAssetMenu(fileName = "FactoryCar", menuName = "Factories/FactoryCar")]
-    class FactoryCar : Factory
+    class FactoryCar : Homebrew.Factory
     {
         [SerializeField]
         GameObject prefabOfCar;

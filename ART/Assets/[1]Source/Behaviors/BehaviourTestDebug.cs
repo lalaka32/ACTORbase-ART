@@ -18,7 +18,7 @@ namespace BeeFly
             {
                 foreach (var item in dataCarsLocation.positions)
                 {
-                    item.Value.DebugActorOut();
+                    item.Value.PrintActor();
                 }
             }
         }

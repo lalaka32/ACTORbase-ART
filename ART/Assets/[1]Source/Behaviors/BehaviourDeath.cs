@@ -12,9 +12,11 @@ namespace BeeFly
     {
         public void HandleSignal(SignalKillCars arg)
         {
+            if (!actor.tags.Contain(Tag.Dead))
+            {
+                actor.HandleDestroyGO();
+            }
             actor.tags.Add(Tag.Dead);
-
-            actor.HandleDestroyGO();
         }
     }
 }

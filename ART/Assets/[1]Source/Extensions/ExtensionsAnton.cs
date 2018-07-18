@@ -7,9 +7,14 @@ using UnityEngine;
 
 namespace BeeFly
 {
-    static class ExtensionsAnton
+    public static class ExtensionsAnton
     {
         private static System.Random _r = new System.Random();
+
+        static public void Mark(this Debug debug)
+        {
+            Debug.Log("Success");
+        }
 
         public static List<T> Shaffle<T>(this List<T> listToShaffle)
         {

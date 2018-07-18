@@ -12,7 +12,9 @@ namespace BeeFly
     {
         public void Restart()
         {
-            ProcessingSignals.Default.Send<SignalRespawn>();
+            ProcessingSignals.Default.Send(new SignalNextRound());
+            ProcessingSignals.Default.Send(new SignalDespawn());
+            ProcessingSignals.Default.Send(new SignalRespawn());
         }
     }
 }

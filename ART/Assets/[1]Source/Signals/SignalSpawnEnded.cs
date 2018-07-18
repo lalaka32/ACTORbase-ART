@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace BeeFly
 {
-    struct SignalCarSpawn
+    struct SignalSpawnEnded
     {
        //public DataCarsLocation dataCarsLocation;
     }

@@ -24,10 +24,8 @@ namespace BeeFly
             Add(direction);
             Add(comperativeCars);
 
-            //Add<BehaviourDeath>();
+            Add<BehaviourDeath>();
             Add<BehaviorPriority>();
-            //Add<BehaviourRecieveGlobalSignal>();
-            Add<BehaviourDebugOut>();
             
             tags.Add(Tag.Car);
         }

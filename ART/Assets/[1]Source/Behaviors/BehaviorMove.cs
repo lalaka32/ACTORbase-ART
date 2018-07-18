@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Homebrew;
 using UnityEngine;
+using FastDeb;
 
 namespace BeeFly
 {
@@ -16,10 +17,7 @@ namespace BeeFly
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                foreach (var item in dataCarsLocation.positions)
-                {
-                    Debug.Log(item.Key + "---------" + item.Value.Get<DataDirection>().direction);
-                }
+                dataCarsLocation.positions.PrintDictionary();
             }
         }
     }

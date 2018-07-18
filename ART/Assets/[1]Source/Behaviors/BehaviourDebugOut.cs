@@ -15,7 +15,7 @@ namespace BeeFly
 
         public void HandleSignal(SignalDebugOut arg)
         {
-            Debug.Log(priority.priority);
+            
         }
     }
 }
