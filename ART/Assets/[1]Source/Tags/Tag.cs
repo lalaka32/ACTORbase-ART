@@ -18,7 +18,7 @@ namespace BeeFly
         public const int TLPosition = 3;
         [TagField(categoryName = "Cross")]
         public const int SignPosition = 4;
-        
+
         //их всех нужно объеденить мб типо slot 1 
         //а там будет и машина и светофор и знак
         //и всё что нам ещё нужно
@@ -74,12 +74,19 @@ namespace BeeFly
 
         [TagField(categoryName = "Entity")]
         public const int PlayerCar = 60;
-        [TagField(categoryName ="Entity")]
+        [TagField(categoryName = "Entity")]
         public const int Car = 61;
         [TagField(categoryName = "Entity")]
         public const int VIP = 62;
         [TagField(categoryName = "Entity")]
         public const int Cross = 63;
+        [TagField(categoryName = "Entity")]
+        public const int SignMain = 64;
+        [TagField(categoryName = "Entity")]
+        public const int SignSecondary = 65;
+        [TagField(categoryName = "Entity")]
+        public const int TrafficLight = 66;
+        
 
         [TagField(categoryName = "State")]
         public const int Dead = 70;

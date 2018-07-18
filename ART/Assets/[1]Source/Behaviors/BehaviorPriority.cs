@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace BeeFly
 {
-    class BehaviorPriority : Behavior, IReceiveGlobal<SignalKillCars>
+    class BehaviorPriority : Behavior, IReceiveGlobal<SignalSpawnEnded>
     {
         //есть идея не вписывать разделять наши правили а просто добавлять доп правила при
         //условиях типа есть TL есть Sign
@@ -16,33 +16,37 @@ namespace BeeFly
         [Bind] DataPriority priority;
         [Bind] DataComperativeCars comperative;
         [Bind] DataDirection direction;
+        int time = 0;
 
-        public void HandleSignal(SignalKillCars arg)
+
+        public void HandleSignal(SignalSpawnEnded arg)
         {
             SetPriority();
         }
 
         public void SetPriority()
         {
+            time++;
+            Debug.Log(time);
             IDirectionable carDir;
             if (true)
             {
-                switch (direction.direction)
-                {
-                    case Direction.Forward:
-                        carDir = new ForwardQvalent();
-                        carDir.SetPriority(comperative, actor);
-                        break;
-                    case Direction.Right:
-                        carDir = new DirectionRight();
-                        carDir.SetPriority(comperative, actor);
-                        break;
-                    case Direction.Left:
-                        carDir = new LeftDirectionQvalent();
-                        carDir.SetPriority(comperative, actor);
-                        break;
-                }
-                actor.name = priority.priority.ToString();
+                //switch (direction.direction)
+                //{
+                //    case Direction.Forward:
+                //        carDir = new ForwardQvalent();
+                //        carDir.SetPriority(comperative, actor);
+                //        break;
+                //    case Direction.Right:
+                //        carDir = new DirectionRight();
+                //        carDir.SetPriority(comperative, actor);
+                //        break;
+                //    case Direction.Left:
+                //        carDir = new LeftDirectionQvalent();
+                //        carDir.SetPriority(comperative, actor);
+                //        break;
+                //}
+                //actor.name = priority.priority.ToString();
                 //Debug.Log(priority.priority);
             }
             else if (ToolBox.Get<TrafficLightManager>().PosTL != null)

@@ -6,15 +6,11 @@ using UnityEngine;
 
 namespace FastDeb
 {
+    //Пока сыровато не советую юзать
     static class FastDebug
     {
         //tested
-        static public void DebugMark()
-        {
-            Debug.Log("Success");
-        }
-        //tested
-        static string StringTypeAndValueOut<T>(this T value)
+        static string StringTypeAndValue<T>(this T value)
         {
             return typeof(T).Name.ToString() + " : " + value;
         }
@@ -53,7 +49,7 @@ namespace FastDeb
             else
             {
                 actionTrue?.Invoke();
-                return value.StringTypeAndValueOut();
+                return value.StringTypeAndValue();
             }
         }
         //tested
@@ -63,44 +59,45 @@ namespace FastDeb
             return value;
         }
         //tested
-        static public T DebugOutToString<T>(this T value)
+        static public T Print<T>(this T value)
         {
-            return value.ValidOnNull(() => Debug.Log(value.StringTypeAndValueOut()));
+            return value.ValidOnNull(() => Debug.Log(value.StringTypeAndValue()), () => Debug.Log(value.StringIsNull()));
         }
         //tested
-        static public bool DebugValidOnNullOut<T>(this T value)
+        static public bool PrintBoolIsNull<T>(this T value)
         {
-            return value.ValidOnNullBool(() => Debug.Log(value.StringIsNotNull()), () => Debug.Log(value.StringIsNull()));
+            return value.ValidOnNullBool(() => Print(value.StringIsNotNull()), () => Print(value.StringIsNull()));
         }
         //tested
-        static public KeyValuePair<K, V> DebugPairOut<K, V>(this KeyValuePair<K, V> pair)
+        static public KeyValuePair<K, V> PrintPair<K, V>(this KeyValuePair<K, V> pair)
         {
             pair.ValidOnNullBool(() =>
             {
                 Debug.Log(pair.Key.ValidOnNullString() + " { | } " + pair.Value.ValidOnNullString());
-            });
+            }, ()=> pair.StringIsNull());
             return pair;
         }
         //tested
-        static public V DebugArrayOut<V>(this V array) where V : IEnumerable
+        static public V PrintArray<V>(this V array) where V : IEnumerable
         {
             if (array.ValidOnNullBool())
             {
                 foreach (var item in array)
                 {
-                    item.DebugOutToString();
+                    item.Print();
                 }
             }
             return array;
         }
         //tested
-        static public Dictionary<K, V> DebugDictionaryOut<K, V>(this Dictionary<K, V> dictionary)
+        static public Dictionary<K, V> PrintDictionary<K, V>(this Dictionary<K, V> dictionary)
         {
             if (dictionary.ValidOnNullBool())
             {
                 foreach (var item in dictionary)
                 {
-                    item.DebugPairOut();
+                    item.PrintPair();
+
                 }
             }
             return dictionary;
@@ -109,9 +106,11 @@ namespace FastDeb
         /// <summary>
         /// !Require special behaviour!
         /// </summary>
-        static public Actor DebugActorOut(this Actor actor)
+        static public Actor PrintActor(this Actor actor)
         {
-            return actor.ValidOnNull(() => actor.signals.Send(new SignalDebugOut()));
+            return actor.ValidOnNull(() => actor.signals.Send(new SignalDebugOut()), () => actor.StringIsNull());
         }
+
     }
+
 }

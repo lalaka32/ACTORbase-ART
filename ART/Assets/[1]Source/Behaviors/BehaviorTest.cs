@@ -8,16 +8,16 @@ Date:       5/21/2018 9:08 PM
 
 using BeeFly;
 using UnityEngine;
+using FastDeb;
 
 namespace Homebrew
 {
     public class BehaviorTest : Behavior, ITick
     {
+        [Bind] DataTest data;
         public override void OnTick()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-            }
+            data.Test.Print();
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Homebrew
    public partial class  DataGameSession
     {
         public DataRoadSituation dataRoadSituation = new DataRoadSituation();
-        public int NumberOfVoprosa { get; set; }
+        public int NumberOfQuestion { get; set; }
         public void SetRoadData()
         {
             dataRoadSituation.CountOfCars = Random.Range(2, 4);

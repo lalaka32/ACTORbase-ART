@@ -159,18 +159,21 @@ namespace Homebrew
 
 		public override void OnDisable()
 		{
-			if (Toolbox.isQuittingOrChangingScene()) return;
+            
+            if (Toolbox.isQuittingOrChangingScene()) return;
 			if (state.HasState(EntityState.Released)) return;
-			if (!state.HasState(EntityState.Enabled)) return;
+            Debug.Log("po");
+            if (!state.HasState(EntityState.Enabled)) return;
 			state &= ~EntityState.Enabled;
 
 			signals.Remove(this);
 
 			ProcessingEntities.Default.Remove(this);
 			ProcessingUpdate.Default.Remove(this);
-
-			for (var i = 0; i < countBehaviors; i++)
+            
+            for (var i = 0; i < countBehaviors; i++)
 			{
+                
 				behaviours[i].Enable(false);
 			}
 		}

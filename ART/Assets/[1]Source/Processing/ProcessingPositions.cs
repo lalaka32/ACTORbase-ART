@@ -8,12 +8,12 @@ using UnityEngine;
 
 namespace BeeFly
 {
-    class ProsessingPositions : ProcessingBase,IReceive<SignalCarSpawn>, IMustBeWiped
+    class ProcessingPositions : ProcessingBase,IReceive<SignalSpawnEnded>, IMustBeWipedOut
     {
         [GroupBy(Tag.Cross)]
         Group cross;
 
-        public void HandleSignal(SignalCarSpawn arg)
+        public void HandleSignal(SignalSpawnEnded arg)
         {
             SetPositions();
         }
