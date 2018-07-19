@@ -15,7 +15,7 @@ namespace BeeFly
         public void HandleSignal(SignalDespawn arg)
         {
             ProcessingSignals.Default.Send(new SignalKillCars());
-            Cross.actors[0].Get<DataCarsLocation>().positions.Clear();
+            Toolbox.Get<ProcessingPositions>().dataCarsLocation.positions.Clear();
         }
     }
 }

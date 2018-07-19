@@ -12,7 +12,6 @@ namespace BeeFly
         public void HandleSignal(SignalNextRound arg)
         {
             Toolbox.Get<DataGameSession>().NumberOfQuestion++;
-            
         }
     }
 }

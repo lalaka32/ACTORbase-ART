@@ -86,9 +86,13 @@ namespace BeeFly
         public const int SignSecondary = 65;
         [TagField(categoryName = "Entity")]
         public const int TrafficLight = 66;
-        
+
+
 
         [TagField(categoryName = "State")]
         public const int Dead = 70;
+
+        [TagField(categoryName = "SpawnSpot")]
+        public const int RoadSpot = 81;
     }
 }

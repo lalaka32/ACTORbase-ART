@@ -16,11 +16,12 @@ namespace BeeFly
 
         //Я так запарился потому что хочу чтобы можно было в настр выбрать 
         //число перекрёстков))
-        [GroupBy(Tag.SpawnerOfCross)]
-        Group CrossSpawnerSpots;
 
         [GroupBy(Tag.Cross)]
         Group Cross;
+
+        [GroupBy(Tag.RoadSpot)]
+        Group RoadSpots;
 
         public ProcessingSpawn()
         {
@@ -29,58 +30,49 @@ namespace BeeFly
 
         void Spawn()
         {
-            SpawnCross(CrossSpawnerSpots.actors[0]);
-            SpawnTL(Cross.actors[0]);
-            SpawnSigns(Cross.actors[0]);
-            SpawnCars(Cross.actors[0]);
+            for (int i = 0; i < RoadSpots.length; i++)
+            {
+                SpawnTL(RoadSpots.actors[i]);
+                SpawnSign(RoadSpots.actors[i]);
+                SpawnCar(RoadSpots.actors[i]);
+            }
+            SetPlayer(Toolbox.Get<ProcessingPositions>().dataCarsLocation.positions.Random());
             ProcessingSignals.Default.Send(new SignalSpawnEnded());
         }
         public void HandleSignal(SignalRespawn arg)
         {
-            SpawnCars(Cross.actors[0]);
+            for (int i = 0; i < RoadSpots.length; i++)
+            {
+                SpawnCar(RoadSpots.actors[i]);
+            }
+            SetPlayer(Toolbox.Get<ProcessingPositions>().dataCarsLocation.positions.Random());
             ProcessingSignals.Default.Send(new SignalSpawnEnded());
         }
 
-        void SpawnCross(Actor cross)
+        void SpawnTL(Actor roadSpot)
         {
-            Toolbox.Get<FactoryRoad>().Spawn(cross.transform.position, Quaternion.identity, Tag.Cross);
+            var trafficLight = roadSpot.Get<DataTrafficLightSpot>().trafficLightSpot.selfTransform;
+            Toolbox.Get<FactoryRoad>().Spawn(trafficLight.position, trafficLight.rotation, Tag.TrafficLight, Cross.actors[0].transform.Find("Lights"));
         }
 
-        void SpawnTL(Actor cross)
+        void SpawnSign(Actor roadSpot)
         {
-            for (int iTrafficLight = 0; iTrafficLight < cross.Get<DataSpotTrafficLight>().Positions.Count; iTrafficLight++)
-            {
-                Toolbox.Get<FactoryRoad>().Spawn(cross.Get<DataSpotTrafficLight>().Positions[iTrafficLight].selfTransform.position, cross.Get<DataSpotTrafficLight>().Positions[iTrafficLight].selfTransform.rotation, Tag.TrafficLight, cross.transform.Find("Lights"));
-            }
+            var signSpot = roadSpot.Get<DataSignSpot>().signSpot.selfTransform;
+            Toolbox.Get<FactoryRoad>().Spawn(signSpot.position, signSpot.rotation, Tag.SignMain, Cross.actors[0].transform.Find("Signs"));
+            Toolbox.Get<FactoryRoad>().Spawn(signSpot.position, signSpot.rotation, Tag.SignSecondary, Cross.actors[0].transform.Find("Signs"));
         }
 
-        void SpawnSigns(Actor cross)
-        {
-            //Не нра
-            if (Toolbox.Get<DataGameSession>().dataRoadSituation.Sign)
-            {
-                Toolbox.Get<FactoryRoad>().Spawn(cross.Get<DataSpotTrafficSign>().Positions[0].selfTransform.position, cross.Get<DataSpotTrafficSign>().Positions[0].selfTransform.rotation, Tag.SignMain, cross.transform.Find("Signs"));
-                Toolbox.Get<FactoryRoad>().Spawn(cross.Get<DataSpotTrafficSign>().Positions[2].selfTransform.position, cross.Get<DataSpotTrafficSign>().Positions[2].selfTransform.rotation, Tag.SignMain, cross.transform.Find("Signs"));
-                Toolbox.Get<FactoryRoad>().Spawn(cross.Get<DataSpotTrafficSign>().Positions[1].selfTransform.position, cross.Get<DataSpotTrafficSign>().Positions[1].selfTransform.rotation, Tag.SignSecondary, cross.transform.Find("Signs"));
-                Toolbox.Get<FactoryRoad>().Spawn(cross.Get<DataSpotTrafficSign>().Positions[3].selfTransform.position, cross.Get<DataSpotTrafficSign>().Positions[3].selfTransform.rotation, Tag.SignSecondary, cross.transform.Find("Signs"));
-            }
-        }
-
-        void SpawnCars(Actor cross)
+        void SpawnCar(Actor roadSpot)
         {
             //Тут рандомить позишн
             //cross.Get<DataSpotOfCars>().Positions.Shaffle();
-            for (int iCar = 0; iCar < Toolbox.Get<DataGameSession>().dataRoadSituation.CountOfCars; iCar++)
-            {
-                var car = Toolbox.Get<FactoryCar>().SpawnCar(cross.Get<DataSpotOfCars>().Positions[iCar].selfTransform.position, cross.Get<DataSpotOfCars>().Positions[iCar].selfTransform.rotation, cross.selfTransform, cross.Get<DataSpotOfCars>().Positions[iCar].directions);
-                cross.Get<DataCarsLocation>().positions.Add((int)cross.Get<DataSpotOfCars>().Positions[iCar].position, car.GetComponent<ActorCar>());
-            }
-            SetPlayer(cross);
+            var carSpot = roadSpot.Get<DataCarSpot>().carSpot;
+            var car = Toolbox.Get<FactoryCar>().SpawnCar(carSpot.selfTransform.position, carSpot.selfTransform.rotation, Cross.actors[0].transform, carSpot.directions);
+            ProcessingSignals.Default.Send(new SignalCarSpawn((int)carSpot.position, car.GetComponent<ActorCar>()));
         }
 
-        void SetPlayer(Actor cross)
+        void SetPlayer(Actor player)
         {
-            Actor player = cross.Get<DataCarsLocation>().positions.Random();
             player.tags.Add(Tag.PlayerCar);
             player.selfTransform.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
         }
