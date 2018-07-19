@@ -19,7 +19,7 @@ namespace BeeFly
         protected override void Setup()
         {
             //Add(blueprint);
-
+            
             Add(priority);
             Add(direction);
             Add(comperativeCars);

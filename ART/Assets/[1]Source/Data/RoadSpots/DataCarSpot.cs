@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UnityEngine;
 using Homebrew;
+using UnityEngine;
 
 namespace BeeFly
 {
     [Serializable]
-    public class DataSpotTrafficSign : IData
+    public class DataCarSpot : IData
     {
-        public List<ActorTag> Positions;
+        public ActorCarSpot carSpot;
 
-        public void Dispose(){}
+        public void Dispose()
+        {
+            carSpot = null;
+        }
     }
 }

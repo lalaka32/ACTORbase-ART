@@ -4,15 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Homebrew;
-using UnityEngine;
 
 namespace BeeFly
 {
     [Serializable]
-    public class DataSpotOfCars : IData
+    public class DataTrafficLightSpot : IData
     {
-        public List<ActorCarSpot> Positions;
-
-        public void Dispose() { }
+        public ActorTag trafficLightSpot;
+        public void Dispose()
+        {
+            trafficLightSpot = null;
+        }
     }
 }
