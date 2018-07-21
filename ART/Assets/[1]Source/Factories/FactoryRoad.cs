@@ -23,6 +23,9 @@ namespace BeeFly
         [SerializeField]
         GameObject prefabOfSignSecondary;
 
+        [SerializeField]
+        GameObject prefabOfTurner;
+
         public void Spawn(Vector3 pos, Quaternion rot, int entityID ,Transform parent = null)
         {
             Transform obj;
@@ -43,6 +46,10 @@ namespace BeeFly
                     break;
                 case Tag.SignSecondary:
                     obj = this.Populate(Pool.None, prefabOfSignSecondary, pos, rot);
+                    obj.parent = parent;
+                    break;
+                case Tag.Turner:
+                    obj = this.Populate(Pool.None, prefabOfTurner, pos, rot);
                     obj.parent = parent;
                     break;
             }

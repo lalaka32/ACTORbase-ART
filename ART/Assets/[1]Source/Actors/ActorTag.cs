@@ -10,8 +10,12 @@ namespace BeeFly
     public class ActorTag: Actor
     {
         [FoldoutGroup("Setup")] public List<DataTag> IDs;
+        protected override void SetupBehaviors()
+        {
+            
+        }
 
-        protected override void Setup()
+        protected override void SetupData()
         {
             for (int i = 0; i < IDs.Count; i++)
             {

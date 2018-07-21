@@ -14,13 +14,13 @@ namespace BeeFly
         {
             Actor observeCar;
 
-            if (comperative.comperative.TryGetValue((int)ComperativeLocation.Right, out observeCar))
+            if (comperative.comperative.TryGetValue(ComperativePos.Right, out observeCar))
             {
                 if (observeCar.Get<DataDirection>().direction == Direction.Forward)
                 {
                     settingCar.Get<DataPriority>().priority++;
 
-                    if (comperative.comperative.TryGetValue((int)ComperativeLocation.Front, out observeCar))
+                    if (comperative.comperative.TryGetValue(ComperativePos.Front, out observeCar))
                     {
                         settingCar.Get<DataPriority>().priority++;
                     }
@@ -29,11 +29,11 @@ namespace BeeFly
                 else if (observeCar.Get<DataDirection>().direction == Direction.Left)
                 {
                     settingCar.Get<DataPriority>().priority++;
-                    if (comperative.comperative.TryGetValue((int)ComperativeLocation.Front, out observeCar))
+                    if (comperative.comperative.TryGetValue(ComperativePos.Front, out observeCar))
                     {
                         settingCar.Get<DataPriority>().priority++;
                     }
-                    else if (comperative.comperative.TryGetValue((int)ComperativeLocation.Left, out observeCar))
+                    else if (comperative.comperative.TryGetValue(ComperativePos.Left, out observeCar))
                     {
                         if (observeCar.Get<DataDirection>().direction == Direction.Right)
                         {

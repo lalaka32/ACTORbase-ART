@@ -8,15 +8,11 @@ using UnityEngine;
 
 namespace BeeFly
 {
-    class ProcessingRoadData : ProcessingBase, IMustBeWipedOut, IReceive<SignalNextRound>
+    class ProcessingRoadData : ProcessingBase, IMustBeWipedOut, IReceive<SignalSetRoadData>
     {
-        public ProcessingRoadData()
+        public void HandleSignal(SignalSetRoadData arg)
         {
-            Toolbox.Get<DataGameSession>().SetRoadData();
-        }
-        public void HandleSignal(SignalNextRound arg)
-        {
-            Toolbox.Get<DataGameSession>().SetRoadData();
+            Toolbox.Get<DataArtSession>().SetRoadData();
         }
     }
 }

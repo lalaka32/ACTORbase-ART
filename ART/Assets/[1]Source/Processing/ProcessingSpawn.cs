@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace BeeFly
 {
-    class ProcessingSpawn : ProcessingBase, IMustBeWipedOut, IReceive<SignalRespawn>
+    class ProcessingSpawn : ProcessingBase, IMustBeWipedOut, IReceive<SignalSpawnCars>, IReceive<SignalInitialSpawn>
     {
         //Мда чёт пока не идёт у меня мыслей
         //Я думаю как разделать наши группы чтобы
@@ -23,9 +23,9 @@ namespace BeeFly
         [GroupBy(Tag.RoadSpot)]
         Group RoadSpots;
 
-        public ProcessingSpawn()
+        public void HandleSignal(SignalInitialSpawn arg)
         {
-            Homebrew.Timer.Add(0.2f, () => Spawn());
+            Spawn();
         }
 
         void Spawn()
@@ -34,19 +34,13 @@ namespace BeeFly
             {
                 SpawnTL(RoadSpots.actors[i]);
                 SpawnSign(RoadSpots.actors[i]);
-                SpawnCar(RoadSpots.actors[i]);
             }
-            SetPlayer(Toolbox.Get<ProcessingPositions>().dataCarsLocation.positions.Random());
-            ProcessingSignals.Default.Send(new SignalSpawnEnded());
+            SpawnCars();
+
         }
-        public void HandleSignal(SignalRespawn arg)
+        public void HandleSignal(SignalSpawnCars arg)
         {
-            for (int i = 0; i < RoadSpots.length; i++)
-            {
-                SpawnCar(RoadSpots.actors[i]);
-            }
-            SetPlayer(Toolbox.Get<ProcessingPositions>().dataCarsLocation.positions.Random());
-            ProcessingSignals.Default.Send(new SignalSpawnEnded());
+            SpawnCars();
         }
 
         void SpawnTL(Actor roadSpot)
@@ -62,13 +56,16 @@ namespace BeeFly
             Toolbox.Get<FactoryRoad>().Spawn(signSpot.position, signSpot.rotation, Tag.SignSecondary, Cross.actors[0].transform.Find("Signs"));
         }
 
-        void SpawnCar(Actor roadSpot)
+        void SpawnCars()
         {
-            //Тут рандомить позишн
-            //cross.Get<DataSpotOfCars>().Positions.Shaffle();
-            var carSpot = roadSpot.Get<DataCarSpot>().carSpot;
-            var car = Toolbox.Get<FactoryCar>().SpawnCar(carSpot.selfTransform.position, carSpot.selfTransform.rotation, Cross.actors[0].transform, carSpot.directions);
-            ProcessingSignals.Default.Send(new SignalCarSpawn((int)carSpot.position, car.GetComponent<ActorCar>()));
+            for (int i = 0; i < Toolbox.Get<DataArtSession>().dataRoadSituation.CountOfCars; i++)
+            {
+                var carSpot = RoadSpots.actors[i].Get<DataCarSpot>().carSpot;
+                var car = Toolbox.Get<FactoryCar>().SpawnCar(carSpot.selfTransform.position, carSpot.selfTransform.rotation, Cross.actors[0].transform, carSpot.directions);
+                car.name = ((int)carSpot.position).ToString();
+                ProcessingSignals.Default.Send(new SignalSetCarPosition((int)carSpot.position, car.GetComponent<ActorCar>()));
+            }
+            SetPlayer(Toolbox.Get<ProcessingPositions>().dataCarsLocation.positions.Random());
         }
 
         void SetPlayer(Actor player)

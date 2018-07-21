@@ -11,6 +11,9 @@ namespace BeeFly
     public class DataCarsLocation : IData
     {
         public Dictionary<int, Actor> positions = new Dictionary<int, Actor>();
-        public void Dispose(){}
+        public void Dispose()
+        {
+            positions = null;
+        }
     }
 }

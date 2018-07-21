@@ -11,25 +11,25 @@ namespace BeeFly
         {
             Actor observeCar;
 
-            if (comperative.comperative.TryGetValue((int)ComperativeLocation.Right, out observeCar))
+            if (comperative.comperative.TryGetValue(ComperativePos.Right, out observeCar))
             {
                 settingCar.Get<DataPriority>().priority++;
                 if (observeCar.Get<DataDirection>().direction == Direction.Forward)
                 {
-                    if (comperative.comperative.TryGetValue((int)ComperativeLocation.Front, out observeCar))
+                    if (comperative.comperative.TryGetValue(ComperativePos.Front, out observeCar))
                     {
                         settingCar.Get<DataPriority>().priority++;
                     }
                 }
                 else if (observeCar.Get<DataDirection>().direction == Direction.Left)
                 {
-                    if (comperative.comperative.TryGetValue((int)ComperativeLocation.Front, out observeCar))
+                    if (comperative.comperative.TryGetValue(ComperativePos.Front, out observeCar))
                     {
                         settingCar.Get<DataPriority>().priority++;
                     }
                     else
                     {
-                        if (comperative.comperative.TryGetValue((int)ComperativeLocation.Left, out observeCar))
+                        if (comperative.comperative.TryGetValue(ComperativePos.Left, out observeCar))
                         {
                             if (observeCar.Get<DataDirection>().direction == Direction.Right)
                             {
@@ -39,7 +39,7 @@ namespace BeeFly
                     }
                 }
             }
-            else if (comperative.comperative.TryGetValue((int)ComperativeLocation.Front, out observeCar))
+            else if (comperative.comperative.TryGetValue(ComperativePos.Front, out observeCar))
             {
                 if (observeCar.Get<DataDirection>().direction == Direction.Right)
                 {
@@ -47,7 +47,7 @@ namespace BeeFly
                 }
                 else if (observeCar.Get<DataDirection>().direction == Direction.Forward)
                 {
-                    if (!comperative.comperative.TryGetValue((int)ComperativeLocation.Left, out observeCar))
+                    if (!comperative.comperative.TryGetValue(ComperativePos.Left, out observeCar))
                     {
                         settingCar.Get<DataPriority>().priority++;
                     }

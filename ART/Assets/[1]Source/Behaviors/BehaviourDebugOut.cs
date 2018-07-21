@@ -9,7 +9,7 @@ using FastDeb;
 
 namespace BeeFly
 {
-    class BehaviourDebugOut : Behavior, IReceive<SignalDebugOut>
+    class BehaviourDebugOut : ActorBehavior, IReceive<SignalDebugOut>
     {
         [Bind] DataPriority priority;
 

@@ -14,16 +14,21 @@ namespace BeeFly
         [FoldoutGroup("Setup")] public Direction[] directions;
         [FoldoutGroup("Setup")] public Position position;
 
-        protected override void Setup()
+        protected override void SetupBehaviors()
         {
+            
+        }
+
+        protected override void SetupData()
+        {
+
+            Add(directions);
+            Add(position);
             for (int i = 0; i < IDs.Count; i++)
             {
                 tags.Add(IDs[i].id);
             }
-            Add(directions);
-            Add(position);
         }
-        
     }
     public enum Position
     {
