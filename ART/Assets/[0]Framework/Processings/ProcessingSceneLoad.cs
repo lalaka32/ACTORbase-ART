@@ -33,6 +33,7 @@ namespace Homebrew
 			
 			for (int i = 0; i < scenesToKeep.Count; i++)
 			{
+			 
 				this.scenesToKeep.Add(scenesToKeep[i].sceneName);
 			}
 			

@@ -11,32 +11,33 @@ namespace BeeFly
     {
         //public DataBlueprint blueprint;
 
-        [FoldoutGroup("Setup")] public DataPriority priority;
-        [FoldoutGroup("Setup")] public DataDirection direction;
+        [FoldoutGroup("Setup")] public DataPriority daraPriority;
+        [FoldoutGroup("Setup")] public DataDirection dataDirection;
+        [FoldoutGroup("Setup")] public DataTurnerPositions dataTurnerPositions;
 
-        public DataComperativeCars comperativeCars;
+        public DataComperativeCars dataComperativeCars;
 
-        protected override void Setup()
-        {
-            //Add(blueprint);
-            
-            Add(priority);
-            Add(direction);
-            Add(comperativeCars);
-
-            Add<BehaviourDeath>();
-            Add<BehaviorPriority>();
-            
-            tags.Add(Tag.Car);
-        }
         protected override void OnBeforeDestroy()
         {
             OnDisable();
         }
+
+        protected override void SetupData()
+        {
+            Add(daraPriority);
+            Add(dataDirection);
+            Add(dataComperativeCars);
+            Add(dataTurnerPositions);
+        }
+
+        protected override void SetupBehaviors()
+        {
+            Add<BehaviourDeath>();
+            Add<BehaviorPriority>();
+            Add<BehaviourTurnOnLight>();
+            tags.Add(Tag.Car);
+        }
     }
-
-
-
     public enum Direction
     {
         Right, Forward, Left

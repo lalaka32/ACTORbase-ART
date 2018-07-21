@@ -8,52 +8,59 @@ using UnityEngine;
 
 namespace BeeFly
 {
-    class ProcessingPositions : ProcessingBase, IReceive<SignalSpawnEnded>, IReceive<SignalCarSpawn>, IMustBeWipedOut
+    class ProcessingPositions : ProcessingBase, IReceive<SignalSetComperativePositions>, IReceive<SignalSetCarPosition>, IMustBeWipedOut
     {
         public DataCarsLocation dataCarsLocation = new DataCarsLocation();
 
         [GroupBy(Tag.Cross)]
         Group cross;
 
-        public void HandleSignal(SignalSpawnEnded arg)
+        public void HandleSignal(SignalSetComperativePositions arg)
         {
             SetPositions();
         }
 
-        public void HandleSignal(SignalCarSpawn arg)
+        public void HandleSignal(SignalSetCarPosition arg)
         {
             dataCarsLocation.positions.Add(arg.postion, arg.car);
         }
 
         private void SetPositions()
         {
-            int lengthOfCars = Toolbox.Get<DataGameSession>().dataRoadSituation.CountOfCars;
+            int lengthOfCars = DataRoadSituation.MaxCars;
+            Actor settingCar;
+            Actor comperativeCar;
+            foreach (var item in dataCarsLocation.positions)
+            {
+                Debug.Log("pos" + item.Key + "{}" + "car" + item.Value);
+            }
             for (int iSpot = 0; iSpot < lengthOfCars; iSpot++)
             {
-                Actor settingCar = dataCarsLocation.positions[iSpot];
-                if (settingCar != null)
+                if (dataCarsLocation.positions.TryGetValue(iSpot, out settingCar))
                 {
-                    int comperativePosition = iSpot;
+                    int comperativePosition = -1;
                     for (int jSpot = 1; jSpot < lengthOfCars; jSpot++)
                     {
-                        if ((jSpot + iSpot) > lengthOfCars - 1)
+                        comperativePosition++;
+                        int comperativeIndex = iSpot + jSpot;
+
+                        if (comperativeIndex > lengthOfCars - 1)
                         {
-                            comperativePosition = jSpot + iSpot - lengthOfCars;
-                        }
-                        else
-                        {
-                            comperativePosition = jSpot + iSpot;
+                            comperativeIndex -= lengthOfCars;
                         }
 
-                        Actor comperativeActor = dataCarsLocation.positions[comperativePosition];
-                        if (comperativeActor != null)
+                        if (dataCarsLocation.positions.TryGetValue(comperativeIndex, out comperativeCar))
                         {
-                            settingCar.Get<DataComperativeCars>().comperative.Add(comperativePosition, comperativeActor);
-                            // Debug.Log("comperativePosition"+ comperativePosition + "---------------- comperativeActor" + comperativeActor);
+                            settingCar.Get<DataComperativeCars>().comperative.Add(comperativePosition, comperativeCar);
+                            Debug.Log("comperativePosition" + comperativePosition + "---------------- comperativeActor" + comperativeCar.name);
                         }
                     }
                 }
             }
+        }
+        enum ComperativeLocation
+        {
+            Right, Front, Left
         }
     }
 }

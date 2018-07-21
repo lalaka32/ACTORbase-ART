@@ -23,14 +23,7 @@ namespace BeeFly
         //а там будет и машина и светофор и знак
         //и всё что нам ещё нужно
 
-        [TagField(categoryName = "Cross/SpawnPointsCar")]//тэги для 4-х позиций
-        public const int FirstPositionOfCar = 10;//если перецк больше чем однопол то хз
-        [TagField(categoryName = "Cross/SpawnPointsCar")]//наверн нужно 1 тэг но тогда не 
-        public const int SecondPositionOfCar = 11;//будет доступа к конкретной позиции пока хз
-        [TagField(categoryName = "Cross/SpawnPointsCar")]
-        public const int ThirtPositionOfCar = 12;//Неуверен нужны ли они ваще
-        [TagField(categoryName = "Cross/SpawnPointsCar")]
-        public const int ForthPositionOfCar = 13;
+        
 
         //Это мб пригодится для выборки наших светофоров 
         [TagField(categoryName = "Cross/SpawnPointsTL")]
@@ -86,7 +79,8 @@ namespace BeeFly
         public const int SignSecondary = 65;
         [TagField(categoryName = "Entity")]
         public const int TrafficLight = 66;
-
+        [TagField(categoryName = "Entity")]
+        public const int Turner = 67;
 
 
         [TagField(categoryName = "State")]

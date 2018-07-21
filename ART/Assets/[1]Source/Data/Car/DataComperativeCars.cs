@@ -11,6 +11,9 @@ namespace BeeFly
     public class DataComperativeCars : IData
     {
         public Dictionary<int, Actor> comperative = new Dictionary<int, Actor>();
-        public void Dispose(){}
+        public void Dispose()
+        {
+            comperative = null;
+        }
     }
 }

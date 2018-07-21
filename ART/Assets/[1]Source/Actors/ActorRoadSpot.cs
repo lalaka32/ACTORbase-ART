@@ -13,7 +13,12 @@ namespace BeeFly
         [FoldoutGroup("SpawnSpots")] public DataSignSpot spotOfSign;
         [FoldoutGroup("SpawnSpots")] public DataTrafficLightSpot spotOfTrafficLight;
 
-        protected override void Setup()
+        protected override void SetupBehaviors()
+        {
+
+        }
+
+        protected override void SetupData()
         {
             Add(spotOfCar);
             Add(spotOfSign);

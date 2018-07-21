@@ -9,12 +9,15 @@ namespace BeeFly
 {
     class ProcessingDespawn : ProcessingBase, IReceive<SignalDespawn>, IMustBeWipedOut
     {
-        [GroupBy(Tag.Cross)]
-        Group Cross;
+        [GroupBy(Tag.Car)]
+        Group cars;
 
         public void HandleSignal(SignalDespawn arg)
         {
-            ProcessingSignals.Default.Send(new SignalKillCars());
+            foreach (var car in cars.actors)
+            {
+                car.signals.Send(new SignalKillCar());
+            }
             Toolbox.Get<ProcessingPositions>().dataCarsLocation.positions.Clear();
         }
     }

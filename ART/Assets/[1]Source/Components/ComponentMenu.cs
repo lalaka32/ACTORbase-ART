@@ -10,10 +10,10 @@ namespace BeeFly
 {
     class ComponentMenu : MonoCached
     {
+        
         public void Restart()
         {
-            ProcessingSignals.Default.Send(new SignalNextRound());
-            ProcessingSignals.Default.Send(new SignalDespawn());
+            Debug.Log("--------------------------------------------" + Toolbox.Get<DataArtSession>().NumberOfQuestion);
             ProcessingSignals.Default.Send(new SignalRespawn());
         }
     }

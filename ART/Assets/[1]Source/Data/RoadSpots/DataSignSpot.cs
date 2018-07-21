@@ -13,7 +13,7 @@ namespace BeeFly
         public ActorTag signSpot;
         public void Dispose()
         {
-           
+            signSpot = null;
         }
     }
 }

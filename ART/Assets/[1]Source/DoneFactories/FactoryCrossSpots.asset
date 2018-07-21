@@ -19,3 +19,5 @@ MonoBehaviour:
     type: 2}
   prefabOfSignSecondary: {fileID: 1650690901689534, guid: 40956730f0b36094ab39a1dced4358dc,
     type: 2}
+  prefabOfTurner: {fileID: 1150157535592590, guid: bd43a91a8cc111e449cd7d831083b06e,
+    type: 2}

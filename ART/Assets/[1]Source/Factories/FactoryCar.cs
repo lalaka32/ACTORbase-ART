@@ -15,26 +15,25 @@ namespace BeeFly
         GameObject prefabOfCar;
 
         public List<Transform> Cars { get; private set; } = new List<Transform>();
-        
+
         public Transform SpawnCar(Vector3 pos, Quaternion rot, Transform parent, Direction[] directions)
         {
-            var transform = this.Populate(Pool.None, prefabOfCar, pos, rot);
-            transform.parent = parent;
-            Cars.Add(transform);
-            if (prefabOfCar.GetComponent<ActorCar>() != null)
-            {
-                SetCarWithRandomData(transform.GetComponent<ActorCar>(),directions);
-            }
-            return transform;
+            var transformCar = this.Populate(Pool.None, prefabOfCar, pos, rot);
+            ActorCar actorCar = transformCar.GetComponent<ActorCar>();
+            transformCar.parent = parent;
+            Cars.Add(transformCar);
+            SetCarWithRandomData(actorCar, directions);
+            //бля не ебу поч тут нада делать таймер
+            Homebrew.Timer.Add(0.1f, () => actorCar.signals.Send(new SignalSetLights()));
+            return transformCar;
         }
-        //Пока рандом слабенький можно накрутить его покруче 
-        //Нужно думать
+
+
         public void SetCarWithRandomData(ActorCar actorCar, Direction[] directions)
         {
-            //Direction rand = directions.Random();
-            
-            actorCar.direction.direction = Direction.Forward;
-            actorCar.tags.Add(Tag.DirectionRight);
+            Direction rand = directions.Random();
+
+            actorCar.dataDirection.direction = rand;
         }
     }
 }

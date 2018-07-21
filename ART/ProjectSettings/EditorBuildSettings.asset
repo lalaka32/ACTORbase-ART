@@ -6,17 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/[2]Content/Scenes/sceneTest.unity
-    guid: c46e80c48b41ddb4294086bfa53b1e02
+    path: Assets/[2]Content/Scenes/sceneGame.unity
+    guid: a0758c8ce1678dd4a90d18ea8bf37245
   - enabled: 1
-    path: Assets/[0]Framework/Scenes/sceneKernel.unity
+    path: Assets/[2]Content/Scenes/sceneKernel.unity
     guid: c93ad83496fb4e14e9d01b64fb5f2166
-  - enabled: 1
-    path: Assets/[0]Framework/Scenes/sceneUI.unity
-    guid: 2b796c5f40cf5f149bb99d5a5e64436d
   - enabled: 1
     path: Assets/[2]Content/Scenes/Cross.unity
     guid: 70cce5e656f8bf441a0e2f92338a4991
-  - enabled: 1
-    path: Assets/[2]Content/Scenes/sceneCross.unity
-    guid: 5d8102b1e63d8e848975f52aa1087bbe

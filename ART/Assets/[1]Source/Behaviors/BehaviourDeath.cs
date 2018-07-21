@@ -8,9 +8,9 @@ using UnityEngine;
 
 namespace BeeFly
 {
-    class BehaviourDeath : Behavior, IReceiveGlobal<SignalKillCars>
+    class BehaviourDeath : ActorBehavior, IReceive<SignalKillCar>
     {
-        public void HandleSignal(SignalKillCars arg)
+        public void HandleSignal(SignalKillCar arg)
         {
             if (!actor.tags.Contain(Tag.Dead))
             {

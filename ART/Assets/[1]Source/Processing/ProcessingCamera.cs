@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace BeeFly
 {
-    class ProcessingCamera : ProcessingBase, IReceive<SignalSpawnEnded>
+    class ProcessingCamera : ProcessingBase, IReceive<SignalSetCamera>
     {
         [GroupBy(Tag.PlayerCar)]
         [GroupExclude(Tag.Dead)]
@@ -16,7 +16,7 @@ namespace BeeFly
 
         //Проблема: в группе 2 актёра походе не успевает удалиться а сигнал доходит
         //Нада задержка для сигнала наверн, но это странно потому что сигнал вызывается после удаления 
-        public void HandleSignal(SignalSpawnEnded arg)
+        public void HandleSignal(SignalSetCamera arg)
         {
             SetLocation(playerCar.actors[0].selfTransform, new Vector3(-20, 10, 0));
         }

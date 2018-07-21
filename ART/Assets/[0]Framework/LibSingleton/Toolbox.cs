@@ -32,7 +32,7 @@ namespace Homebrew
 				return (T) o;
 			}
 
-			var created = new T();
+			T created = new T();
 
 			InitializeObject(created);
 			Instance.data.Add(hash, created);
