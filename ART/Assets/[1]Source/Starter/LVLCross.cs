@@ -11,8 +11,6 @@ namespace BeeFly
     {
         protected override void Setup()
         {
-            //RoadData должна быт 1-я
-            //Prioryty перед спавн
             Toolbox.Add<DataArtSession>();
             Toolbox.Add<ProcessingRoadData>();
             Toolbox.Add<ProcessingPositions>();

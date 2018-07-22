@@ -18,9 +18,9 @@ namespace BeeFly
         //Нада задержка для сигнала наверн, но это странно потому что сигнал вызывается после удаления 
         public void HandleSignal(SignalSetCamera arg)
         {
-            SetLocation(playerCar.actors[0].selfTransform, new Vector3(-20, 10, 0));
+                SetLocation(playerCar.actors[0].selfTransform, new Vector3(-20, 10, 0));
         }
-
+        
         public void SetLocation(Transform transSneaking, Vector3 vector3)
         {
             GameObject cam = GameObject.Find("[KERNEL]/Cameras/camera_main");

@@ -26,8 +26,8 @@ namespace BeeFly
         {
             for (int i = 0; i < RoadSpots.length; i++)
             {
-                SpawnTL(RoadSpots.actors[i]);
-                SpawnSign(RoadSpots.actors[i]);
+                //SpawnTL(RoadSpots.actors[i]);
+                //SpawnSign(RoadSpots.actors[i]);
             }
             SpawnCars();
 

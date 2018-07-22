@@ -30,10 +30,6 @@ namespace BeeFly
             int lengthOfCars = DataRoadSituation.MaxCars;
             Actor settingCar;
             Actor comperativeCar;
-            foreach (var item in dataCarsLocation.positions)
-            {
-                Debug.Log("pos" + item.Key + "{}" + "car" + item.Value);
-            }
             for (int iSpot = 0; iSpot < lengthOfCars; iSpot++)
             {
                 if (dataCarsLocation.positions.TryGetValue(iSpot, out settingCar))
@@ -52,7 +48,7 @@ namespace BeeFly
                         if (dataCarsLocation.positions.TryGetValue(comperativeIndex, out comperativeCar))
                         {
                             settingCar.Get<DataComperativeCars>().comperative.Add(comperativePosition, comperativeCar);
-                            Debug.Log("comperativePosition" + comperativePosition + "---------------- comperativeActor" + comperativeCar.name);
+                            //Debug.Log("comperativePosition" + comperativePosition + "---------------- comperativeActor" + comperativeCar.name);
                         }
                     }
                 }

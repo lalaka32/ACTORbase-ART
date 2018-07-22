@@ -8,11 +8,7 @@ using UnityEngine;
 
 namespace BeeFly
 {
-    class ComponentTurnOnLight :MonoCached
+    struct SIgnalSetGreen
     {
-        protected override void HandleEnable()
-        {
-            GetComponent<Animator>().SetBool("isOn", true);
-        }
     }
 }
