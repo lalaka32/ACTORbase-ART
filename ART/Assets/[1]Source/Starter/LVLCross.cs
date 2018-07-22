@@ -21,7 +21,12 @@ namespace BeeFly
             Toolbox.Add<ProcessingCamera>();
             Toolbox.Add<ProcessingQuiz>();
             Toolbox.Add<ProcessingDespawn>();
+            Toolbox.Add<ProcessingAnimation>();
+
+            #region MainScript
+            //Main enter spot of all sistems
             Toolbox.Add<ProcessingMainSсript>();
+            #endregion
         }
     }
 }

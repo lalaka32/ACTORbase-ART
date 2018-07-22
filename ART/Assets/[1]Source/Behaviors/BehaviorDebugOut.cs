@@ -9,11 +9,11 @@ using FastDeb;
 
 namespace BeeFly
 {
-    class BehaviourDebugOut : ActorBehavior, IReceive<SignalDebugOut>
+    class BehaviorDebugOut : ActorBehavior, IReceive<SignalKillCar>
     {
         [Bind] DataPriority priority;
 
-        public void HandleSignal(SignalDebugOut arg)
+        public void HandleSignal(SignalKillCar arg)
         {
             
         }

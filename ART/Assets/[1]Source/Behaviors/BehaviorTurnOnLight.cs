@@ -8,7 +8,7 @@ using Homebrew;
 
 namespace BeeFly
 {
-    class BehaviourTurnOnLight : ActorBehavior, IReceive<SignalSetLights>
+    class BehaviorTurnOnLight : ActorBehavior, IReceive<SignalSetLights>
     {
         [Bind] DataTurnerPositions dataTurnerPositions;
         [Bind] DataDirection dataDirection;

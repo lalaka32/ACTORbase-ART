@@ -108,7 +108,7 @@ namespace FastDeb
         /// </summary>
         static public Actor PrintActor(this Actor actor)
         {
-            return actor.ValidOnNull(() => actor.signals.Send(new SignalDebugOut()), () => actor.StringIsNull());
+            return actor.ValidOnNull(() => actor.signals.Send(new SignalKillCar()), () => actor.StringIsNull());
         }
 
     }

@@ -694,12 +694,18 @@ MonoBehaviour:
   time:
     isActive: 1
     timeScale: 1
+    timeScaleCached: 0
   selfTransform: {fileID: 0}
   state: 0
   hashCode: 0
-  blueprint:
-    blueprint: {fileID: 0}
-  priority:
+  daraPriority:
     priority: 0
-  direction:
+  dataDirection:
     direction: 0
+  dataTurnerPositions:
+    frontLeft: {fileID: 0}
+    frontRight: {fileID: 0}
+    backLeft: {fileID: 0}
+    backRight: {fileID: 0}
+  dataCarTurnAnimations:
+    animatorCarTurn: {fileID: 0}
