@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace BeeFly
 {
-    class BehaviourDeath : ActorBehavior, IReceive<SignalKillCar>
+    class BehaviorDeath : ActorBehavior, IReceive<SignalKillCar>
     {
         public void HandleSignal(SignalKillCar arg)
         {

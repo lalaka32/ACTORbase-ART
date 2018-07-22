@@ -14,7 +14,7 @@ namespace BeeFly
         [FoldoutGroup("Setup")] public DataPriority daraPriority;
         [FoldoutGroup("Setup")] public DataDirection dataDirection;
         [FoldoutGroup("Setup")] public DataTurnerPositions dataTurnerPositions;
-
+        [FoldoutGroup("Setup")] public DataCarTurnAnimations dataCarTurnAnimations;
         public DataComperativeCars dataComperativeCars;
 
         protected override void OnBeforeDestroy()
@@ -28,14 +28,16 @@ namespace BeeFly
             Add(dataDirection);
             Add(dataComperativeCars);
             Add(dataTurnerPositions);
+            Add(dataCarTurnAnimations);
+            tags.Add(Tag.Car);
         }
 
         protected override void SetupBehaviors()
         {
-            Add<BehaviourDeath>();
+            Add<BehaviorDeath>();
             Add<BehaviorPriority>();
-            Add<BehaviourTurnOnLight>();
-            tags.Add(Tag.Car);
+            Add<BehaviorTurnOnLight>();
+            Add<BehaviorAnimation>();
         }
     }
     public enum Direction
