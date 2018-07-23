@@ -16,7 +16,7 @@ class TrafficLightManager : ManagerBase
     RuntimeAnimatorController controllerOfLight;
 
     public GameObject[] TL { get; private set; }
-    public Dictionary<Position, TrafficLight> PosTL;
+    public Dictionary<int, TrafficLight> PosTL;
 
     void GenerateTrafficGO(PositionRotation[] PRTL, Transform parent)
     {
@@ -56,7 +56,7 @@ class TrafficLightManager : ManagerBase
                     }
                     break;
                 case TrafficLight.Red:
-                    PosTL = new Dictionary<Position, TrafficLight>();
+                    PosTL = new Dictionary<int, TrafficLight>();
                     for (int i = 0; i < TL.Length; i++)
                     {
                         if (i % 2 == 0)
@@ -65,7 +65,7 @@ class TrafficLightManager : ManagerBase
                             lights2[i].GetComponent<Light>().color = Color.red;
                             lights1[i].transform.localPosition = new Vector3(0, 22, -4);
                             lights2[i].transform.localPosition = new Vector3(0, 22, 4);
-                            PosTL.Add((Position)i, TrafficLight.Red);
+                            PosTL.Add(i, TrafficLight.Red);
                         }
                         else
                         {
@@ -73,12 +73,12 @@ class TrafficLightManager : ManagerBase
                             lights2[i].GetComponent<Light>().color = Color.green;
                             lights1[i].transform.localPosition = new Vector3(0, 18, -4);
                             lights2[i].transform.localPosition = new Vector3(0, 18, 4);
-                            PosTL.Add((Position)i, TrafficLight.Green);
+                            PosTL.Add(i, TrafficLight.Green);
                         }
                     }
                     break;
                 case TrafficLight.Green:
-                    PosTL = new Dictionary<Position, TrafficLight>();
+                    PosTL = new Dictionary<int, TrafficLight>();
                     for (int i = 0; i < TL.Length; i++)
                     {
                         if (i % 2 == 0)
@@ -87,7 +87,7 @@ class TrafficLightManager : ManagerBase
                             lights2[i].GetComponent<Light>().color = Color.green;
                             lights1[i].transform.localPosition = new Vector3(0, 18, -4);
                             lights2[i].transform.localPosition = new Vector3(0, 18, 4);
-                            PosTL.Add((Position)i, TrafficLight.Green);
+                            PosTL.Add(i, TrafficLight.Green);
                         }
                         else
                         {
@@ -95,7 +95,7 @@ class TrafficLightManager : ManagerBase
                             lights2[i].GetComponent<Light>().color = Color.red;
                             lights1[i].transform.localPosition = new Vector3(0, 22, -4);
                             lights2[i].transform.localPosition = new Vector3(0, 22, 4);
-                            PosTL.Add((Position)i, TrafficLight.Red);
+                            PosTL.Add(i, TrafficLight.Red);
                         }
                     }
                     break;

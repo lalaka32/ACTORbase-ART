@@ -40,6 +40,7 @@ namespace Homebrew
 			ProcessingGroupAttributes.Default = Toolbox.Add<ProcessingGroupAttributes>();
 			ProcessingBehaviorAttributes.Default = Toolbox.Add<ProcessingBehaviorAttributes>();
 			ProcessingScene.Default = Toolbox.Add<ProcessingScene>();
+            
 
 
 			for (var i = 0; i < pluggables.Count; i++)

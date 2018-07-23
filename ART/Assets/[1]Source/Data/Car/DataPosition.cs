@@ -8,9 +8,9 @@ using Homebrew;
 namespace BeeFly
 {
     [Serializable]
-    class DataPosition : IData
+    public class DataPosition : IData
     {
-        public int position;
+        [TagFilter(typeof(Position))] public int position;
 
         public void Dispose(){}
     }

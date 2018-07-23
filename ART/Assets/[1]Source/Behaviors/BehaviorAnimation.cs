@@ -16,7 +16,7 @@ namespace BeeFly
 
         public void HandleSignal(SignalPlayCarAnimation arg)
         {
-            dataCarTurnAnimations.animatorCarTurn.SetInteger("Direction",(int)dataDirection.direction);
+            dataCarTurnAnimations.animatorCarTurn.SetInteger("Direction",dataDirection.direction);
         }
     }
 }

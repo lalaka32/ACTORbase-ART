@@ -49,12 +49,12 @@ public class Instantiate : MonoBehaviour, ITrackableEventHandler
         {
 
             Restart = false;
-            RoadSituation RS = new RoadSituation(
-                Random.Range(2, 4), Shuffle(GetConstPRofCars()), Convert.ToBoolean(Random.Range(0, 2)),
-                new Direction[] { (Direction)Random.Range(0, 3), (Direction)Random.Range(0, 3), (Direction)Random.Range(0, 3), (Direction)Random.Range(0, 3) },
-                (TrafficSign)Random.Range(0, 3), 4, ShaffleOdd(ConstSignTransform()),
-                (TrafficLight)Random.Range(0, 4), 4, GetConstPRofTL());
-
+            //RoadSituation RS = new RoadSituation(
+            //    Random.Range(2, 4), Shuffle(GetConstPRofCars()), Convert.ToBoolean(Random.Range(0, 2)),
+            //    new Direction[] { (Direction)Random.Range(0, 3), (Direction)Random.Range(0, 3), (Direction)Random.Range(0, 3), (Direction)Random.Range(0, 3) },
+            //    (TrafficSign)Random.Range(0, 3), 4, ShaffleOdd(ConstSignTransform()),
+            //    (TrafficLight)Random.Range(0, 4), 4, GetConstPRofTL());
+            RoadSituation RS = new RoadSituation();
             ToolBox.Get<TrafficLightManager>().GenerationTrafficLight(RS, ToolBox.Get<CrossManager>().Cross.transform);
 
             ToolBox.Get<SignManager>().GenerationTrafficSigns(RS, ToolBox.Get<CrossManager>().Cross.transform);

@@ -7,7 +7,7 @@ using Homebrew;
 
 namespace BeeFly
 { 
-    class ActorCar : Actor
+    public class ActorCar : Actor
     {
         //public DataBlueprint blueprint;
 
@@ -39,9 +39,5 @@ namespace BeeFly
             Add<BehaviorTurnOnLight>();
             Add<BehaviorAnimation>();
         }
-    }
-    public enum Direction
-    {
-        Right, Forward, Left
     }
 }

@@ -18,7 +18,8 @@ namespace BeeFly
             {
                 car.signals.Send(new SignalKillCar());
             }
-            Toolbox.Get<ProcessingPositions>().dataCarsLocation.positions.Clear();
+            ProcessingPositions.Default.dataCarsLocation.Clear();
+            
         }
     }
 }

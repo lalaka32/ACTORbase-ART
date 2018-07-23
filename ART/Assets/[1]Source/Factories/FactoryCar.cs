@@ -31,9 +31,9 @@ namespace BeeFly
 
         public void SetCarWithRandomData(ActorCar actorCar, Direction[] directions)
         {
-            Direction rand = directions.Random();
+            //Direction rand = directions.Random();
 
-            actorCar.dataDirection.direction = rand;
+            actorCar.dataDirection.direction = UnityEngine.Random.Range(0,3);
         }
     }
 }
