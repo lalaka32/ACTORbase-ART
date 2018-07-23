@@ -8,14 +8,12 @@ using UnityEngine;
 
 namespace BeeFly
 {
-    [Serializable]
-    public class DataCarSpot : IData
+    class ComponentTrafficSign : MonoCached
     {
-        public ActorSpawnSpotCar carSpot;
-
-        public void Dispose()
+        protected override void HandleEnable()
         {
-            carSpot = null;
+            ProcessingSignals.Default.Add(this);
+            
         }
     }
 }

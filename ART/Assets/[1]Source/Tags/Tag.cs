@@ -54,17 +54,6 @@ namespace BeeFly
         [TagField(categoryName = "Cross/TypeOfCross")]
         public const int RoundLane = 44;
 
-        [TagField(categoryName = "Car/Directions")]
-        public const int DirectionRight = 51;
-        [TagField(categoryName = "Car/Directions")]
-        public const int DirectionForward = 52;
-        [TagField(categoryName = "Car/Directions")]
-        public const int DirectionLeft = 53;
-        [TagField(categoryName = "Car/Directions")]
-        public const int DirectionTurn = 54;
-        [TagField(categoryName = "Car/Directions")]
-        public const int DirectionNone = 55;
-
         [TagField(categoryName = "Entity")]
         public const int PlayerCar = 60;
         [TagField(categoryName = "Entity")]
@@ -87,6 +76,6 @@ namespace BeeFly
         public const int Dead = 70;
 
         [TagField(categoryName = "SpawnSpot")]
-        public const int RoadSpot = 81;
+        public const int SpawnSpotsRoad = 81;
     }
 }

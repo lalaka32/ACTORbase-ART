@@ -18,9 +18,9 @@ namespace BeeFly
         {
             dataRoadSituation = new DataRoadSituation();
             dataRoadSituation.CountOfCars = Random.Range(2, 4);
-            dataRoadSituation.VIP = Convert.ToBoolean(Random.Range(0, 2));
+            //dataRoadSituation.VIP = Convert.ToBoolean(Random.Range(0, 2));
             dataRoadSituation.Sign = Convert.ToBoolean(Random.Range(0, 2));
-            dataRoadSituation.IndexOfVIP = Random.Range(1, dataRoadSituation.CountOfCars);
+            //dataRoadSituation.IndexOfVIP = Random.Range(1, dataRoadSituation.CountOfCars);
             dataRoadSituation.TrafficLight = Convert.ToBoolean(Random.Range(0, 2));
         }
         public override void Dispose()
@@ -37,5 +37,4 @@ namespace BeeFly
         public bool TrafficLight { get; set; }
         public const int MaxCars = 4;
     }
-    public enum TrafficL : byte { off, on, empty }
 }

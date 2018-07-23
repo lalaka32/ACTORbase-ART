@@ -10,7 +10,7 @@ namespace BeeFly
     [Serializable]
     public class DataDirection : IData
     {
-        public Direction direction;
+        [TagFilter(typeof(Direction))] public int direction;
         public void Dispose(){}
     }
 }
