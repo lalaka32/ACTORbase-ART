@@ -25,7 +25,6 @@ namespace BeeFly
                         settingCar.Get<DataPriority>().priority++;
                     }
                 }
-
                 else if (observeCar.Get<DataDirection>().direction == Direction.Left)
                 {
                     settingCar.Get<DataPriority>().priority++;

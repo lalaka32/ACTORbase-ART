@@ -11,19 +11,32 @@ namespace BeeFly
     class LVLCross :Homebrew.Starter
     {
         [FoldoutGroup("SetupData")] public List<FactorySituation> factorySituations;
+
+        [FoldoutGroup("SetupData")] public List<FactoryRules> Rules4Qvalent;
+
+        [FoldoutGroup("SetupData")] public List<FactoryRules> Rules4UnQvalent;
+
+        [FoldoutGroup("SetupData")] public List<FactoryRules> Rules4Regularity;
+
         protected override void Setup()
         {
             Toolbox.Add<DataArtSession>();
             Toolbox.Add<ProcessingRoadData>();
-            ProcessingPositions.Default = Toolbox.Add<ProcessingPositions>();
             Toolbox.Add<ProcessingPriority>();
             Toolbox.Add<ProcessingSpawn>();
             Toolbox.Add<ProcessingCamera>();
             Toolbox.Add<ProcessingQuiz>();
-            ProcessingDespawn.Default =Toolbox.Add<ProcessingDespawn>();
             Toolbox.Add<ProcessingAnimation>();
+
+            ProcessingPositions.Default = Toolbox.Add<ProcessingPositions>();
+            ProcessingDespawn.Default = Toolbox.Add<ProcessingDespawn>();
             ProcessingStaticPositions.Default = Toolbox.Add<ProcessingStaticPositions>();
+            ProcessingPriority.Default = Toolbox.Add<ProcessingPriority>();
+
             ProcessingStaticPositions.Default.staticSituations = factorySituations;
+            ProcessingPriority.Default.RulesForQvalent = Rules4Qvalent;
+            ProcessingPriority.Default.RulesForUnQvalent = Rules4UnQvalent;
+            ProcessingPriority.Default.RulesForRegularity = Rules4Regularity;
             #region MainScript
             //Main enter spot of all sistems
             Toolbox.Add<ProcessingMainSсript>();
