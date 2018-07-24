@@ -12,7 +12,7 @@ namespace BeeFly
     class FactorySituation : Factory
     {
         [TagFilter(typeof(Situations))] public int tagSituation;
-        public List<Situation> Cases;
+        public List<Situation> Cases ;
     }
     [Serializable]
     class Situation
@@ -20,5 +20,9 @@ namespace BeeFly
         public TrafficLight trafficLight;
         public TrafficSign trafficSign;
         [TagFilter(typeof(Position))] public int position;
+        public bool car;
+        public DataDirection direction;
+        // public bool VIP;
+        public bool player;
     }
 }

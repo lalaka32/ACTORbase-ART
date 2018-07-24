@@ -22,25 +22,55 @@ namespace BeeFly
         {
             Spawn();
         }
-
+        public void HandleSignal(SignalSpawnCars arg)
+        {
+            ProcessingDespawn.Default.killALL();
+            Spawn();
+        }
         void Spawn()
         {
-            var sit = ProcessingStaticPositions.Default.Get(Situations.UnequalRightAngleMirror);
+            var sit = ProcessingStaticPositions.Default.Get(Situations.TestRightHindrence);
+            bool hasPlayer = false;
             for (int i = 0; i < sit.Count; i++)
             {
-                SpawnStatic(sit[i]);
+                SpawnStatic(sit[i], ref hasPlayer);
                 //SpawnTL(RoadSpots.actors[i]);
                 //SpawnSign(RoadSpots.actors[i]);
             }
-            SpawnCars();
-
+            if (!hasPlayer)
+            {
+                SetPlayer(ProcessingPositions.Default.dataCarsLocation.Random().car);
+            }
+            //List<Actor> actorShaffled = spawnSpotsRoad.actors.Shaffle();
+            //for (int i = 0; i < Toolbox.Get<DataArtSession>().dataRoadSituation.CountOfCars; i++)
+            //{
+            //    SpawnCars(actorShaffled[i],roadSpot.Get<DataCarSpot>().carSpot.Get<DataDirection>().direction);
+            //}
+            //SetPlayer(ProcessingPositions.Default.dataCarsLocation.Random().car);
+            //SpawnCars();
         }
-        public void SpawnStatic(Situation situation)
+        public void SpawnStatic(Situation situation, ref bool hasPlayer)
         {
             foreach (var item in spawnSpotsRoad.actors)
             {
                 if (item.Get<DataPosition>().position == situation.position)
                 {
+                    if (situation.car)
+                    {
+                        if (situation.direction.direction==Direction.None)
+                        {
+                            SpawnCar(item, item.Get<DataCarSpot>().carSpot.Get<DataDirection>().direction);
+                        }
+                        else
+                        {
+                            SpawnCar(item, situation.direction.direction);
+                        }
+                        if (situation.player && !hasPlayer)
+                        {
+                            hasPlayer = true;
+                            SetPlayer(ProcessingPositions.Default.dataCarsLocation[situation.position].car);
+                        }
+                    }
                     switch (situation.trafficSign)
                     {
                         case TrafficSign.Main:
@@ -70,10 +100,7 @@ namespace BeeFly
                     }
                 }
             }
-        }
-        public void HandleSignal(SignalSpawnCars arg)
-        {
-            SpawnCars();
+            
         }
 
         void SpawnTL(Actor roadSpot)
@@ -93,18 +120,12 @@ namespace BeeFly
             Toolbox.Get<FactoryRoad>().Spawn(signSpot.position, signSpot.rotation, Tag.SignSecondary, cross.actors[0].transform.Find("Signs"));
         }
 
-        void SpawnCars()
+        void SpawnCar(Actor roadSpot,int direction)
         {
-            List<Actor> actorShaffled = spawnSpotsRoad.actors.Shaffle();
-
-            for (int i = 0; i < Toolbox.Get<DataArtSession>().dataRoadSituation.CountOfCars; i++)
-            {
-                var carSpot = actorShaffled[i].Get<DataCarSpot>().carSpot;
-                var car = Toolbox.Get<FactoryCar>().SpawnCar(carSpot.selfTransform.position, carSpot.selfTransform.rotation, cross.actors[0].transform, carSpot.directions);
-                car.name = (actorShaffled[i].Get<DataPosition>().position).ToString();
-                ProcessingSignals.Default.Send(new SignalSetCarPosition(actorShaffled[i].Get<DataPosition>().position, car.GetComponent<ActorCar>()));
-            }
-            SetPlayer(ProcessingPositions.Default.dataCarsLocation.Random().car);
+            var carSpot = roadSpot.Get<DataCarSpot>().carSpot;
+            var car = Toolbox.Get<FactoryCar>().SpawnCar(carSpot.selfTransform.position, carSpot.selfTransform.rotation,cross.actors[0].selfTransform,direction);
+            car.name = (roadSpot.Get<DataPosition>().position).ToString();
+            ProcessingSignals.Default.Send(new SignalSetCarPosition(roadSpot.Get<DataPosition>().position, car.GetComponent<ActorCar>()));
         }
 
         void SetPlayer(Actor player)
