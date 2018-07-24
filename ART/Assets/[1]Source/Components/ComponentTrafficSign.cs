@@ -13,7 +13,7 @@ namespace BeeFly
         protected override void HandleEnable()
         {
             ProcessingSignals.Default.Add(this);
-            
+            ProcessingDespawn.Default.Add(this);
         }
     }
 }
