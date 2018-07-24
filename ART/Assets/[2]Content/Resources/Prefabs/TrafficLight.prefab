@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4312426571087472}
+  - component: {fileID: 114488566892596792}
   m_Layer: 0
   m_Name: TrafficLight
   m_TagString: Untagged
@@ -279,3 +280,22 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114488566892596792
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1032761497455142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6dfc09ce2f83144ba0dc0afa538c86c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pool: 0
+  destroyDelayTime: 0
+  time:
+    isActive: 1
+    timeScale: 1
+    timeScaleCached: 0
+  selfTransform: {fileID: 0}
+  state: 0
