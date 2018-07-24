@@ -8,21 +8,22 @@ using UnityEngine;
 
 namespace BeeFly
 {
+    [Serializable]
     [CreateAssetMenu(fileName = "FactorySituations", menuName = "Factories/FactorySituations")]
-    class FactorySituation : Factory
+    public class FactorySituation : Factory
     {
         [TagFilter(typeof(Situations))] public int tagSituation;
-        public List<Situation> Cases ;
+        public List<Situation> Cases = new List<Situation>();
     }
     [Serializable]
-    class Situation
+    public class Situation
     {
-        public TrafficLight trafficLight;
-        public TrafficSign trafficSign;
-        [TagFilter(typeof(Position))] public int position;
-        public bool car;
-        public DataDirection direction;
+        public TrafficLight trafficLight = TrafficLight.Empty;
+        public TrafficSign trafficSign = TrafficSign.Empty;
+        [TagFilter(typeof(Position))] public int position = Position.First;
+        public bool car = false;
+        public DataDirection direction = new DataDirection(Direction.None);
         // public bool VIP;
-        public bool player;
+        public bool player = false;
     }
 }

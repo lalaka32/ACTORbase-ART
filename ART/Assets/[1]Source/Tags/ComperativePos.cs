@@ -9,11 +9,11 @@ namespace BeeFly
 {
     static class ComperativePos
     {
-        [TagField(categoryName = "ComperativePosition/Right")]
+        [TagField(categoryName = "Com")]
         public const int Right = 0;
-        [TagField(categoryName = "ComperativePosition/Front")]
+        [TagField(categoryName = "Com")]
         public const int Front = 1;
-        [TagField(categoryName = "ComperativePosition/Left")]
+        [TagField(categoryName = "Com")]
         public const int Left = 2;
     }
 }

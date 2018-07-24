@@ -9,33 +9,31 @@ using UnityEngine;
 
 namespace BeeFly
 {
-    //[CustomEditor(typeof(FactorySituation))]
-    //class FactorySituationEditor : Editor
-    //{
-    //    SerializedProperty Cases;
+    [CustomEditor(typeof(FactorySituation))]
+    class FactorySituationEditor : Editor
+    {
+        FactorySituation factorySituation;
+        private void OnEnable()
+        {
+            factorySituation = target as FactorySituation;
+        }
+        public override void OnInspectorGUI()
+        {
+            
+            for (int iCase = 0; iCase < factorySituation.Cases.Count; iCase++)
+            {
+                if (factorySituation.Cases[iCase].car)
+                {
+                    if (factorySituation.Cases[iCase].player)
+                    {
+                        EditorGUILayout.LabelField("Player is " + iCase + "-th car");
+                    }
+                }
+            }
+            
+            GUILayout.Space(5);
+            base.OnInspectorGUI();
+        }
 
-    //    private void OnEnable()
-    //    {
-    //        //KickAss = serializedObject.FindProperty("KickAss");
-    //        Cases = serializedObject.FindProperty("Cases");
-    //    }
-    //    public override void OnInspectorGUI()
-    //    {
-    //        serializedObject.Update();
-    //        //(target as FactorySituation).Cases.Add(new Situation());
-    //        foreach (var item in (target as FactorySituation).Cases)
-    //        {
-    //            if (item.car)
-    //            {
-
-    //            }
-    //        }
-    //        EditorGUILayout.PropertyField(Cases);
-    //        DrawDefaultInspector();
-
-
-    //        serializedObject.ApplyModifiedProperties();
-    //    }
-
-    //}
+    }
 }

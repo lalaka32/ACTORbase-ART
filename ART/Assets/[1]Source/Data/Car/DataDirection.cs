@@ -11,6 +11,15 @@ namespace BeeFly
     public class DataDirection : IData
     {
         [TagFilter(typeof(Direction))] public int direction;
+
+        public DataDirection(int direction)
+        {
+            this.direction = direction;
+        }
+        public DataDirection()
+        {
+
+        }
         public void Dispose(){}
     }
 }
