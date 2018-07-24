@@ -91,15 +91,15 @@ class CarManager : ManagerBase
     }
     void SetLight(Car car)
     {
-        switch (car.Direction)
-        {
-            case Direction.Left:
-                CarInctanceLight(car, new Vector3(-1.8f, -1.16f, 5.3f));
-                break;
-            case Direction.Right:
-                CarInctanceLight(car, new Vector3(1.8f, -1.16f, 5.3f));
-                break;
-        }
+        //switch (car.Direction)
+        //{
+        //    case Direction.Left:
+        //        CarInctanceLight(car, new Vector3(-1.8f, -1.16f, 5.3f));
+        //        break;
+        //    case Direction.Right:
+        //        CarInctanceLight(car, new Vector3(1.8f, -1.16f, 5.3f));
+        //        break;
+        //}
     }
     void CarInctanceLight(Car car, Vector3 vector)
     {

@@ -22,7 +22,10 @@ public class RoadSituation
         CoutOfLights = coutOfLights;
         this.posRotLight = posRotLight;
     }
+    public RoadSituation()
+    {
 
+    }
     public int CountOfCars { get; private set; }
     public PositionRotation[] posRotAnimCar { get; private set; }
     public bool VIP { get; private set; }

@@ -11,7 +11,7 @@ namespace BeeFly
     [Serializable]
     public class DataCarSpot : IData
     {
-        public ActorCarSpot carSpot;
+        public ActorSpawnSpotCar carSpot;
 
         public void Dispose()
         {

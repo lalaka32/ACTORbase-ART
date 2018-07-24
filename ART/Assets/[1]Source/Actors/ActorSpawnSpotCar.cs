@@ -8,11 +8,10 @@ using Homebrew;
 
 namespace BeeFly
 {
-    public class ActorCarSpot : Actor
+    public class ActorSpawnSpotCar : Actor
     {
         [FoldoutGroup("Setup")] public List<DataTag> IDs;
         [FoldoutGroup("Setup")] public Direction[] directions;
-        [FoldoutGroup("Setup")] public Position position;
 
         protected override void SetupBehaviors()
         {
@@ -23,15 +22,10 @@ namespace BeeFly
         {
 
             Add(directions);
-            Add(position);
             for (int i = 0; i < IDs.Count; i++)
             {
                 tags.Add(IDs[i].id);
             }
         }
-    }
-    public enum Position
-    {
-        First, Second, Third, Fourth
     }
 }

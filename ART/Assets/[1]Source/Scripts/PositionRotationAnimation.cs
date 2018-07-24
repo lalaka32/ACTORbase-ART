@@ -7,13 +7,13 @@ public class PositionRotation
     public RuntimeAnimatorController Controller { get; set; }
     public Vector3 Position { get;private set; }
     Vector3 Rotation { get; set; }
-    public Position NumberOfPosition { get; private set; }
+    public int NumberOfPosition { get; private set; }
     Vector3 Scale { get; set; }//Нада что-то и со скейлом тут сделать
-    public PositionRotation(Vector3 position, Vector3 rotation, Position numberpos, RuntimeAnimatorController controller) : this(position, rotation, numberpos)
+    public PositionRotation(Vector3 position, Vector3 rotation, int numberpos, RuntimeAnimatorController controller) : this(position, rotation, numberpos)
     {
         Controller = controller;
     }
-    public PositionRotation(Vector3 position, Vector3 rotation, Position numberpos):this(position,rotation)
+    public PositionRotation(Vector3 position, Vector3 rotation, int numberpos):this(position,rotation)
     {
         NumberOfPosition = numberpos;
     }

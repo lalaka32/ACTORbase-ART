@@ -10,19 +10,56 @@ namespace BeeFly
 {
     class ProcessingPositions : ProcessingBase, IReceive<SignalSetComperativePositions>, IReceive<SignalSetCarPosition>, IMustBeWipedOut
     {
-        public DataCarsLocation dataCarsLocation = new DataCarsLocation();
+        public static ProcessingPositions Default;
 
-        [GroupBy(Tag.Cross)]
-        Group cross;
+        public Dictionary<int, DataCarsLocation> dataCarsLocation = new Dictionary<int, DataCarsLocation>();
+
+        public void HandleSignal(SignalSetCarPosition arg)
+        {
+            if (dataCarsLocation.ContainsKey(arg.postion))
+            {
+                dataCarsLocation[arg.postion].SetData(arg.car, arg.trafficLight, arg.trafficSign);
+            }
+            dataCarsLocation.Add(arg.postion, new DataCarsLocation(arg.car,arg.trafficLight,arg.trafficSign));
+        }
 
         public void HandleSignal(SignalSetComperativePositions arg)
         {
             SetPositions();
         }
 
-        public void HandleSignal(SignalSetCarPosition arg)
+        public bool TryGetCar(int position, out Actor car)
         {
-            dataCarsLocation.positions.Add(arg.postion, arg.car);
+            DataCarsLocation roadSpot;
+            if (dataCarsLocation.TryGetValue(position, out roadSpot))
+            {
+                car = roadSpot.car;
+                return true;
+            }
+            car = null;
+            return false;
+        }
+        public bool TryGetTrafiicSign(int position, out TrafficSign sign)
+        {
+            DataCarsLocation roadSpot;
+            if (dataCarsLocation.TryGetValue(position, out roadSpot))
+            {
+                sign = roadSpot.trafficSign;
+                return true;
+            }
+            sign = TrafficSign.Empty;
+            return false;
+        }
+        public bool TryGetTrafficLight(int position, out TrafficLight TL)
+        {
+            DataCarsLocation roadSpot;
+            if (dataCarsLocation.TryGetValue(position, out roadSpot))
+            {
+                TL = roadSpot.trafficLight;
+                return true;
+            }
+            TL = TrafficLight.Empty;
+            return false;
         }
 
         private void SetPositions()
@@ -30,13 +67,9 @@ namespace BeeFly
             int lengthOfCars = DataRoadSituation.MaxCars;
             Actor settingCar;
             Actor comperativeCar;
-            foreach (var item in dataCarsLocation.positions)
-            {
-                Debug.Log("pos" + item.Key + "{}" + "car" + item.Value);
-            }
             for (int iSpot = 0; iSpot < lengthOfCars; iSpot++)
             {
-                if (dataCarsLocation.positions.TryGetValue(iSpot, out settingCar))
+                if (TryGetCar(iSpot, out settingCar))
                 {
                     int comperativePosition = -1;
                     for (int jSpot = 1; jSpot < lengthOfCars; jSpot++)
@@ -49,15 +82,16 @@ namespace BeeFly
                             comperativeIndex -= lengthOfCars;
                         }
 
-                        if (dataCarsLocation.positions.TryGetValue(comperativeIndex, out comperativeCar))
+                        if (TryGetCar(comperativeIndex, out comperativeCar))
                         {
                             settingCar.Get<DataComperativeCars>().comperative.Add(comperativePosition, comperativeCar);
-                            Debug.Log("comperativePosition" + comperativePosition + "---------------- comperativeActor" + comperativeCar.name);
+                            //Debug.Log("comperativePosition" + comperativePosition + "---------------- comperativeActor" + comperativeCar.name);
                         }
                     }
                 }
             }
         }
+
         enum ComperativeLocation
         {
             Right, Front, Left

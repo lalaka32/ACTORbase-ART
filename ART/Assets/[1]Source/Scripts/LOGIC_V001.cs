@@ -11,7 +11,7 @@ public class LOGIC_V001 : MonoBehaviour
     List<GameObject> masVIPs = new List<GameObject>();
     List<GameObject> masGreenCars = new List<GameObject>();
     List<GameObject> masRedCars = new List<GameObject>();
-    public Dictionary<Position, Car> listOfpositions = new Dictionary<Position, Car>();
+    public Dictionary<int, Car> listOfpositions = new Dictionary<int, Car>();
     int nextprior = 0;
     Priority truePlayerPriority;
     //string question;
@@ -109,7 +109,7 @@ public class LOGIC_V001 : MonoBehaviour
             tl1.name = "turner(Clone)-inversed";
             Transform tl2 = ToolBox.Get<TrafficLightManager>().TL[i].transform.Find("turner(Clone)-preinversed");
             tl2.name = "turner(Clone)-inversed";
-            if (ToolBox.Get<TrafficLightManager>().PosTL[(Position)i] == TrafficLight.Green)
+            if (ToolBox.Get<TrafficLightManager>().PosTL[i] == TrafficLight.Green)
             {
                 tl1.GetComponent<Light>().color = Color.red;
                 tl2.GetComponent<Light>().color = Color.red;
@@ -134,18 +134,18 @@ public class LOGIC_V001 : MonoBehaviour
             {
                 for (int i = 0; i < 4; i++)
                 {
-                    if (listOfpositions.ContainsKey((Position)i))
+                    if (listOfpositions.ContainsKey(i))
                     {
-                        if (listOfpositions[(Position)i].tag != "VIP" && listOfpositions[(Position)i].tag != "Player")
+                        if (listOfpositions[i].tag != "VIP" && listOfpositions[i].tag != "Player")
                         {
-                            if (ToolBox.Get<TrafficLightManager>().PosTL[(Position)i] == TrafficLight.Green)
+                            if (ToolBox.Get<TrafficLightManager>().PosTL[i] == TrafficLight.Green)
                             {
-                                masGreenCars.Add(listOfpositions[(Position)i].gameObject);
+                                masGreenCars.Add(listOfpositions[i].gameObject);
                             }
-                            else masRedCars.Add(listOfpositions[(Position)i].gameObject);
+                            else masRedCars.Add(listOfpositions[i].gameObject);
                         }
-                        else if (listOfpositions[(Position)i].tag == "VIP")
-                            masVIPs.Add(listOfpositions[(Position)i].gameObject);
+                        else if (listOfpositions[i].tag == "VIP")
+                            masVIPs.Add(listOfpositions[i].gameObject);
                     }
                 }
             }
@@ -153,17 +153,17 @@ public class LOGIC_V001 : MonoBehaviour
             {
                 for (int i = 0; i < 4; i++)
                 {
-                    if (listOfpositions.ContainsKey((Position)i))
+                    if (listOfpositions.ContainsKey(i))
                     {
-                        if (listOfpositions[(Position)i].tag != "VIP")
+                        if (listOfpositions[i].tag != "VIP")
                         {
-                            if (ToolBox.Get<TrafficLightManager>().PosTL[(Position)i] == TrafficLight.Green)
+                            if (ToolBox.Get<TrafficLightManager>().PosTL[i] == TrafficLight.Green)
                             {
-                                masGreenCars.Add(listOfpositions[(Position)i].gameObject);
+                                masGreenCars.Add(listOfpositions[i].gameObject);
                             }
-                            else masRedCars.Add(listOfpositions[(Position)i].gameObject);
+                            else masRedCars.Add(listOfpositions[i].gameObject);
                         }
-                        else masVIPs.Add(listOfpositions[(Position)i].gameObject);
+                        else masVIPs.Add(listOfpositions[i].gameObject);
                     }
                 }
             }
@@ -183,7 +183,7 @@ public class LOGIC_V001 : MonoBehaviour
             MasCars[i].GetComponent<Car>().SetPriority(comperative, settingCar);
         }
     }
-    Dictionary<ComperativeLocation, Car> GetComperative(Dictionary<Position, Car> listOfPositions, Car settingCar)
+    Dictionary<ComperativeLocation, Car> GetComperative(Dictionary<int, Car> listOfPositions, Car settingCar)
     {
         Car observeCar;
         Dictionary<ComperativeLocation, Car> dicWithСomparative = new Dictionary<ComperativeLocation, Car>();

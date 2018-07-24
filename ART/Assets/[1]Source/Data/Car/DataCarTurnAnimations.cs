@@ -9,7 +9,7 @@ using UnityEngine;
 namespace BeeFly
 {
     [Serializable]
-    class DataCarTurnAnimations : IData,ISetup
+    public class DataCarTurnAnimations : IData,ISetup
     {
         public Animator animatorCarTurn;
         public void Dispose()

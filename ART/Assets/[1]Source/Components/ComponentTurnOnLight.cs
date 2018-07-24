@@ -10,7 +10,7 @@ namespace BeeFly
 {
     class ComponentTurnOnLight :MonoCached
     {
-        private void OnEnable()
+        protected override void HandleEnable()
         {
             GetComponent<Animator>().SetBool("isOn", true);
         }
