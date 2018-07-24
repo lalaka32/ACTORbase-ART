@@ -9,6 +9,9 @@ namespace BeeFly
 {
     class Situations
     {
+        [TagField(categoryName = "Defoult")]
+        public const int None = 0;
+
         [TagField(categoryName = "SignOnly")]
         public const int UnequalRightAngle = 1;
         [TagField(categoryName = "SignOnly")]
@@ -18,5 +21,8 @@ namespace BeeFly
         public const int RegularityRightAngle = 3;
         [TagField(categoryName = "TrafficLightOnly")]
         public const int RegularityRightAngleMirror = 4;
+
+        [TagField(categoryName = "Test")]
+        public const int TestRightHindrence = 5;
     }
 }

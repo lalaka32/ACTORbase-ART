@@ -10,6 +10,8 @@ namespace BeeFly
     public class Direction
     {
         [TagField(categoryName = "Direction")]
+        public const int None = -1;
+        [TagField(categoryName = "Direction")]
         public const int Right = 0;
         [TagField(categoryName = "Direction")]
         public const int Forward = 1;

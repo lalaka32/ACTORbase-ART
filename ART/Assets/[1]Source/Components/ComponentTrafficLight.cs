@@ -19,7 +19,8 @@ namespace BeeFly
         protected override void HandleEnable()
         {
             ProcessingSignals.Default.Add(this);
-            animator = GetComponentInChildren<Animator>();
+            ProcessingDespawn.Default.Add(this);
+            //animator = GetComponentInChildren<Animator>();
         }
     }
 }

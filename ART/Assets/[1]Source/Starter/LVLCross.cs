@@ -20,7 +20,7 @@ namespace BeeFly
             Toolbox.Add<ProcessingSpawn>();
             Toolbox.Add<ProcessingCamera>();
             Toolbox.Add<ProcessingQuiz>();
-            Toolbox.Add<ProcessingDespawn>();
+            ProcessingDespawn.Default =Toolbox.Add<ProcessingDespawn>();
             Toolbox.Add<ProcessingAnimation>();
             ProcessingStaticPositions.Default = Toolbox.Add<ProcessingStaticPositions>();
             ProcessingStaticPositions.Default.staticSituations = factorySituations;
