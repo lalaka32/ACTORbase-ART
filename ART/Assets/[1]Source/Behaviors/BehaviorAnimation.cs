@@ -9,7 +9,7 @@ using UnityEngine;
 namespace BeeFly
 {
     // От BluePrint а пока отказался с целью упрощения
-    class BehaviorAnimation : ActorBehavior, IReceive<SignalPlayCarAnimation>
+    class BehaviorAnimation : ActorBehavior, IReceive<SignalPlayCarAnimation>, IReceive<SignalTurnOffLight>
     {
         [Bind] DataCarTurnAnimations dataCarTurnAnimations;
         [Bind] DataDirection dataDirection;
@@ -18,5 +18,10 @@ namespace BeeFly
         {
             dataCarTurnAnimations.animatorCarTurn.SetInteger("Direction",(int)dataDirection.direction);
         }
+        public void HandleSignal(SignalTurnOffLight arg)
+        {
+
+        }
+
     }
 }
