@@ -8,10 +8,11 @@ using Homebrew;
 
 namespace BeeFly
 {
+    //Убрать
     public class ActorSpawnSpotCar : Actor
     {
         [FoldoutGroup("Setup")] public List<DataTag> IDs;
-        [FoldoutGroup("Setup")] public Direction[] directions;
+
 
         protected override void SetupBehaviors()
         {
@@ -21,7 +22,6 @@ namespace BeeFly
         protected override void SetupData()
         {
 
-            Add(directions);
             for (int i = 0; i < IDs.Count; i++)
             {
                 tags.Add(IDs[i].id);
