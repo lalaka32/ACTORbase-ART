@@ -19,7 +19,7 @@ namespace BeeFly
     {
         public bool car;
         [TagFilter(typeof(ComperativePos))] public int comperativePosition;
-        [TagFilter(typeof(Direction))] public int direction;
+        [TagFilter(typeof(Direction))] public int hisDirection;
         public bool isVIP;
         public TrafficSign hisTrafficSign;
         public TrafficLight hisTrafficLight;
