@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace BeeFly
 {
-    class ProcessingAnimation : ProcessingBase, IMustBeWipedOut, IReceive<SignalPlayCarAnimation>, IReceive<SignalTurnOffLight>
+    class ProcessingAnimation : ProcessingBase, IMustBeWipedOut, IReceive<SignalPlayCarAnimation>
     {
         [GroupBy(Tag.Car)]
         Group cars;
@@ -18,14 +18,6 @@ namespace BeeFly
             foreach (var item in cars.actors)
             {
                 item.signals.Send(new SignalPlayCarAnimation());
-            }
-        }
-
-        public void HandleSignal(SignalTurnOffLight arg)
-        {
-            foreach (var item in cars.actors)
-            {
-                item.signals.Send(new SignalTurnOffLight());
             }
         }
     }

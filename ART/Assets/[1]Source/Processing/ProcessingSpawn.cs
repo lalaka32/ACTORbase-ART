@@ -29,7 +29,7 @@ namespace BeeFly
         }
         void Spawn()
         {
-            var sit = ProcessingStaticPositions.Default.Get(Situations.TestRightHindrence);
+            var sit = ProcessingStaticPositions.Default.Get(Situations.TestForwardNRightLeftHindrance);
             bool hasPlayer = false;
             for (int i = 0; i < sit.Count; i++)
             {
@@ -59,7 +59,7 @@ namespace BeeFly
                     {
                         if (situation.direction.direction==Direction.None)
                         {
-                            SpawnCar(item, item.Get<DataCarSpot>().carSpot.Get<DataDirection>().direction);
+                            SpawnCar(item, item.Get<DataPossibleDirections>().possibleDirections.ReturnRandom().direction);
                         }
                         else
                         {

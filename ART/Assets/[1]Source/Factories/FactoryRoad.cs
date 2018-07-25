@@ -26,9 +26,9 @@ namespace BeeFly
         [SerializeField]
         GameObject prefabOfTurner;
 
-        public void Spawn(Vector3 pos, Quaternion rot, int entityID ,Transform parent = null)
+        public Transform Spawn(Vector3 pos, Quaternion rot, int entityID ,Transform parent = null)
         {
-            Transform obj;
+            Transform obj = null;
             switch (entityID)
             {
                 case Tag.Cross :
@@ -53,6 +53,7 @@ namespace BeeFly
                     obj.parent = parent;
                     break;
             }
+            return obj;
             #region AR
             //if (AR)
             //{

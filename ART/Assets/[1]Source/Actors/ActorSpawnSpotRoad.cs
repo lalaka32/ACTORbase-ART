@@ -13,6 +13,7 @@ namespace BeeFly
         [FoldoutGroup("SpawnSpots")] public DataSignSpot spotOfSign;
         [FoldoutGroup("SpawnSpots")] public DataTrafficLightSpot spotOfTrafficLight;
         [FoldoutGroup("SpawnSpots")] public DataPosition position;
+        [FoldoutGroup("SpawnSpots")] public DataPossibleDirections directions;
 
         protected override void SetupBehaviors()
         {
@@ -25,6 +26,7 @@ namespace BeeFly
             Add(spotOfCar);
             Add(spotOfSign);
             Add(spotOfTrafficLight);
+            Add(directions);
 
             tags.Add(Tag.SpawnSpotsRoad);
         }

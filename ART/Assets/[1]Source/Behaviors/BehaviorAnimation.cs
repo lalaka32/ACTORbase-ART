@@ -20,7 +20,13 @@ namespace BeeFly
         }
         public void HandleSignal(SignalTurnOffLight arg)
         {
+            List<Transform> Turners = actor.Get<BehaviorTurnOnLight>().Turners;
 
+            foreach (var turner in Turners)
+            {
+                turner.GetComponent<Animator>().SetBool("Isturneroff", true);
+            }
+            //actor.selfTransform.Find("AbstractBody/PointMain/turner(Clone)").GetComponent<Animator>().SetBool("Isturneroff", true);
         }
 
     }

@@ -21,7 +21,7 @@ namespace BeeFly
             ProcessingSignals.Default.Send(new SignalInitialSpawn());
             ProcessingSignals.Default.Send(new SignalSetCamera());
             ProcessingSignals.Default.Send(new SignalSetComperativePositions());
-            Homebrew.Timer.Add(1f, () => ProcessingSignals.Default.Send(new SignalSetPriority()));
+            Homebrew.Timer.Add(0.25f, () => ProcessingSignals.Default.Send(new SignalSetPriority()));
         }
         public void HandleSignal(SignalRespawn arg)
         {
@@ -31,7 +31,7 @@ namespace BeeFly
             ProcessingSignals.Default.Send(new SignalSetCamera());
             ProcessingSignals.Default.Send(new SignalNextRound());
             ProcessingSignals.Default.Send(new SignalSetComperativePositions());
-            Homebrew.Timer.Add(1f, () => ProcessingSignals.Default.Send(new SignalSetPriority()));
+            Homebrew.Timer.Add(0.25f, () => ProcessingSignals.Default.Send(new SignalSetPriority()));
         }
     }
 }
