@@ -16,11 +16,11 @@ namespace BeeFly
         [GroupBy(Tag.Car)]
         Group cars;
 
-        public List<FactoryRules> RulesForQvalent;
+        public RulesForCross RulesForQvalent;
 
-        public List<FactoryRules> RulesForUnQvalent;
+        public RulesForCross RulesForUnQvalent;
 
-        public List<FactoryRules> RulesForRegularity;
+        public RulesForCross RulesForRegularity;
 
         public void HandleSignal(SignalSetPriority arg)
         {
@@ -28,83 +28,79 @@ namespace BeeFly
             {
                 //car.signals.Send(new SignalSetPriority());
 
-                foreach (var rule in RulesForQvalent)
+                foreach (var rule in RulesForQvalent.SelectRules(car.Get<DataDirection>().direction))
                 {
-                    bool valid = Validation(car, rule);
+                    bool valid = ValidationRule(car, rule);
                     IncrementPrioriry(car, valid);
-                    Debug.Log(valid);
+                    //Debug.Log(valid + rule.name);
                 }
-                Debug.Log(car.Get<DataPriority>().priority + "POs" + car.name);
+                Debug.Log("Pri:" + car.Get<DataPriority>().priority + " POs: " + car.name);
             }
 
         }
-        bool Validation(Actor settingCar, FactoryRules rule)
+        bool ValidationRule(Actor settingCar, FactoryRules rule)
         {
             bool validation = false;
             var settingComperative = settingCar.Get<DataComperativeCars>().comperative;
 
             #endregion
 
-
-
-
-
-
             foreach (Condition condition in rule.conditions)
             {
-                if (condition.car)
+                validation = ValidationCondition(condition, settingComperative);
+                if (!validation)
+                    break;
+            }
+            return validation;
+
+            #region Down
+        }
+
+        bool ValidationCondition(Condition condition, Dictionary<int, Actor> settingComperative)
+        {
+
+            Actor observeCar;
+            bool validation;
+            settingComperative.TryGetValue(condition.comperativePosition, out observeCar);
+            if (condition.car)
+            {
+                if (observeCar != null)
                 {
-                    Actor observeCar;
-                    if (settingComperative.TryGetValue(condition.comperativePosition, out observeCar))
+                    if (condition.hisDirection == Direction.None)
                     {
-                        if (condition.hisDirection == Direction.None)
+                        validation = true;
+                    }
+                    else
+                    {
+                        if (observeCar.Get<DataDirection>().direction == condition.hisDirection)
                         {
                             validation = true;
                         }
                         else
                         {
-                            if (observeCar.Get<DataDirection>().direction == condition.hisDirection)
-                            {
-                                validation = true;
-                            }
-                            else
-                            {
-                                validation = false;
-                            }
+                            validation = false;
                         }
-                    }
-                    else
-                    {
-                        validation = false;
                     }
                 }
                 else
                 {
+                    validation = false;
+                }
+            }
+            else
+            {
+                if (observeCar == null)
+                {
                     validation = true;
+                }
+                else
+                {
+                    validation = false;
                 }
             }
             return validation;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            #region Down
         }
+
         void IncrementPrioriry(Actor settingCar, bool Validation = true)
         {
             if (Validation)
@@ -112,6 +108,7 @@ namespace BeeFly
                 settingCar.Get<DataPriority>().priority++;
             }
         }
+
     }
 }
 

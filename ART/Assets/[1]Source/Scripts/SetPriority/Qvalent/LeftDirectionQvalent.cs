@@ -13,19 +13,19 @@ namespace BeeFly
 
             if (comperative.comperative.TryGetValue(ComperativePos.Right, out observeCar))
             {
-                settingCar.Get<DataPriority>().priority++;
+                settingCar.Get<DataPriority>().priority++;//+[0]
                 if (observeCar.Get<DataDirection>().direction == Direction.Forward)
                 {
                     if (comperative.comperative.TryGetValue(ComperativePos.Front, out observeCar))
                     {
-                        settingCar.Get<DataPriority>().priority++;
+                        settingCar.Get<DataPriority>().priority++;//+[1]
                     }
                 }
                 else if (observeCar.Get<DataDirection>().direction == Direction.Left)
                 {
                     if (comperative.comperative.TryGetValue(ComperativePos.Front, out observeCar))
                     {
-                        settingCar.Get<DataPriority>().priority++;
+                        settingCar.Get<DataPriority>().priority++;//+[2]
                     }
                     else
                     {
@@ -33,7 +33,7 @@ namespace BeeFly
                         {
                             if (observeCar.Get<DataDirection>().direction == Direction.Right)
                             {
-                                settingCar.Get<DataPriority>().priority++;
+                                settingCar.Get<DataPriority>().priority++;//+[3]
                             }
                         }
                     }
@@ -43,13 +43,13 @@ namespace BeeFly
             {
                 if (observeCar.Get<DataDirection>().direction == Direction.Right)
                 {
-                    settingCar.Get<DataPriority>().priority++;
+                    settingCar.Get<DataPriority>().priority++;//+[4]
                 }
                 else if (observeCar.Get<DataDirection>().direction == Direction.Forward)
                 {
                     if (!comperative.comperative.TryGetValue(ComperativePos.Left, out observeCar))
                     {
-                        settingCar.Get<DataPriority>().priority++;
+                        settingCar.Get<DataPriority>().priority++;//+[5]
                     }
                 }
             }

@@ -16,26 +16,26 @@ namespace BeeFly
             
             if (comperative.comperative.TryGetValue(ComperativePos.Right, out observeCar))
             {
-                settingCar.Get<DataPriority>().priority++;
+                settingCar.Get<DataPriority>().priority++;//+tested[0]
 
                 if (observeCar.Get<DataDirection>().direction == Direction.Forward)
                 {
                     if (comperative.comperative.TryGetValue(ComperativePos.Front, out observeCar))
                     {
-                        settingCar.Get<DataPriority>().priority++;
+                        settingCar.Get<DataPriority>().priority++;//+tested[1]
                     }
                 }
                 else if (observeCar.Get<DataDirection>().direction == Direction.Left)
                 {
                     if (comperative.comperative.TryGetValue(ComperativePos.Front, out observeCar))
                     {
-                        settingCar.Get<DataPriority>().priority++;
+                        settingCar.Get<DataPriority>().priority++;//+tested[2]
                     }
                     else if (comperative.comperative.TryGetValue(ComperativePos.Left, out observeCar))
                     {
                         if (observeCar.Get<DataDirection>().direction == Direction.Right)
                         {
-                            settingCar.Get<DataPriority>().priority++;
+                            settingCar.Get<DataPriority>().priority++;//+tested[3]
                         }
                     }
                 }

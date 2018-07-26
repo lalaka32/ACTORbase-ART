@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6438220ffdce854986f01e36a4bc6be, type: 3}
-  m_Name: FrontNRightLeft
+  m_Name: '[2]RightLeftNFront'
   m_EditorClassIdentifier: 
-  tagRule: 4
+  tagRule: 0
   conditions:
   - car: 1
     comperativePosition: 0

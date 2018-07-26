@@ -10,13 +10,13 @@ namespace BeeFly
     [Serializable]
     class LVLCross :Homebrew.Starter
     {
-        [FoldoutGroup("SetupData")] public List<FactorySituation> factorySituations;
+        [FoldoutGroup("SetupRoad")] public List<FactorySituation> factorySituations;
 
-        [FoldoutGroup("SetupData")] public List<FactoryRules> Rules4Qvalent;
+        [FoldoutGroup("SetupRoad")] public RulesForCross Rules4Qvalent;
 
-        [FoldoutGroup("SetupData")] public List<FactoryRules> Rules4UnQvalent;
+        [FoldoutGroup("SetupRoad")] public RulesForCross Rules4UnQvalent;
 
-        [FoldoutGroup("SetupData")] public List<FactoryRules> Rules4Regularity;
+        [FoldoutGroup("SetupRoad")] public RulesForCross Rules4Regularity;
 
         protected override void Setup()
         {

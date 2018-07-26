@@ -25,6 +25,7 @@ namespace BeeFly
         {
             GameObject cam = GameObject.Find("[KERNEL]/Cameras/camera_main");
             Vector3 backVector = transSneaking.forward * vector3.x;
+            backVector.y += vector3.y;
             cam.transform.position = transSneaking.position + backVector;
             cam.transform.rotation = transSneaking.rotation;
         }

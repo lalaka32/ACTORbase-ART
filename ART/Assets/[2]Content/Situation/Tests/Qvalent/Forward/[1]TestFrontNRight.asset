@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac27c4814956ca2408f6397b4038c868, type: 3}
-  m_Name: TestRightNFrontLeft
+  m_Name: '[1]TestFrontNRight'
   m_EditorClassIdentifier: 
   tagSituation: 7
   Cases:
@@ -18,14 +18,14 @@ MonoBehaviour:
     position: 0
     car: 1
     direction:
-      direction: 1
+      direction: 0
     player: 1
   - trafficLight: 0
     trafficSign: 2
     position: 1
     car: 1
     direction:
-      direction: 2
+      direction: 1
     player: 0
   - trafficLight: 0
     trafficSign: 2

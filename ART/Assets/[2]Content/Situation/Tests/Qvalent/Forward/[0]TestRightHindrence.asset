@@ -9,19 +9,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac27c4814956ca2408f6397b4038c868, type: 3}
-  m_Name: UnequalRightAngleMirror
+  m_Name: '[0]TestRightHindrence'
   m_EditorClassIdentifier: 
-  tagSituation: 2
+  tagSituation: 5
   Cases:
-  - trafficLight: 0
-    trafficSign: 1
+  - trafficLight: 3
+    trafficSign: 2
     position: 0
-  - trafficLight: 0
-    trafficSign: 0
+    car: 1
+    direction:
+      direction: 0
+    player: 0
+  - trafficLight: 3
+    trafficSign: 2
     position: 1
-  - trafficLight: 0
-    trafficSign: 1
-    position: 2
-  - trafficLight: 0
-    trafficSign: 0
-    position: 3
+    car: 1
+    direction:
+      direction: 1
+    player: 0

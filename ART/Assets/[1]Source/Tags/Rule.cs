@@ -21,5 +21,7 @@ namespace BeeFly
         public const int HindranceForwardNRight = 3;
         [TagField(categoryName = "Rule")]
         public const int HindranceForwardNRightLeft = 4;
+        [TagField(categoryName = "Rule")]
+        public const int HindranceRightNLeft = 5;
     }
 }

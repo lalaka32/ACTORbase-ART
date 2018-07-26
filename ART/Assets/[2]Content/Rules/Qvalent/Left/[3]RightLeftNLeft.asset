@@ -9,13 +9,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6438220ffdce854986f01e36a4bc6be, type: 3}
-  m_Name: RightRule
+  m_Name: '[3]RightLeftNLeft'
   m_EditorClassIdentifier: 
-  tagRule: 2
+  tagRule: 0
   conditions:
   - car: 1
     comperativePosition: 0
-    hisDirection: 1
+    hisDirection: 2
     isVIP: 0
     hisTrafficSign: 2
-    hisTrafficLight: 3
+    hisTrafficLight: 0
+  - car: 1
+    comperativePosition: 2
+    hisDirection: 0
+    isVIP: 0
+    hisTrafficSign: 2
+    hisTrafficLight: 0

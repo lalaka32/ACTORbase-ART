@@ -29,26 +29,50 @@ namespace BeeFly
         }
         void Spawn()
         {
-            var sit = ProcessingStaticPositions.Default.Get(Situations.TestForwardNRightLeftHindrance);
+            //SpawnStatic();
+            SpawnRandom(Direction.Left,Direction.Right,Direction.Forward);
+        }
+
+        private void SpawnStatic()
+        {
+            var sit = ProcessingStaticPositions.Default.Get(Situations.TestHotBug);
             bool hasPlayer = false;
             for (int i = 0; i < sit.Count; i++)
             {
                 SpawnStatic(sit[i], ref hasPlayer);
-                //SpawnTL(RoadSpots.actors[i]);
-                //SpawnSign(RoadSpots.actors[i]);
             }
             if (!hasPlayer)
             {
                 SetPlayer(ProcessingPositions.Default.dataCarsLocation.Random().car);
             }
-            //List<Actor> actorShaffled = spawnSpotsRoad.actors.Shaffle();
-            //for (int i = 0; i < Toolbox.Get<DataArtSession>().dataRoadSituation.CountOfCars; i++)
-            //{
-            //    SpawnCars(actorShaffled[i],roadSpot.Get<DataCarSpot>().carSpot.Get<DataDirection>().direction);
-            //}
-            //SetPlayer(ProcessingPositions.Default.dataCarsLocation.Random().car);
-            //SpawnCars();
         }
+
+        private void SpawnRandom(params int[] directions)
+        {
+            List<Actor> actorShaffled = spawnSpotsRoad.actors.Shaffle();
+
+            for (int i = 0; i < Toolbox.Get<DataArtSession>().dataRoadSituation.CountOfCars; i++)
+            {
+                if (directions.Length == 0)
+                {
+                    SpawnCar(actorShaffled[i], spawnSpotsRoad.actors[i].Get<DataPossibleDirections>().possibleDirections.ReturnRandom().direction);
+                }
+                else
+                {
+                    int randDir = directions.Random();
+                    if (randDir == Direction.None)
+                    {
+                        SpawnCar(actorShaffled[i], spawnSpotsRoad.actors[i].Get<DataPossibleDirections>().possibleDirections.ReturnRandom().direction);
+                    }
+                    else
+                    {
+                        SpawnCar(actorShaffled[i], randDir);
+                    }
+                }
+            }
+            SetPlayer(ProcessingPositions.Default.dataCarsLocation.Random().car);
+        }
+
         public void SpawnStatic(Situation situation, ref bool hasPlayer)
         {
             foreach (var item in spawnSpotsRoad.actors)
@@ -57,7 +81,7 @@ namespace BeeFly
                 {
                     if (situation.car)
                     {
-                        if (situation.direction.direction==Direction.None)
+                        if (situation.direction.direction == Direction.None)
                         {
                             SpawnCar(item, item.Get<DataPossibleDirections>().possibleDirections.ReturnRandom().direction);
                         }
@@ -100,7 +124,7 @@ namespace BeeFly
                     }
                 }
             }
-            
+
         }
 
         void SpawnTL(Actor roadSpot)
@@ -120,10 +144,10 @@ namespace BeeFly
             Toolbox.Get<FactoryRoad>().Spawn(signSpot.position, signSpot.rotation, Tag.SignSecondary, cross.actors[0].transform.Find("Signs"));
         }
 
-        void SpawnCar(Actor roadSpot,int direction)
+        void SpawnCar(Actor roadSpot, int direction)
         {
             var carSpot = roadSpot.Get<DataCarSpot>().carSpot;
-            var car = Toolbox.Get<FactoryCar>().SpawnCar(carSpot.selfTransform.position, carSpot.selfTransform.rotation,cross.actors[0].selfTransform,direction);
+            var car = Toolbox.Get<FactoryCar>().SpawnCar(carSpot.selfTransform.position, carSpot.selfTransform.rotation, cross.actors[0].selfTransform, direction);
             car.name = (roadSpot.Get<DataPosition>().position).ToString();
             ProcessingSignals.Default.Send(new SignalSetCarPosition(roadSpot.Get<DataPosition>().position, car.GetComponent<ActorCar>()));
         }
