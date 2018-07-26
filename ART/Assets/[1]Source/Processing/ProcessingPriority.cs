@@ -70,12 +70,14 @@ namespace BeeFly
                             else
                             {
                                 validation = false;
+                                break;
                             }
                         }
                     }
                     else
                     {
                         validation = false;
+                        break;
                     }
                 }
                 else

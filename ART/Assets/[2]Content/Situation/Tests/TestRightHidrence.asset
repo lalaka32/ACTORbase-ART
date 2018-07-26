@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagSituation: 5
   Cases:
-  - trafficLight: 3
+  - trafficLight: 0
     trafficSign: 2
     position: 0
     car: 1
@@ -22,7 +22,7 @@ MonoBehaviour:
     player: 0
   - trafficLight: 3
     trafficSign: 2
-    position: 1
+    position: 2
     car: 1
     direction:
       direction: 1
