@@ -15,7 +15,7 @@ namespace BeeFly
         [FoldoutGroup("Setup")] public DataDirection dataDirection;
         [FoldoutGroup("Setup")] public DataTurnerPositions dataTurnerPositions;
         [FoldoutGroup("Setup")] public DataCarTurnAnimations dataCarTurnAnimations;
-        public DataComperativeCars dataComperativeCars;
+        [FoldoutGroup("Setup")] public DataComperativeCars dataComperativeCars;
 
         protected override void OnBeforeDestroy()
         {
@@ -38,6 +38,15 @@ namespace BeeFly
             Add<BehaviorPriority>();
             Add<BehaviorTurnOnLight>();
             Add<BehaviorAnimation>();
+            Add<BehaviorCarViewPriority>();
+            //Homebrew.Timer.Add(0.25f, () => AddDebug());
         }
+        //void AddDebug()
+        //{
+        //    if (Toolbox.Get<DataScene>().debugMode)
+        //    {
+        //        Add<BehaviorCarViewPriority>();
+        //    }
+        //}
     }
 }

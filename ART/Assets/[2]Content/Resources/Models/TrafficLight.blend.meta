@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: 4ddc5d004a1320f41bc5d33268313e0f
-timeCreated: 1528835002
-licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -25,6 +23,7 @@ ModelImporter:
     4300004: Cube_001
     7400000: Default Take
     9500000: //RootNode
+    2186277476908879412: ImportLogs
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -49,6 +48,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5

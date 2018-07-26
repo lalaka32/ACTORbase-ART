@@ -16,5 +16,6 @@ namespace Homebrew
 	public class DataScene : ScriptableObject
 	{
 		public string sceneName;
+        public bool debugMode;
 	}
 }
