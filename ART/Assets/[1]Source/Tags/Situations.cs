@@ -28,5 +28,10 @@ namespace BeeFly
         public const int TestRightNFrontHindrence = 6;
         [TagField(categoryName = "Test")]
         public const int TestForwardNRightLeftHindrance = 7;
+        [TagField(categoryName = "Test")]
+        public const int TestRightNLeftHindrance = 8;
+
+        [TagField(categoryName = "Test")]
+        public const int TestHotBug = 1000;
     }
 }

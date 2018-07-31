@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8527801e92f619f4ab57b957570e7b38, type: 3}
   m_Name: FactoryCar
   m_EditorClassIdentifier: 
-  prefabOfCar: {fileID: 1532408224611994, guid: 4a4ab75f78575af41b4a2a856e887c62,
+  prefabOfCar: {fileID: 1899696430653444, guid: 4a4ab75f78575af41b4a2a856e887c62,
     type: 2}

@@ -7,26 +7,32 @@ using Homebrew;
 
 namespace BeeFly
 {
-    [Serializable]
     class LVLCross :Homebrew.Starter
     {
-        [FoldoutGroup("SetupData")] public List<FactorySituation> factorySituations;
+        [FoldoutGroup("SetupRoad")] public List<FactorySituation> factorySituations;
 
-        [FoldoutGroup("SetupData")] public List<FactoryRules> Rules4Qvalent;
+        [FoldoutGroup("SetupRoad")] public RulesForCross Rules4Qvalent;
 
-        [FoldoutGroup("SetupData")] public List<FactoryRules> Rules4UnQvalent;
+        [FoldoutGroup("SetupRoad")] public RulesForCross Rules4UnQvalent;
 
-        [FoldoutGroup("SetupData")] public List<FactoryRules> Rules4Regularity;
+        [FoldoutGroup("SetupRoad")] public RulesForCross Rules4Regularity;
+
+        [FoldoutGroup("SetupData")] public List<DataGame> DatesGame = new List<DataGame>();
 
         protected override void Setup()
         {
-            Toolbox.Add<DataArtSession>();
+            for (int i = 0; i < DatesGame.Count; i++)
+            {
+                Toolbox.Add(DatesGame[i]);
+            }
+            
             Toolbox.Add<ProcessingRoadData>();
             Toolbox.Add<ProcessingPriority>();
             Toolbox.Add<ProcessingSpawn>();
             Toolbox.Add<ProcessingCamera>();
             Toolbox.Add<ProcessingQuiz>();
             Toolbox.Add<ProcessingAnimation>();
+            Toolbox.Add<ProcessingGeneratorSituations>();
 
             ProcessingPositions.Default = Toolbox.Add<ProcessingPositions>();
             ProcessingDespawn.Default = Toolbox.Add<ProcessingDespawn>();

@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Homebrew;
+using UnityEngine;
 
 namespace BeeFly
 {
@@ -23,6 +23,10 @@ namespace BeeFly
                 }
             }
             return null;
+        }
+        public List<Situation> GetRandom(params int[] tags)
+        {
+            return Get(tags[Random.Range(0, tags.Length)]);
         }
     }
 }

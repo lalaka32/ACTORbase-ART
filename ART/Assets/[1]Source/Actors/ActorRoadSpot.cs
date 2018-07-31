@@ -11,6 +11,7 @@ namespace BeeFly
     class ActorRoadSpot : Actor
     {
 
+
         protected override void SetupBehaviors()
         {
             

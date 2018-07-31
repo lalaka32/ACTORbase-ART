@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Name: data_sceneKernel
   m_EditorClassIdentifier: 
   sceneName: sceneKernel
+  debugMode: 0
