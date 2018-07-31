@@ -21,9 +21,27 @@ namespace BeeFly
         public TrafficLight trafficLight = TrafficLight.Empty;
         public TrafficSign trafficSign = TrafficSign.Empty;
         [TagFilter(typeof(Position))] public int position = Position.First;
+
         public bool car = false;
         public DataDirection direction = new DataDirection(Direction.None);
         // public bool VIP;
         public bool player = false;
+
+        public ActorCar actorCar;
+
+        internal void SetRoadData(ActorCar car, TrafficLight trafficLight, TrafficSign trafficSign)
+        {
+
+        }
+
+        public Situation(ActorCar actorCar = null, TrafficLight trafficLight = TrafficLight.Empty, TrafficSign trafficSign = TrafficSign.Empty , int position = Position.First, DataDirection direction = null , bool car = false,  bool player = false)
+        {
+            this.trafficLight = trafficLight;
+            this.trafficSign = trafficSign;
+            this.position = position;
+            this.car = car;
+            this.direction = direction;
+            this.player = player;
+        }
     }
 }

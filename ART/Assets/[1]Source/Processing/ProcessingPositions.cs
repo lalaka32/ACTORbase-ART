@@ -8,65 +8,107 @@ using UnityEngine;
 
 namespace BeeFly
 {
-    class ProcessingPositions : ProcessingBase, IReceive<SignalSetComperativePositions>, IReceive<SignalSetCarPosition>, IMustBeWipedOut
+    class ProcessingPositions : ProcessingBase, IReceive<SignalSetComperativePositions>,  IReceive<SignalSetSituations>, IMustBeWipedOut
     {
         public static ProcessingPositions Default;
 
-        public Dictionary<int, DataCarsLocation> dataCarsLocation = new Dictionary<int, DataCarsLocation>();
-
-        public void HandleSignal(SignalSetCarPosition arg)
-        {
-            if (dataCarsLocation.ContainsKey(arg.postion))
-            {
-                dataCarsLocation[arg.postion].SetData(arg.car, arg.trafficLight, arg.trafficSign);
-            }
-            dataCarsLocation.Add(arg.postion, new DataCarsLocation(arg.car,arg.trafficLight,arg.trafficSign));
-        }
+        public Dictionary<int, Situation> dataCarsLocation = new Dictionary<int, Situation>();
 
         public void HandleSignal(SignalSetComperativePositions arg)
         {
-            SetPositions();
+            SetComperativePositions();
         }
 
-        public bool TryGetCar(int position, out Actor car)
+        public void HandleSignal(SignalSetSituations arg)
         {
-            DataCarsLocation roadSpot;
+            foreach (var item in arg.situations)
+            {
+                AddSituation(item);
+            }
+        }
+        public Situation AddSituation(Situation arg)
+        {
+            Situation situation;
+
+            if (dataCarsLocation.TryGetValue(arg.position, out situation))
+            {
+                situation = arg;
+            }
+            else
+            {
+                dataCarsLocation.Add(arg.position, arg);
+            }
+            return arg;
+        }
+
+        #region TryGet
+
+        public bool TryGetCar(int position, out ActorCar car)
+        {
+            Situation roadSpot;
             if (dataCarsLocation.TryGetValue(position, out roadSpot))
             {
-                car = roadSpot.car;
-                return true;
+                car = roadSpot.actorCar;
+                if (car != null)
+                {
+                    return true;
+                }
             }
             car = null;
             return false;
         }
+
         public bool TryGetTrafiicSign(int position, out TrafficSign sign)
         {
-            DataCarsLocation roadSpot;
+            Situation roadSpot;
             if (dataCarsLocation.TryGetValue(position, out roadSpot))
             {
                 sign = roadSpot.trafficSign;
-                return true;
+                if (sign != TrafficSign.Empty)
+                {
+                    return true;
+                }
             }
             sign = TrafficSign.Empty;
             return false;
         }
+
         public bool TryGetTrafficLight(int position, out TrafficLight TL)
         {
-            DataCarsLocation roadSpot;
+            Situation roadSpot;
             if (dataCarsLocation.TryGetValue(position, out roadSpot))
             {
                 TL = roadSpot.trafficLight;
-                return true;
+                if (TL != TrafficLight.Empty)
+                {
+                    return true;
+                }
             }
             TL = TrafficLight.Empty;
             return false;
         }
 
-        private void SetPositions()
+        public bool TryGetPlayer(out ActorCar playerCar)
         {
-            int lengthOfCars = DataRoadSituation.MaxCars;
-            Actor settingCar;
-            Actor comperativeCar;
+            foreach (var item in dataCarsLocation)
+            {
+                if (item.Value.player)
+                {
+                    playerCar = item.Value.actorCar;
+                    return true;
+                }
+            }
+            playerCar = null;
+            return false;
+        }
+
+        #endregion
+
+        private void SetComperativePositions()
+        {
+            int lengthOfCars = Toolbox.Get<DataArtSession>().MaxCars;
+            ActorCar settingCar;
+            ActorCar comperativeCar;
             for (int iSpot = 0; iSpot < lengthOfCars; iSpot++)
             {
                 if (TryGetCar(iSpot, out settingCar))
@@ -81,7 +123,6 @@ namespace BeeFly
                         {
                             comperativeIndex -= lengthOfCars;
                         }
-
                         if (TryGetCar(comperativeIndex, out comperativeCar))
                         {
                             settingCar.Get<DataComperativeCars>().comperative.Add(comperativePosition, comperativeCar);
@@ -90,11 +131,6 @@ namespace BeeFly
                     }
                 }
             }
-        }
-
-        enum ComperativeLocation
-        {
-            Right, Front, Left
         }
     }
 }

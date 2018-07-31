@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac27c4814956ca2408f6397b4038c868, type: 3}
   m_Name: RegularityRightAngleMirror
   m_EditorClassIdentifier: 
-  tagSituation: 3
+  tagSituation: 4
   Cases:
   - trafficLight: 2
     trafficSign: 2

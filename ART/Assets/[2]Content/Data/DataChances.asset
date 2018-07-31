@@ -8,8 +8,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8527801e92f619f4ab57b957570e7b38, type: 3}
-  m_Name: FactoryCar
+  m_Script: {fileID: 11500000, guid: 68081a99962a5434385aed499d05beed, type: 3}
+  m_Name: DataChances
   m_EditorClassIdentifier: 
-  prefabOfCar: {fileID: 1899696430653444, guid: 4a4ab75f78575af41b4a2a856e887c62,
-    type: 2}
+  chanceOfQvalent: 33
+  chanceOfUnQvalent: 33
+  chanceOfRegularity: 33
+  defaultType: 0
+  MinToRandom: 2
+  MaxToRandom: 4

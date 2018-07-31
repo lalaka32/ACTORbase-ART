@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace BeeFly
 {
-    struct SignalSpawnCars
+    struct SignalSetCrossData
     {
     }
 }

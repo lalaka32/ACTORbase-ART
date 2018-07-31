@@ -7,7 +7,6 @@ using Homebrew;
 
 namespace BeeFly
 {
-    [Serializable]
     class LVLCross :Homebrew.Starter
     {
         [FoldoutGroup("SetupRoad")] public List<FactorySituation> factorySituations;
@@ -18,15 +17,22 @@ namespace BeeFly
 
         [FoldoutGroup("SetupRoad")] public RulesForCross Rules4Regularity;
 
+        [FoldoutGroup("SetupData")] public List<DataGame> DatesGame = new List<DataGame>();
+
         protected override void Setup()
         {
-            Toolbox.Add<DataArtSession>();
+            for (int i = 0; i < DatesGame.Count; i++)
+            {
+                Toolbox.Add(DatesGame[i]);
+            }
+            
             Toolbox.Add<ProcessingRoadData>();
             Toolbox.Add<ProcessingPriority>();
             Toolbox.Add<ProcessingSpawn>();
             Toolbox.Add<ProcessingCamera>();
             Toolbox.Add<ProcessingQuiz>();
             Toolbox.Add<ProcessingAnimation>();
+            Toolbox.Add<ProcessingGeneratorSituations>();
 
             ProcessingPositions.Default = Toolbox.Add<ProcessingPositions>();
             ProcessingDespawn.Default = Toolbox.Add<ProcessingDespawn>();

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Vuforia;
+//using Vuforia;
 
-public class InstantceParticular : MonoBehaviour, ITrackableEventHandler{
-    private TrackableBehaviour mTrackableBehaviour;
+public class InstantceParticular : MonoBehaviour /*ITrackableEventHandler*/{
+    //private TrackableBehaviour mTrackableBehaviour;
     public Timer timer;
     // Use this for initialization
     void Start ()
@@ -14,11 +14,11 @@ public class InstantceParticular : MonoBehaviour, ITrackableEventHandler{
         ToolBox.Get<CrossManager>().SetCrossGO(ToolBox.Get<SettingsPlayer>().ARCamera);
         if (ToolBox.Get<SettingsPlayer>().ARCamera)
         {
-            mTrackableBehaviour = ToolBox.Get<CrossManager>().Cross.GetComponent<TrackableBehaviour>();
-            if (mTrackableBehaviour)
-            {
-                mTrackableBehaviour.RegisterTrackableEventHandler(this);
-            }
+            //mTrackableBehaviour = ToolBox.Get<CrossManager>().Cross.GetComponent<TrackableBehaviour>();
+            //if (mTrackableBehaviour)
+            //{
+            //    mTrackableBehaviour.RegisterTrackableEventHandler(this);
+            //}
         }
         else
         {
@@ -62,25 +62,25 @@ public class InstantceParticular : MonoBehaviour, ITrackableEventHandler{
         }
     }
 
-    public void OnTrackableStateChanged(TrackableBehaviour.Status previousStatus, TrackableBehaviour.Status newStatus)
-    {
-        ToolBox.Get<CrossManager>().setAngles();
-        if (newStatus == TrackableBehaviour.Status.DETECTED ||
-        newStatus == TrackableBehaviour.Status.TRACKED ||
-        newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
-        {
-            ToolBox.Get<UIManager>().SetAnsverButtons();
-            InctanceRoadSituation();
-        }
-        else if (previousStatus == TrackableBehaviour.Status.DETECTED ||
-        previousStatus == TrackableBehaviour.Status.TRACKED ||
-        previousStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
-        {
-            ToolBox.Get<UIManager>().ClearPrefab();
-            ToolBox.Get<SignManager>().ClearSigns();
-            ToolBox.Get<CarManager>().Clear();
-            ToolBox.Get<TrafficLightManager>().Clear();
-            timer.Stop();
-        }
-    }
+    //public void OnTrackableStateChanged(TrackableBehaviour.Status previousStatus, TrackableBehaviour.Status newStatus)
+    //{
+    //    ToolBox.Get<CrossManager>().setAngles();
+    //    if (newStatus == TrackableBehaviour.Status.DETECTED ||
+    //    newStatus == TrackableBehaviour.Status.TRACKED ||
+    //    newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
+    //    {
+    //        ToolBox.Get<UIManager>().SetAnsverButtons();
+    //        InctanceRoadSituation();
+    //    }
+    //    else if (previousStatus == TrackableBehaviour.Status.DETECTED ||
+    //    previousStatus == TrackableBehaviour.Status.TRACKED ||
+    //    previousStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
+    //    {
+    //        ToolBox.Get<UIManager>().ClearPrefab();
+    //        ToolBox.Get<SignManager>().ClearSigns();
+    //        ToolBox.Get<CarManager>().Clear();
+    //        ToolBox.Get<TrafficLightManager>().Clear();
+    //        timer.Stop();
+    //    }
+    //}
 }

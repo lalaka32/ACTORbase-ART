@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Name: data_Cross
   m_EditorClassIdentifier: 
   sceneName: Cross
+  debugMode: 0

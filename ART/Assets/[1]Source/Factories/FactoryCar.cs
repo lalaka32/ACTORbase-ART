@@ -14,26 +14,15 @@ namespace BeeFly
         [SerializeField]
         GameObject prefabOfCar;
 
-        public List<Transform> Cars { get; private set; } = new List<Transform>();
 
-        public Transform SpawnCar(Vector3 pos, Quaternion rot, Transform parent, int direction)
+        public Transform SpawnCar(Vector3 pos, Quaternion rot, Transform parent)
         {
             var transformCar = this.Populate(Pool.None, prefabOfCar, pos, rot);
-            ActorCar actorCar = transformCar.GetComponent<ActorCar>();
             transformCar.parent = parent;
-            Cars.Add(transformCar);
-            SetCarWithRandomData(actorCar, direction);
             //бля не ебу поч тут нада делать таймер
-            Homebrew.Timer.Add(0.1f, () => actorCar.signals.Send(new SignalSetLights()));
             return transformCar;
         }
 
 
-        public void SetCarWithRandomData(ActorCar actorCar, int direction)
-        {
-            //Direction rand = directions.Random();
-
-            actorCar.dataDirection.direction = direction;
-        }
     }
 }

@@ -1,5 +1,4 @@
-﻿#region Up
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,8 +42,6 @@ namespace BeeFly
             bool validation = false;
             var settingComperative = settingCar.Get<DataComperativeCars>().comperative;
 
-            #endregion
-
             foreach (Condition condition in rule.conditions)
             {
                 validation = ValidationCondition(condition, settingComperative);
@@ -53,7 +50,6 @@ namespace BeeFly
             }
             return validation;
 
-            #region Down
         }
 
         bool ValidationCondition(Condition condition, Dictionary<int, Actor> settingComperative)
@@ -111,5 +107,3 @@ namespace BeeFly
 
     }
 }
-
-#endregion

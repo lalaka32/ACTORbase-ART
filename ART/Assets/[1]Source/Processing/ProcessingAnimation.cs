@@ -15,10 +15,26 @@ namespace BeeFly
         //Пока не работет GlobalRecive на поведениях
         public void HandleSignal(SignalPlayCarAnimation arg)
         {
-            foreach (var item in cars.actors)
+            int maxPriority = 0;
+            for (int iCar = 0; iCar < cars.length; iCar++)
             {
-                item.signals.Send(new SignalPlayCarAnimation());
+                if (cars.actors[iCar].Get<DataPriority>().priority> maxPriority)
+                {
+                    maxPriority = cars.actors[iCar].Get<DataPriority>().priority;
+                }
+            }
+            for (int iPriority = 0; iPriority <= maxPriority; iPriority++)
+            {
+                for (int iCar = 0; iCar < cars.length; iCar++)
+                {
+                    if (cars.actors[iCar].Get<DataPriority>().priority == iPriority)
+                    {
+                         cars.actors[iPriority].signals.Send(new SignalPlayCarAnimation());
+                    }
+                }
+                
             }
         }
+        
     }
 }

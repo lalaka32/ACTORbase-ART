@@ -21,7 +21,7 @@ namespace BeeFly
             itemsToKill.Add(monoCached);
         }
         
-        public void killALL()
+        public void KillALL()
         {
             foreach (var item in itemsToKill)
             {
@@ -35,9 +35,13 @@ namespace BeeFly
             {
                 car.signals.Send(new SignalKillCar());
             }
+            foreach (var item in itemsToKill)
+            {
+                item.HandleDestroyGO();
+            }
             ProcessingPositions.Default.dataCarsLocation.Clear();
         }
-        void killGroup(List<Actor> group)
+        void KillGroup(List<Actor> group)
         {
             foreach (var item in group)
             {

@@ -2342,6 +2342,9 @@ MonoBehaviour:
     rulesLeftDirection: []
     rulesForwardDirection: []
     rulesRightDirection: []
+  DatesGame:
+  - {fileID: 11400000, guid: 1836f00de8fc9b545a91c9d4486bcd05, type: 2}
+  - {fileID: 11400000, guid: 8a60e33ef73b474488ad62442c2a2e13, type: 2}
 --- !u!114 &1871787043
 MonoBehaviour:
   m_ObjectHideFlags: 0

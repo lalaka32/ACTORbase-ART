@@ -9,32 +9,24 @@ using Random = UnityEngine.Random;
 
 namespace BeeFly
 {
-    [CreateAssetMenu(fileName = "DataGameSession", menuName = "Data/DataGameSession")]
+    [CreateAssetMenu(fileName = "DataARTSession", menuName = "Data/DataARTSession")]
     public class DataArtSession : DataGame
     {
-        public DataRoadSituation dataRoadSituation;
         public int NumberOfQuestion { get; set; }
-        public void SetRoadData()
+        public List<Situation> CrossSituation;
+        public int MaxCars = 4;
+        [TagFilter(typeof(TypeOfCross))] public int typeOfCross;
+        public int countOfCars;
+
+        public void SetRoadData(int typeOfCross,int countOfCars)
         {
-            dataRoadSituation = new DataRoadSituation();
-            dataRoadSituation.CountOfCars = Random.Range(2, 4);
-            //dataRoadSituation.VIP = Convert.ToBoolean(Random.Range(0, 2));
-            dataRoadSituation.Sign = Convert.ToBoolean(Random.Range(0, 2));
-            //dataRoadSituation.IndexOfVIP = Random.Range(1, dataRoadSituation.CountOfCars);
-            dataRoadSituation.TrafficLight = Convert.ToBoolean(Random.Range(0, 2));
+            this.typeOfCross = typeOfCross;
+            this.countOfCars = countOfCars;
         }
         public override void Dispose()
         {
-            dataRoadSituation = null;
+            CrossSituation = null;
         }
     }
-    public class DataRoadSituation
-    {
-        public int CountOfCars { get; set; }
-        public bool VIP { get; set; }
-        public int IndexOfVIP { get; set; }
-        public bool Sign { get; set; }
-        public bool TrafficLight { get; set; }
-        public const int MaxCars = 4;
-    }
+    
 }

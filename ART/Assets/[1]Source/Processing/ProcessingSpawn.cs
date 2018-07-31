@@ -9,8 +9,10 @@ using FastDeb;
 
 namespace BeeFly
 {
-    class ProcessingSpawn : ProcessingBase, IMustBeWipedOut, IReceive<SignalSpawnCars>, IReceive<SignalInitialSpawn>
+    class ProcessingSpawn : ProcessingBase, IMustBeWipedOut, IReceive<SignalSpawn>
     {
+        //Сделать чтобы заддные задосились куда то в процессинг спавн а затем только спавнить, а то этот
+        //Обработчик смахивает на мусорку
 
         [GroupBy(Tag.Cross)]
         Group cross;
@@ -18,115 +20,59 @@ namespace BeeFly
         [GroupBy(Tag.SpawnSpotsRoad)]
         Group spawnSpotsRoad;
 
-        public void HandleSignal(SignalInitialSpawn arg)
+        public void HandleSignal(SignalSpawn arg)
         {
-            Spawn();
-        }
-        public void HandleSignal(SignalSpawnCars arg)
-        {
-            ProcessingDespawn.Default.killALL();
-            Spawn();
-        }
-        void Spawn()
-        {
-            //SpawnStatic();
-            SpawnRandom(Direction.Left,Direction.Right,Direction.Forward);
-        }
-
-        private void SpawnStatic()
-        {
-            var sit = ProcessingStaticPositions.Default.Get(Situations.TestHotBug);
-            bool hasPlayer = false;
-            for (int i = 0; i < sit.Count; i++)
+            foreach (var pos in arg.posInfo)
             {
-                SpawnStatic(sit[i], ref hasPlayer);
-            }
-            if (!hasPlayer)
-            {
-                SetPlayer(ProcessingPositions.Default.dataCarsLocation.Random().car);
-            }
-        }
-
-        private void SpawnRandom(params int[] directions)
-        {
-            List<Actor> actorShaffled = spawnSpotsRoad.actors.Shaffle();
-
-            for (int i = 0; i < Toolbox.Get<DataArtSession>().dataRoadSituation.CountOfCars; i++)
-            {
-                if (directions.Length == 0)
+                foreach (var spawnSpot in spawnSpotsRoad.actors)
                 {
-                    SpawnCar(actorShaffled[i], spawnSpotsRoad.actors[i].Get<DataPossibleDirections>().possibleDirections.ReturnRandom().direction);
-                }
-                else
-                {
-                    int randDir = directions.Random();
-                    if (randDir == Direction.None)
+                    if (pos.Key == spawnSpot.Get<DataPosition>().position)
                     {
-                        SpawnCar(actorShaffled[i], spawnSpotsRoad.actors[i].Get<DataPossibleDirections>().possibleDirections.ReturnRandom().direction);
-                    }
-                    else
-                    {
-                        SpawnCar(actorShaffled[i], randDir);
+                        Spawn(pos.Value,spawnSpot);
                     }
                 }
             }
-            SetPlayer(ProcessingPositions.Default.dataCarsLocation.Random().car);
         }
-
-        public void SpawnStatic(Situation situation, ref bool hasPlayer)
+        void Spawn(Situation sit , Actor spawnSpot)
         {
-            foreach (var item in spawnSpotsRoad.actors)
+            if (sit.car)
             {
-                if (item.Get<DataPosition>().position == situation.position)
+                SpawnCar(spawnSpot, ref sit.actorCar, sit.direction.direction);
+                if (sit.actorCar.tags.Contain(Tag.PlayerCar))
                 {
-                    if (situation.car)
-                    {
-                        if (situation.direction.direction == Direction.None)
-                        {
-                            SpawnCar(item, item.Get<DataPossibleDirections>().possibleDirections.ReturnRandom().direction);
-                        }
-                        else
-                        {
-                            SpawnCar(item, situation.direction.direction);
-                        }
-                        if (situation.player && !hasPlayer)
-                        {
-                            hasPlayer = true;
-                            SetPlayer(ProcessingPositions.Default.dataCarsLocation[situation.position].car);
-                        }
-                    }
-                    switch (situation.trafficSign)
-                    {
-                        case TrafficSign.Main:
-                            SpawnMainSign(item);
-                            break;
-                        case TrafficSign.Secondary:
-                            SpawnSecondarySign(item);
-                            break;
-                        case TrafficSign.Empty:
-                            break;
-                    }
-                    switch (situation.trafficLight)
-                    {
-                        case TrafficLight.Off:
-                            SpawnTL(item);
-                            break;
-                        case TrafficLight.Red:
-                            SpawnTL(item);
-                            break;
-                        case TrafficLight.Green:
-                            SpawnTL(item);
-                            break;
-                        case TrafficLight.Empty:
-                            break;
-                        default:
-                            break;
-                    }
+                    SetPlayer(sit.actorCar);
                 }
             }
-
+            switch (sit.trafficLight)
+            {
+                case TrafficLight.Off:
+                    SpawnTL(spawnSpot);
+                    break;
+                case TrafficLight.Red:
+                    SpawnTL(spawnSpot);
+                    break;
+                case TrafficLight.Green:
+                    SpawnTL(spawnSpot);
+                    break;
+                case TrafficLight.Empty:
+                    break;
+                default:
+                    break;
+            }
+            switch (sit.trafficSign)
+            {
+                case TrafficSign.Main:
+                    SpawnMainSign(spawnSpot);
+                    break;
+                case TrafficSign.Secondary:
+                    SpawnSecondarySign(spawnSpot);
+                    break;
+                case TrafficSign.Empty:
+                    break;
+                default:
+                    break;
+            }
         }
-
         void SpawnTL(Actor roadSpot)
         {
             var trafficLight = roadSpot.Get<DataTrafficLightSpot>().trafficLightSpot.selfTransform;
@@ -138,23 +84,25 @@ namespace BeeFly
             var signSpot = roadSpot.Get<DataSignSpot>().signSpot.selfTransform;
             Toolbox.Get<FactoryRoad>().Spawn(signSpot.position, signSpot.rotation, Tag.SignMain, cross.actors[0].transform.Find("Signs"));
         }
+
         void SpawnSecondarySign(Actor roadSpot)
         {
             var signSpot = roadSpot.Get<DataSignSpot>().signSpot.selfTransform;
             Toolbox.Get<FactoryRoad>().Spawn(signSpot.position, signSpot.rotation, Tag.SignSecondary, cross.actors[0].transform.Find("Signs"));
         }
 
-        void SpawnCar(Actor roadSpot, int direction)
+        void SpawnCar(Actor roadSpot, ref ActorCar actorCar, int direction)
         {
             var carSpot = roadSpot.Get<DataCarSpot>().carSpot;
-            var car = Toolbox.Get<FactoryCar>().SpawnCar(carSpot.selfTransform.position, carSpot.selfTransform.rotation, cross.actors[0].selfTransform, direction);
+            var car = Toolbox.Get<FactoryCar>().SpawnCar(carSpot.selfTransform.position, carSpot.selfTransform.rotation, cross.actors[0].selfTransform);
             car.name = (roadSpot.Get<DataPosition>().position).ToString();
-            ProcessingSignals.Default.Send(new SignalSetCarPosition(roadSpot.Get<DataPosition>().position, car.GetComponent<ActorCar>()));
+            actorCar = car.GetComponent<ActorCar>();
+            actorCar.Get<DataDirection>().direction = direction;
+            Homebrew.Timer.Add(0.1f, () => car.GetComponent<ActorCar>().GetComponent<ActorCar>().signals.Send(new SignalSetLights()));
         }
 
         void SetPlayer(Actor player)
         {
-            player.tags.Add(Tag.PlayerCar);
             player.selfTransform.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
         }
     }

@@ -4,10 +4,10 @@ using UnityEngine;
 using Enums;
 using System;
 using Random = UnityEngine.Random;
-using Vuforia;
+//using Vuforia;
 using BeeFly;
 
-public class Instantiate : MonoBehaviour, ITrackableEventHandler
+public class Instantiate : MonoBehaviour/*, ITrackableEventHandler*/
 {
     public bool Restart { get; set; }
     public GameObject[] MasCars { get; private set; }
@@ -15,27 +15,26 @@ public class Instantiate : MonoBehaviour, ITrackableEventHandler
     int mistakes = 0;
     public Timer timer;
 
-    private TrackableBehaviour mTrackableBehaviour;
+    //private TrackableBehaviour mTrackableBehaviour;
 
-    private void Start()
-    {
-        ToolBox.Get<CameraManager>().SetCamGO(ToolBox.Get<SettingsPlayer>().ARCamera);
-        ToolBox.Get<CrossManager>().SetCrossGO(ToolBox.Get<SettingsPlayer>().ARCamera);
+    //private void Start()
+    //{ 
 
-        if (ToolBox.Get<SettingsPlayer>().ARCamera)
-        {
-            mTrackableBehaviour = ToolBox.Get<CrossManager>().Cross.GetComponent<TrackableBehaviour>();
-            if (mTrackableBehaviour)
-            {
-                mTrackableBehaviour.RegisterTrackableEventHandler(this);
-            }
-        }
-        else
-        {
-            ToolBox.Get<UIManager>().SetAnsverButtons();
-            StartCoroutine(SimpleGenerator());
-        }
-    }
+
+    //    //if (ToolBox.Get<SettingsPlayer>().ARCamera)
+    //    //{
+    //    //    mTrackableBehaviour = ToolBox.Get<CrossManager>().Cross.GetComponent<TrackableBehaviour>();
+    //    //    if (mTrackableBehaviour)
+    //    //    {
+    //    //        mTrackableBehaviour.RegisterTrackableEventHandler(this);
+    //    //    }
+    //    //}
+    //    else
+    //    {
+    //        ToolBox.Get<UIManager>().SetAnsverButtons();
+    //        StartCoroutine(SimpleGenerator());
+    //    }
+    //}
 
     IEnumerator SimpleGenerator()
     {
@@ -159,29 +158,30 @@ public class Instantiate : MonoBehaviour, ITrackableEventHandler
         return posRotAnim;
     }
 
-    public void OnTrackableStateChanged(TrackableBehaviour.Status previousStatus, TrackableBehaviour.Status newStatus)
-    {
-        ToolBox.Get<CrossManager>().setAngles();
-        if (newStatus == TrackableBehaviour.Status.DETECTED ||
-        newStatus == TrackableBehaviour.Status.TRACKED ||
-        newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
-        {
-            ToolBox.Get<UIManager>().SetAnsverButtons();
+    //public void OnTrackableStateChanged(TrackableBehaviour.Status previousStatus, TrackableBehaviour.Status newStatus)
+    //{
+    //    ToolBox.Get<CrossManager>().setAngles();
+    //    if (newStatus == TrackableBehaviour.Status.DETECTED ||
+    //    newStatus == TrackableBehaviour.Status.TRACKED ||
+    //    newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
+    //    {
+    //        ToolBox.Get<UIManager>().SetAnsverButtons();
 
-            StartCoroutine(SimpleGenerator());
+    //        StartCoroutine(SimpleGenerator());
 
-        }
-        else if (previousStatus == TrackableBehaviour.Status.DETECTED ||
-        previousStatus == TrackableBehaviour.Status.TRACKED ||
-        previousStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
-        {
-            ToolBox.Get<UIManager>().ClearPrefab();
-            ToolBox.Get<SignManager>().ClearSigns();
-            ToolBox.Get<CarManager>().Clear();
-            ToolBox.Get<TrafficLightManager>().Clear();
+    //    }
+    //    else if (previousStatus == TrackableBehaviour.Status.DETECTED ||
+    //    previousStatus == TrackableBehaviour.Status.TRACKED ||
+    //    previousStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
+    //    {
+    //        ToolBox.Get<UIManager>().ClearPrefab();
+    //        ToolBox.Get<SignManager>().ClearSigns();
+    //        ToolBox.Get<CarManager>().Clear();
+    //        ToolBox.Get<TrafficLightManager>().Clear();
 
-            StopCoroutine(SimpleGenerator());
-            timer.Stop();
-        }
-    }
+    //        StopCoroutine(SimpleGenerator());
+    //        timer.Stop();
+    //    }
+    //}
 }
+
