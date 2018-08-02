@@ -23,7 +23,7 @@ namespace BeeFly
             {
                 generatedSituations.Add(new Situation(null, TrafficLight.Empty, TrafficSign.Empty, iPosition));
             }
-            GenerateCars();
+            GenerateCars(Toolbox.Get<DataArtSession>().countOfCars);
 
             switch (arg.TypeOfCross)
             {
@@ -34,18 +34,18 @@ namespace BeeFly
                     MargeSituations(generatedSituations, ProcessingStaticPositions.Default.GetRandom(Situations.UnequalRightAngle,Situations.UnequalRightAngleMirror), Filter.TrafficSign);
                     break;
             }
-
+            Toolbox.Get<DataArtSession>().CrossSituation = generatedSituations;
         }
-        public void GenerateCars()
+        public void GenerateCars(int countOfCars)
         {
             var spawnSpotsShaffled = spawnSpotsRoad.actors.Shaffle();
-            for (int i = 0; i < Toolbox.Get<DataArtSession>().countOfCars; i++)
+            for (int i = 0; i < countOfCars; i++)
             {
                 Actor randomSpot = spawnSpotsShaffled[i].GetComponent<ActorSpawnSpotRoad>();
                 generatedSituations[randomSpot.Get<DataPosition>().position].car = true;
                 generatedSituations[randomSpot.Get<DataPosition>().position].direction = randomSpot.Get<DataPossibleDirections>().possibleDirections.ReturnRandom();
-                Debug.Log(generatedSituations[randomSpot.Get<DataPosition>().position].direction.direction);
             }
+            generatedSituations[spawnSpotsShaffled[Random.Range(0, countOfCars)].Get<DataPosition>().position].player = true;
         }
         List<Situation> MargeSituations(List<Situation> before, List<Situation> toMerge, Filter filter)
         {

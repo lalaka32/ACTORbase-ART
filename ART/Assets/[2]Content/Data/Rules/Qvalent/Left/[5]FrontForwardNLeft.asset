@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -17,17 +17,16 @@ MonoBehaviour:
     comperativePosition: 1
     hisDirection: 1
     isVIP: 0
-    hisTrafficSign: 2
+    hisTrafficSign: 0
     hisTrafficLight: 0
   - car: 0
     comperativePosition: 2
     hisDirection: -1
     isVIP: 0
-    hisTrafficSign: 2
+    hisTrafficSign: 0
     hisTrafficLight: 0
-  - car: 0
-    comperativePosition: 0
-    hisDirection: -1
+  selfCondition:
+    selfDirection: -1
     isVIP: 0
-    hisTrafficSign: 2
-    hisTrafficLight: 0
+    selfTrafficSign: 0
+    selfTrafficLight: 0

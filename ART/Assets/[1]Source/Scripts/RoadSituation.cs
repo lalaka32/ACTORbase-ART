@@ -8,8 +8,8 @@ using BeeFly;
 public class RoadSituation
 {
     public RoadSituation(int countOfCars, PositionRotation[] posRotAnimCar, bool vIP, Direction[] directions,
-        TrafficSign trafficSign, int coutOfSigns, PositionRotation[] posRotSign,
-        TrafficLight trafficLight, int coutOfLights, PositionRotation[] posRotLight)
+        int trafficSign, int coutOfSigns, PositionRotation[] posRotSign,
+        int trafficLight, int coutOfLights, PositionRotation[] posRotLight)
     {
         CountOfCars = countOfCars;
         this.posRotAnimCar = posRotAnimCar;
@@ -31,11 +31,11 @@ public class RoadSituation
     public bool VIP { get; private set; }
     public Direction[] directions { get; private set; }
 
-    public TrafficSign trafficSign { get; private set; }
+    public int trafficSign { get; private set; }
     public int CountOfSigns { get; private set; }
     public PositionRotation[] posRotSign { get; private set; }
 
-    public TrafficLight trafficLight { get; private set; }
+    public int trafficLight { get; private set; }
     public int CoutOfLights { get; private set; }
     public PositionRotation[] posRotLight { get; private set; }
 }

@@ -22,23 +22,23 @@ namespace BeeFly
 
         public void HandleSignal(SignalSpawn arg)
         {
-            foreach (var pos in arg.posInfo)
+            foreach (var situation in arg.posInfo)
             {
                 foreach (var spawnSpot in spawnSpotsRoad.actors)
                 {
-                    if (pos.Key == spawnSpot.Get<DataPosition>().position)
+                    if (situation.position == spawnSpot.Get<DataPosition>().position)
                     {
-                        Spawn(pos.Value,spawnSpot);
+                        Spawn(situation,spawnSpot);
                     }
                 }
             }
         }
-        void Spawn(Situation sit , Actor spawnSpot)
+        void Spawn( Situation sit , Actor spawnSpot)
         {
             if (sit.car)
             {
                 SpawnCar(spawnSpot, ref sit.actorCar, sit.direction.direction);
-                if (sit.actorCar.tags.Contain(Tag.PlayerCar))
+                if (sit.player)
                 {
                     SetPlayer(sit.actorCar);
                 }
@@ -104,6 +104,7 @@ namespace BeeFly
         void SetPlayer(Actor player)
         {
             player.selfTransform.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
+            player.tags.Add(Tag.PlayerCar);
         }
     }
 }

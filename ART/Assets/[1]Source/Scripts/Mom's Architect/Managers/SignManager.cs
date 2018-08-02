@@ -16,7 +16,7 @@ class SignManager : ManagerBase
     GameObject prefabOfStop;
 
     public GameObject[] signArray;
-    public Dictionary<int, TrafficSign> TS;
+    public Dictionary<int, int> TS;
 
     void InstantiateTrafficSign(PositionRotation[] PRTL, int Count, Transform parent)
     {
@@ -41,7 +41,7 @@ class SignManager : ManagerBase
     {
         if (road.trafficSign != TrafficSign.Empty)
         {
-            TS = new Dictionary<int, TrafficSign>(3);
+            TS = new Dictionary<int, int>(3);
 
             InstantiateTrafficSign(road.posRotSign, road.CountOfSigns, parent);
         }

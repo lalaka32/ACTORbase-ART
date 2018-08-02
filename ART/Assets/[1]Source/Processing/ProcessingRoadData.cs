@@ -13,8 +13,17 @@ namespace BeeFly
     {
         public void HandleSignal(SignalSetCrossData arg)
         {
-            DataChances DataChances = Toolbox.Get<DataChances>();
-            Toolbox.Get<DataArtSession>().SetRoadData(RollTypeOfCross(DataChances), RollCountOfCars(DataChances));
+            if (arg.list==null)
+            {
+                DataChances DataChances = Toolbox.Get<DataChances>();
+                int rolled = RollTypeOfCross(DataChances);
+                //Debug.Log(rolled);
+                Toolbox.Get<DataArtSession>().SetRoadData(rolled, RollCountOfCars(DataChances));
+            }
+            else
+            {
+                Toolbox.Get<DataArtSession>().CrossSituation = arg.list;
+            }
         }
         int RollTypeOfCross(DataChances dataChances)
         {

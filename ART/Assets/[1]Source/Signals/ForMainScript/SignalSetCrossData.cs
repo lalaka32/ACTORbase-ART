@@ -10,5 +10,11 @@ namespace BeeFly
 {
     struct SignalSetCrossData
     {
+        public List<Situation> list;
+
+        public SignalSetCrossData(List<Situation> list)
+        {
+            this.list = list;
+        }
     }
 }

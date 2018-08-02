@@ -29,6 +29,6 @@ namespace BeeFly
     //        car = null;
     //    }
     //}
-    public enum TrafficLight : byte { Off = 0, Red, Green, Empty }
-    public enum TrafficSign { Main, Secondary, Empty }//stop
+    //public enum TrafficLight : byte { Off = 0, Red, Green, Empty }
+    //public enum TrafficSign { Main, Secondary, Empty }//stop
 }
