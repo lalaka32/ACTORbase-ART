@@ -10,9 +10,9 @@ namespace BeeFly
 {
     struct SignalSpawn
     {
-        public Dictionary<int, Situation> posInfo;
+        public List<Situation> posInfo;
 
-        public SignalSpawn(Dictionary<int, Situation> posInfo)
+        public SignalSpawn(List<Situation> posInfo)
         {
             this.posInfo = posInfo;
         }

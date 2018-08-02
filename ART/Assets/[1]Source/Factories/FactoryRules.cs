@@ -13,6 +13,7 @@ namespace BeeFly
     {
         [TagFilter(typeof(Rule))] public int tagRule;
         public List<Condition> conditions = new List<Condition>();
+        public SelfCondition selfCondition;
     }
     [Serializable]
     public class Condition
@@ -21,7 +22,15 @@ namespace BeeFly
         [TagFilter(typeof(ComperativePos))] public int comperativePosition;
         [TagFilter(typeof(Direction))] public int hisDirection;
         public bool isVIP;
-        public TrafficSign hisTrafficSign;
-        public TrafficLight hisTrafficLight;
+        [TagFilter(typeof(TrafficSign))] public int hisTrafficSign;
+        [TagFilter(typeof(TrafficLight))] public int hisTrafficLight;
+    }
+    [Serializable]
+    public class SelfCondition
+    {
+        [TagFilter(typeof(Direction))] public int selfDirection;
+        public bool isVIP;
+        [TagFilter(typeof(TrafficSign))] public int selfTrafficSign;
+        [TagFilter(typeof(TrafficLight))] public int selfTrafficLight;
     }
 }

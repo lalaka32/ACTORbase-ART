@@ -10,5 +10,11 @@ namespace BeeFly
 {
     struct SignalSetPriority
     {
+        public int typeOfCross;
+
+        public SignalSetPriority(int typeOfCross)
+        {
+            this.typeOfCross = typeOfCross;
+        }
     }
 }

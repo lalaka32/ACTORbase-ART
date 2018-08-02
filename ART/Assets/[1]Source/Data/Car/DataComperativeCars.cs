@@ -10,7 +10,7 @@ namespace BeeFly
     [Serializable]
     public class DataComperativeCars : IData
     {
-        public Dictionary<int, Actor> comperative = new Dictionary<int, Actor>();
+        public Dictionary<int, Situation> comperative = new Dictionary<int, Situation>();
         public void Dispose()
         {
             comperative = null;

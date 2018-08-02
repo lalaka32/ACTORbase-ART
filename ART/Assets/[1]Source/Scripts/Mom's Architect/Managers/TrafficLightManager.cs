@@ -16,7 +16,7 @@ class TrafficLightManager : ManagerBase
     RuntimeAnimatorController controllerOfLight;
 
     public GameObject[] TL { get; private set; }
-    public Dictionary<int, TrafficLight> PosTL;
+    public Dictionary<int, int> PosTL;
 
     void GenerateTrafficGO(PositionRotation[] PRTL, Transform parent)
     {
@@ -56,7 +56,7 @@ class TrafficLightManager : ManagerBase
                     }
                     break;
                 case TrafficLight.Red:
-                    PosTL = new Dictionary<int, TrafficLight>();
+                    PosTL = new Dictionary<int, int>();
                     for (int i = 0; i < TL.Length; i++)
                     {
                         if (i % 2 == 0)
@@ -78,7 +78,7 @@ class TrafficLightManager : ManagerBase
                     }
                     break;
                 case TrafficLight.Green:
-                    PosTL = new Dictionary<int, TrafficLight>();
+                    PosTL = new Dictionary<int, int>();
                     for (int i = 0; i < TL.Length; i++)
                     {
                         if (i % 2 == 0)

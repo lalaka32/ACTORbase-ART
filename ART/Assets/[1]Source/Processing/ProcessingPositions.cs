@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace BeeFly
 {
-    class ProcessingPositions : ProcessingBase, IReceive<SignalSetComperativePositions>,  IReceive<SignalSetSituations>, IMustBeWipedOut
+    class ProcessingPositions : ProcessingBase, IReceive<SignalSetComperativePositions>, IReceive<SignalSetSituations>, IMustBeWipedOut
     {
         public static ProcessingPositions Default;
 
@@ -16,7 +16,7 @@ namespace BeeFly
 
         public void HandleSignal(SignalSetComperativePositions arg)
         {
-            SetComperativePositions();
+            SetComperativePositions(Toolbox.Get<DataArtSession>().MaxCars);
         }
 
         public void HandleSignal(SignalSetSituations arg)
@@ -58,57 +58,12 @@ namespace BeeFly
             return false;
         }
 
-        public bool TryGetTrafiicSign(int position, out TrafficSign sign)
-        {
-            Situation roadSpot;
-            if (dataCarsLocation.TryGetValue(position, out roadSpot))
-            {
-                sign = roadSpot.trafficSign;
-                if (sign != TrafficSign.Empty)
-                {
-                    return true;
-                }
-            }
-            sign = TrafficSign.Empty;
-            return false;
-        }
-
-        public bool TryGetTrafficLight(int position, out TrafficLight TL)
-        {
-            Situation roadSpot;
-            if (dataCarsLocation.TryGetValue(position, out roadSpot))
-            {
-                TL = roadSpot.trafficLight;
-                if (TL != TrafficLight.Empty)
-                {
-                    return true;
-                }
-            }
-            TL = TrafficLight.Empty;
-            return false;
-        }
-
-        public bool TryGetPlayer(out ActorCar playerCar)
-        {
-            foreach (var item in dataCarsLocation)
-            {
-                if (item.Value.player)
-                {
-                    playerCar = item.Value.actorCar;
-                    return true;
-                }
-            }
-            playerCar = null;
-            return false;
-        }
-
         #endregion
 
-        private void SetComperativePositions()
+        private void SetComperativePositions(int lengthOfCars)
         {
-            int lengthOfCars = Toolbox.Get<DataArtSession>().MaxCars;
             ActorCar settingCar;
-            ActorCar comperativeCar;
+            Situation comperativeSituation;
             for (int iSpot = 0; iSpot < lengthOfCars; iSpot++)
             {
                 if (TryGetCar(iSpot, out settingCar))
@@ -123,10 +78,10 @@ namespace BeeFly
                         {
                             comperativeIndex -= lengthOfCars;
                         }
-                        if (TryGetCar(comperativeIndex, out comperativeCar))
+                        if (dataCarsLocation.TryGetValue(comperativeIndex, out comperativeSituation))
                         {
-                            settingCar.Get<DataComperativeCars>().comperative.Add(comperativePosition, comperativeCar);
-                            //Debug.Log("comperativePosition" + comperativePosition + "---------------- comperativeActor" + comperativeCar.name);
+                            settingCar.Get<DataComperativeCars>().comperative.Add(comperativePosition, comperativeSituation);
+                            //Debug.Log("comperativePosition" + comperativePosition + "---------------- comperativeActor" + comperativeSituation.position);
                         }
                     }
                 }

@@ -23,78 +23,170 @@ namespace BeeFly
 
         public void HandleSignal(SignalSetPriority arg)
         {
-            foreach (var car in cars.actors)
+            foreach (var situation in Toolbox.Get<DataArtSession>().CrossSituation)
             {
-                //car.signals.Send(new SignalSetPriority());
-
-                foreach (var rule in RulesForQvalent.SelectRules(car.Get<DataDirection>().direction))
+                RulesForCross rulesForExistingCross = ChooseRules(arg.typeOfCross);
+                if (situation.car)
                 {
-                    bool valid = ValidationRule(car, rule);
-                    IncrementPrioriry(car, valid);
-                    //Debug.Log(valid + rule.name);
-                }
-                Debug.Log("Pri:" + car.Get<DataPriority>().priority + " POs: " + car.name);
-            }
-
-        }
-        bool ValidationRule(Actor settingCar, FactoryRules rule)
-        {
-            bool validation = false;
-            var settingComperative = settingCar.Get<DataComperativeCars>().comperative;
-
-            foreach (Condition condition in rule.conditions)
-            {
-                validation = ValidationCondition(condition, settingComperative);
-                if (!validation)
-                    break;
-            }
-            return validation;
-
-        }
-
-        bool ValidationCondition(Condition condition, Dictionary<int, Actor> settingComperative)
-        {
-
-            Actor observeCar;
-            bool validation;
-            settingComperative.TryGetValue(condition.comperativePosition, out observeCar);
-            if (condition.car)
-            {
-                if (observeCar != null)
-                {
-                    if (condition.hisDirection == Direction.None)
+                    Debug.Log(situation.actorCar.dataDirection.direction);
+                    foreach (var rule in rulesForExistingCross.SelectRules(situation.actorCar.dataDirection.direction))
                     {
-                        validation = true;
+                        bool valid = ValidationRule(situation, rule);
+                        IncrementPrioriry(situation.actorCar, valid);
+
+                    }
+                    Debug.Log("Pri:" + situation.actorCar.daraPriority.priority + " POs: " + situation.position);
+                }
+            }
+
+        }
+
+        private RulesForCross ChooseRules(int arg)
+        {
+            switch (arg)
+            {
+                case TypeOfCross.Qvalent:
+                    return RulesForQvalent;
+                case TypeOfCross.UnQvalent:
+                    return RulesForUnQvalent;
+                case TypeOfCross.Regularity:
+                    return RulesForRegularity;
+                default:
+                    return null;
+            }
+        }
+
+        bool ValidationRule(Situation settingSituation, FactoryRules rule)
+        {
+            bool validation = ValidationSelfCondition(rule.selfCondition, settingSituation);
+            var settingComperative = settingSituation.actorCar.Get<DataComperativeCars>().comperative;
+            foreach (var item in settingComperative)
+            {
+                // Debug.Log(item.Key+"<><><><>"+item.Value);
+            }
+            if (validation)
+            {
+                foreach (Condition condition in rule.conditions)
+                {
+                    Situation observeSituation;
+
+                    settingComperative.TryGetValue(condition.comperativePosition, out observeSituation);
+                    if (observeSituation == null)
+                    {
+                        validation = ValidateNullCondition(condition);
                     }
                     else
                     {
-                        if (observeCar.Get<DataDirection>().direction == condition.hisDirection)
-                        {
-                            validation = true;
-                        }
-                        else
-                        {
-                            validation = false;
-                        }
+                        validation = ValidationCondition(condition, observeSituation);
+                    }
+                    //Debug.Log(validation);
+                    if (!validation)
+                        break;
+
+                }
+            }
+            //Debug.Log(validation + "|\\\\|" );
+            // Debug.Log("---------------------------------------");
+            return validation;
+        }
+        bool ValidateNullCondition(Condition condition)
+        {
+            if (condition.car)
+            {
+                return false;
+            }
+            if (condition.hisTrafficLight!=TrafficLight.Empty)
+            {
+                return false;
+            }
+            if (condition.hisTrafficSign!=TrafficSign.Empty)
+            {
+                return false;
+            }
+
+            return true;
+        }
+        bool ValidationCondition(Condition condition, Situation observeSituation)
+        {
+            if (condition.car)
+            {
+                if (observeSituation.car)
+                {
+                    if (!ValidateType(Direction.None, condition.hisDirection, observeSituation.direction.direction))
+                    {
+                        return false;
                     }
                 }
                 else
                 {
-                    validation = false;
+
+                    return false;
                 }
             }
             else
             {
-                if (observeCar == null)
+                if (observeSituation.car)
                 {
-                    validation = true;
-                }
-                else
-                {
-                    validation = false;
+                    return false;
                 }
             }
-            return validation;
+            if (!ValidateTypeMiss(TrafficSign.Empty, condition.hisTrafficSign, observeSituation.trafficSign))
+            {
+                return false;
+            }
+            if (!ValidateTypeMiss(TrafficLight.Empty, condition.hisTrafficLight, observeSituation.trafficLight))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        bool ValidationSelfCondition(SelfCondition condition, Situation observeSituation)
+        {
+            if (!ValidateType(Direction.None, condition.selfDirection, observeSituation.direction.direction))
+            {
+                return false;
+            }
+            if (!ValidateTypeMiss(TrafficLight.Empty, condition.selfTrafficLight, observeSituation.trafficLight))
+            {
+                return false;
+            }
+            if (!ValidateTypeMiss(TrafficSign.Empty, condition.selfTrafficSign, observeSituation.trafficSign))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        bool ValidateTypeMiss<T>(T defaultValue, T condition, T situation) where T : struct
+        {
+            if (!condition.Equals(defaultValue))
+            {
+                if (!condition.Equals(situation))
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!situation.Equals(defaultValue))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        bool ValidateType<T>(T defaultValue, T condition, T situation) where T : struct
+        {
+            if (!condition.Equals(defaultValue))
+            {
+                if (!condition.Equals(situation))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         void IncrementPrioriry(Actor settingCar, bool Validation = true)
