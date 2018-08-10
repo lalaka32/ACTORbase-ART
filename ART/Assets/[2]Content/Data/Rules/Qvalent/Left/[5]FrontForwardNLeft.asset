@@ -25,6 +25,12 @@ MonoBehaviour:
     isVIP: 0
     hisTrafficSign: 0
     hisTrafficLight: 0
+  - car: 0
+    comperativePosition: 0
+    hisDirection: -1
+    isVIP: 0
+    hisTrafficSign: 0
+    hisTrafficLight: 0
   selfCondition:
     selfDirection: -1
     isVIP: 0

@@ -179,21 +179,21 @@ public class LOGIC_V001 : MonoBehaviour
         for (int i = 0; i < MasCars.Length; i++)
         {
             Car settingCar = MasCars[i].GetComponent<Car>();
-            Dictionary<ComperativeLocation, Car> comperative = GetComperative(listOfpositions, settingCar);
+            Dictionary<int, Car> comperative = GetComperative(listOfpositions, settingCar);
             MasCars[i].GetComponent<Car>().SetPriority(comperative, settingCar);
         }
     }
-    Dictionary<ComperativeLocation, Car> GetComperative(Dictionary<int, Car> listOfPositions, Car settingCar)
+    Dictionary<int, Car> GetComperative(Dictionary<int, Car> listOfPositions, Car settingCar)
     {
         Car observeCar;
-        Dictionary<ComperativeLocation, Car> dicWithСomparative = new Dictionary<ComperativeLocation, Car>();
+        Dictionary<int, Car> dicWithСomparative = new Dictionary<int, Car>();
 
         for (int i = 0; i < 3; i++)
         {
             settingCar.Position--;
             if (listOfPositions.TryGetValue(settingCar.Position, out observeCar) && observeCar.tag != "VIP")
             {
-                dicWithСomparative.Add((ComperativeLocation)i, observeCar);
+                dicWithСomparative.Add(i, observeCar);
             }
         }
         settingCar.Position--;

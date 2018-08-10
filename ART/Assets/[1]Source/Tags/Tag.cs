@@ -70,6 +70,8 @@ namespace BeeFly
         public const int TrafficLight = 66;
         [TagField(categoryName = "Entity")]
         public const int Turner = 67;
+        [TagField(categoryName = "Entity")]
+        public const int SkateBoard = 67;
 
 
         [TagField(categoryName = "State")]
@@ -77,5 +79,7 @@ namespace BeeFly
 
         [TagField(categoryName = "SpawnSpot")]
         public const int SpawnSpotsRoad = 81;
+        [TagField(categoryName = "SpawnSpot")]
+        public const int SpawnCamPosition = 91;
     }
 }

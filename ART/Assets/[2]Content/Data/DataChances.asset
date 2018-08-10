@@ -14,6 +14,6 @@ MonoBehaviour:
   chanceOfQvalent: 0
   chanceOfUnQvalent: 0
   chanceOfRegularity: 0
-  defaultType: 0
+  defaultType: 2
   MinToRandom: 2
   MaxToRandom: 4

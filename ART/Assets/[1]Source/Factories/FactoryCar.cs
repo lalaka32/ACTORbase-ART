@@ -13,13 +13,25 @@ namespace BeeFly
     {
         [SerializeField]
         GameObject prefabOfCar;
+        [SerializeField]
+        GameObject prefabOfSkate;
 
-
-        public Transform SpawnCar(Vector3 pos, Quaternion rot, Transform parent)
+        public Transform SpawnCar(Vector3 pos, Quaternion rot, Transform parent, int TypeOfCar)
         {
-            var transformCar = this.Populate(Pool.None, prefabOfCar, pos, rot);
+            Transform transformCar = null ;
+            
+            switch (TypeOfCar)
+            {
+                case Tag.Car:
+                    transformCar = this.Populate(Pool.None, prefabOfCar, pos, rot);
+                    break;
+                case Tag.SkateBoard:
+                    transformCar = this.Populate(Pool.None, prefabOfSkate, pos, rot);
+                    break;
+                default:
+                    break;
+            }
             transformCar.parent = parent;
-            //бля не ебу поч тут нада делать таймер
             return transformCar;
         }
 
