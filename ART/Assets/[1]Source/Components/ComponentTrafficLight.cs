@@ -8,19 +8,25 @@ using UnityEngine;
 
 namespace BeeFly
 {
-    class ComponentTrafficLight : MonoCached , IReceive<SIgnalSetGreen>
+    class ComponentTrafficLight : MonoCached , IReceive<SignalSetColor>
     {
-        Animator animator;
+        Light light1;
+        Light light2;
 
-        public void HandleSignal(SIgnalSetGreen arg)
+        public void HandleSignal(SignalSetColor arg)
         {
-            animator.SetInteger("SetColor",1);
+            light1.color = Color.green;
+        }
+        public void HandleSignal()
+        {
+
         }
         protected override void HandleEnable()
         {
             ProcessingSignals.Default.Add(this);
             ProcessingDespawn.Default.Add(this);
-            //animator = GetComponentInChildren<Animator>();
+            light1 = transform.Find("turner").GetComponent<Light>();
+            light2 = transform.Find("turner (1)").GetComponent<Light>();
         }
     }
 }

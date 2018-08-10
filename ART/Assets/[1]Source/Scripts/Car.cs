@@ -54,7 +54,7 @@ public class Car : MonoBehaviour
     //    }
     //}
 
-    public virtual void SetPriority(Dictionary<ComperativeLocation, Car> comperative, Car settingCar)
+    public virtual void SetPriority(Dictionary<int, Car> comperative, Car settingCar)
     {
         //    IDirectionitatible carDir;
         //    if (ToolBox.Get<TrafficLightManager>().PosTL == null && ToolBox.Get<SignManager>().TS == null)

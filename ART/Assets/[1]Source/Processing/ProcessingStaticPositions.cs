@@ -24,6 +24,10 @@ namespace BeeFly
             }
             return null;
         }
+        public void SetTypeOfCross(int type)
+        {
+            Toolbox.Get<DataArtSession>().typeOfCross = type;
+        }
         public List<Situation> GetRandom(params int[] tags)
         {
             return Get(tags[Random.Range(0, tags.Length)]);

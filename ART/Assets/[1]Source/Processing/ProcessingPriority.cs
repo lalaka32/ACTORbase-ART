@@ -28,17 +28,16 @@ namespace BeeFly
                 RulesForCross rulesForExistingCross = ChooseRules(arg.typeOfCross);
                 if (situation.car)
                 {
-                    Debug.Log(situation.actorCar.dataDirection.direction);
                     foreach (var rule in rulesForExistingCross.SelectRules(situation.actorCar.dataDirection.direction))
                     {
                         bool valid = ValidationRule(situation, rule);
                         IncrementPrioriry(situation.actorCar, valid);
+                        Debug.Log(rule + "+=" + valid);
 
                     }
-                    Debug.Log("Pri:" + situation.actorCar.daraPriority.priority + " POs: " + situation.position);
+                    Debug.Log("Pri:" + situation.actorCar.daraPriority.priority + " POs: " + situation.position + " Direction: " + situation.actorCar.dataDirection.direction);
                 }
             }
-
         }
 
         private RulesForCross ChooseRules(int arg)
@@ -60,9 +59,9 @@ namespace BeeFly
         {
             bool validation = ValidationSelfCondition(rule.selfCondition, settingSituation);
             var settingComperative = settingSituation.actorCar.Get<DataComperativeCars>().comperative;
-            foreach (var item in settingComperative)
+            if (settingSituation.direction.direction == Direction.Left)
             {
-                // Debug.Log(item.Key+"<><><><>"+item.Value);
+                Debug.Log(validation);
             }
             if (validation)
             {
@@ -73,33 +72,36 @@ namespace BeeFly
                     settingComperative.TryGetValue(condition.comperativePosition, out observeSituation);
                     if (observeSituation == null)
                     {
+
                         validation = ValidateNullCondition(condition);
                     }
                     else
                     {
+
                         validation = ValidationCondition(condition, observeSituation);
+
                     }
                     //Debug.Log(validation);
                     if (!validation)
                         break;
-
                 }
             }
-            //Debug.Log(validation + "|\\\\|" );
-            // Debug.Log("---------------------------------------");
+
+            //Debug.Log("---------------------------------------");
             return validation;
         }
+
         bool ValidateNullCondition(Condition condition)
         {
             if (condition.car)
             {
                 return false;
             }
-            if (condition.hisTrafficLight!=TrafficLight.Empty)
+            if (condition.hisTrafficLight != TrafficLight.Empty)
             {
                 return false;
             }
-            if (condition.hisTrafficSign!=TrafficSign.Empty)
+            if (condition.hisTrafficSign != TrafficSign.Empty)
             {
                 return false;
             }
@@ -119,7 +121,6 @@ namespace BeeFly
                 }
                 else
                 {
-
                     return false;
                 }
             }
@@ -130,11 +131,11 @@ namespace BeeFly
                     return false;
                 }
             }
-            if (!ValidateTypeMiss(TrafficSign.Empty, condition.hisTrafficSign, observeSituation.trafficSign))
+            if (!ValidateType(TrafficSign.Empty, condition.hisTrafficSign, observeSituation.trafficSign))
             {
                 return false;
             }
-            if (!ValidateTypeMiss(TrafficLight.Empty, condition.hisTrafficLight, observeSituation.trafficLight))
+            if (!ValidateType(TrafficLight.Empty, condition.hisTrafficLight, observeSituation.trafficLight))
             {
                 return false;
             }
@@ -147,11 +148,11 @@ namespace BeeFly
             {
                 return false;
             }
-            if (!ValidateTypeMiss(TrafficLight.Empty, condition.selfTrafficLight, observeSituation.trafficLight))
+            if (!ValidateType(TrafficLight.Empty, condition.selfTrafficLight, observeSituation.trafficLight))
             {
                 return false;
             }
-            if (!ValidateTypeMiss(TrafficSign.Empty, condition.selfTrafficSign, observeSituation.trafficSign))
+            if (!ValidateType(TrafficSign.Empty, condition.selfTrafficSign, observeSituation.trafficSign))
             {
                 return false;
             }

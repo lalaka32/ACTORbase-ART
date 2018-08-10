@@ -28,10 +28,10 @@ namespace BeeFly
             switch (arg.TypeOfCross)
             {
                 case TypeOfCross.Regularity:
-                    MargeSituations(generatedSituations, ProcessingStaticPositions.Default.GetRandom(Situations.RegularityRightAngle, Situations.RegularityRightAngleMirror), Filter.TrafficLight);
+                    MergeSituations(generatedSituations, ProcessingStaticPositions.Default.GetRandom(Situations.RegularityRightAngle, Situations.RegularityRightAngleMirror), Filter.TrafficLight);
                     break;
                 case TypeOfCross.UnQvalent:
-                    MargeSituations(generatedSituations, ProcessingStaticPositions.Default.GetRandom(Situations.UnequalRightAngle,Situations.UnequalRightAngleMirror), Filter.TrafficSign);
+                    MergeSituations(generatedSituations, ProcessingStaticPositions.Default.GetRandom(Situations.UnequalRightAngle,Situations.UnequalRightAngleMirror), Filter.TrafficSign);
                     break;
             }
             Toolbox.Get<DataArtSession>().CrossSituation = generatedSituations;
@@ -47,7 +47,7 @@ namespace BeeFly
             }
             generatedSituations[spawnSpotsShaffled[Random.Range(0, countOfCars)].Get<DataPosition>().position].player = true;
         }
-        List<Situation> MargeSituations(List<Situation> before, List<Situation> toMerge, Filter filter)
+        List<Situation> MergeSituations(List<Situation> before, List<Situation> toMerge, Filter filter)
         {
             foreach (var iSituation in before)
             {

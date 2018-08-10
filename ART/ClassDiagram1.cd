@@ -1,0 +1,908 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BeeFly.ActorCar" Collapsed="true">
+    <Position X="21.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAgAAAAEAAAAAAQAAAAAAAAAgAAEAQABA=</HashCode>
+      <FileName>Assets\[1]Source\Actors\ActorCar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.ActorRoadSpot" Collapsed="true">
+    <Position X="25.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Assets\[1]Source\Actors\ActorRoadSpot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.ActorSpawnSpotCar" Collapsed="true">
+    <Position X="27" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAQAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Assets\[1]Source\Actors\ActorSpawnSpotCar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.ActorSpawnSpotRoad" Collapsed="true">
+    <Position X="28.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAYAAAQAAEAAAAAAAAAAAQAAE=</HashCode>
+      <FileName>Assets\[1]Source\Actors\ActorSpawnSpotRoad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.ActorTag" Collapsed="true">
+    <Position X="30.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAQAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Assets\[1]Source\Actors\ActorTag.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.BehaviorAnimation" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAEBA=</HashCode>
+      <FileName>Assets\[1]Source\Behaviors\BehaviorAnimation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.BehaviorCarViewPriority" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\[1]Source\Behaviors\BehaviorCarViewPriority.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.BehaviorDeath" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="35.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Assets\[1]Source\Behaviors\BehaviorDeath.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.BehaviorDebugOut" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="37.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Assets\[1]Source\Behaviors\BehaviorDebugOut.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.BehaviorPriority" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAIAAAAAAAAAAAAAAAAAAAAAAABAAAkAA=</HashCode>
+      <FileName>Assets\[1]Source\Behaviors\BehaviorPriority.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.BehaviorTurnOnLight" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAgAAAAAAAAAAAAAEAAAAAAAEBA=</HashCode>
+      <FileName>Assets\[1]Source\Behaviors\BehaviorTurnOnLight.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.ComponentAbstractBodyCar" Collapsed="true">
+    <Position X="32.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Components\ComponentAbstractBodyCar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.ComponentMenu" Collapsed="true">
+    <Position X="34" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Components\ComponentMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.ComponentTrafficLight" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="35.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Assets\[1]Source\Components\ComponentTrafficLight.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.ComponentTrafficSign" Collapsed="true">
+    <Position X="37.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Components\ComponentTrafficSign.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.ComponentTurnOnLight" Collapsed="true">
+    <Position X="21.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Components\ComponentTurnOnLight.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.DataCarTurnAnimations" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACCAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Data\Car\DataCarTurnAnimations.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.DataComperativeCars" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Assets\[1]Source\Data\Car\DataComperativeCars.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.DataDirection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Data\Car\DataDirection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.DataPosition" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Data\Car\DataPosition.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.DataPriority" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Data\Car\DataPriority.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.DataTurnerPositions" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAACAAAAAAAAAAAAAAAAAAAAAQAgAAgAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Data\Car\DataTurnerPositions.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.DataArtSession" Collapsed="true">
+    <Position X="25.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAAAAAEAAAAAAAAAEAEAAAAAAAAEAAAABA=</HashCode>
+      <FileName>Assets\[1]Source\Data\DataArtSession.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.DataChances" Collapsed="true">
+    <Position X="30.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAABAAAACAAAgAAAAAAAAAAAAAAACAAAAAAAQAAgAA=</HashCode>
+      <FileName>Assets\[1]Source\Data\DataChances.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.DataCarSpot" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Data\RoadSpots\DataCarSpot.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.DataPossibleDirections" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Data\RoadSpots\DataPossibleDirections.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.DataSignSpot" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Data\RoadSpots\DataSignSpot.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.DataTrafficLightSpot" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Data\RoadSpots\DataTrafficLightSpot.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.RulesForCross" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACACQAAAAAAAAAAAAAAAAAAAAAAAIAgAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Data\RulesForCross.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.ExtensionsAnton" Collapsed="true">
+    <Position X="37.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAACCAAAAAEAA=</HashCode>
+      <FileName>Assets\[1]Source\Extensions\ExtensionsAnton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.FactoryCar" Collapsed="true">
+    <Position X="21.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAACAA=</HashCode>
+      <FileName>Assets\[1]Source\Factories\FactoryCar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.FactoryRoad" Collapsed="true">
+    <Position X="23.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EEAAAAAAAAAAAQAAIAEAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Assets\[1]Source\Factories\FactoryRoad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.FactoryRules" Collapsed="true">
+    <Position X="25.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAEAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Factories\FactoryRules.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.Condition" Collapsed="true">
+    <Position X="23.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAgAAACAAAQBAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Factories\FactoryRules.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.SelfCondition" Collapsed="true">
+    <Position X="28.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAoAAAAAAAAAAAAAAAAAAAABAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Factories\FactoryRules.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.FactorySituation" Collapsed="true">
+    <Position X="27" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Factories\RoadSituation\FactorySituation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.Situation" Collapsed="true">
+    <Position X="32.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAQAIAAEAAAAIAAAAAAAAAABAAACEAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Factories\RoadSituation\FactorySituation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.FactorySituationEditor" Collapsed="true">
+    <Position X="28.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Assets\[1]Source\Factories\RoadSituation\FactorySituationEditor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.ProcessingAnimation" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="35.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Assets\[1]Source\Processing\ProcessingAnimation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.ProcessingCamera" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="37.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAEAA=</HashCode>
+      <FileName>Assets\[1]Source\Processing\ProcessingCamera.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.ProcessingDespawn" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAgAAAAAAIAAAAgAAAAAgIAAAAAAAEAA=</HashCode>
+      <FileName>Assets\[1]Source\Processing\ProcessingDespawn.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.ProcessingGeneratorSituations" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAIAAAAAAAAAAAgAAAAAGAA=</HashCode>
+      <FileName>Assets\[1]Source\Processing\ProcessingGeneratorSituations.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.ProcessingGroupComponent" Collapsed="true">
+    <Position X="25.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Processing\ProcessingGroupComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.ProcessingMainSсript" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAEAA=</HashCode>
+      <FileName>Assets\[1]Source\Processing\ProcessingMainSсript.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.ProcessingPositions" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAACACEAAAAAAAIAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Assets\[1]Source\Processing\ProcessingPositions.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.ProcessingPriority" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAgAABAEgAAAAgAAAAAAIAEAAAAAICgAABAAAAAAEAA=</HashCode>
+      <FileName>Assets\[1]Source\Processing\ProcessingPriority.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.ProcessingQuiz" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Assets\[1]Source\Processing\ProcessingQuiz.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.ProcessingRoadData" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAIAEAA=</HashCode>
+      <FileName>Assets\[1]Source\Processing\ProcessingRoadData.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.ProcessingSpawn" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="37.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgABAQACEAAAAAAAAAAIAAAAAAAAAAGAA=</HashCode>
+      <FileName>Assets\[1]Source\Processing\ProcessingSpawn.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.ProcessingStaticPositions" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAABAAABAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Processing\ProcessingStaticPositions.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.Singleton&lt;T&gt;" Collapsed="true">
+    <Position X="30.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\Mom's Architect\Patterns\Singleton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.DirectionRight" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="35.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\SetPriority\Qvalent\DirectionRight.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.ForwardQvalent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\SetPriority\Qvalent\ForwardQvalent .cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.LeftDirectionQvalent" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\SetPriority\Qvalent\LeftDirectionQvalent.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BeeFly.LeftUnqvalent" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\SetPriority\Sign\LeftUnqvalent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.Unqvalent" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\SetPriority\Sign\Unqvalent.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BeeFly.LeftTL" Collapsed="true">
+    <Position X="3.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\SetPriority\TL\LeftTL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.PriorityTL" Collapsed="true">
+    <Position X="3.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\SetPriority\TL\PriorityTL.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BeeFly.LVLCross" Collapsed="true">
+    <Position X="30.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgCAAEIAACAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Starter\LVLCross.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.ComperativePos" Collapsed="true">
+    <Position X="30.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Tags\ComperativePos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.Direction" Collapsed="true">
+    <Position X="34" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACACAAAEAAAI=</HashCode>
+      <FileName>Assets\[1]Source\Tags\Direction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.Position" Collapsed="true">
+    <Position X="32.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAQAAAAAAAAIAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Assets\[1]Source\Tags\Position.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.Rule" Collapsed="true">
+    <Position X="25.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAQAAAAAAAIAAAAAAAAAAAAAgAAAAAAAAAEAACA=</HashCode>
+      <FileName>Assets\[1]Source\Tags\Rule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.Situations" Collapsed="true">
+    <Position X="34" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAIAAAAAAAAAAQAAAAEAAAAAAUQAAACAAAAEAgAA=</HashCode>
+      <FileName>Assets\[1]Source\Tags\Situations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.Tag" Collapsed="true">
+    <Position X="37.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAQggQAwAABAABAgAABAokAAgEAAQAKCBGBAAkiE=</HashCode>
+      <FileName>Assets\[1]Source\Tags\Tag.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.TrafficLight" Collapsed="true">
+    <Position X="27" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAgAAAAIAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Tags\TrafficLight.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.TrafficSign" Collapsed="true">
+    <Position X="28.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAQAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Tags\TrafficSign.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BeeFly.TypeOfCross" Collapsed="true">
+    <Position X="30.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Tags\TypeOfCross.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ActorExample" Collapsed="true">
+    <Position X="23.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Assets\[1]Source\Actors\ActorExample.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BehaviorExample" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\[1]Source\Behaviors\BehaviorExample.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CommandsConsoleDefault" Collapsed="true">
+    <Position X="28.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Data\CommandsConsoleDefault.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataExample" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="35.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Data\DataExample.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Car" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAQAIAAgACAAAAAIAAAAAAAAAAAAhAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\Car.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarCollision" Collapsed="true">
+    <Position X="27" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAACAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\CarCollision.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InstantceParticular" Collapsed="true">
+    <Position X="21.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAiAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\InstantceParticular.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Instantiate" Collapsed="true">
+    <Position X="23.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kBQCAQAAAgAAgAAAIAAAAAAAAAAAAAAAAAAACAAAEAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\Instantiate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Isstopactivating" Collapsed="true">
+    <Position X="25.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\Isstopactivating.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LOGIC_V001" Collapsed="true">
+    <Position X="28.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQADAAAAgAAAQAIEAAQJABgBCAKAAAAAAAAAAAHIAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\LOGIC_V001.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InctanceAnsver" Collapsed="true">
+    <Position X="34" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\Mom's Architect\MainMenu\InctanceAnsver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InctanceAnsvers" Collapsed="true">
+    <Position X="35.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\Mom's Architect\MainMenu\InctanceAnsvers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Instance" Collapsed="true">
+    <Position X="37.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\Mom's Architect\MainMenu\Instance.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CameraManager" Collapsed="true">
+    <Position X="8" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAgABAAAQAgAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\Mom's Architect\Managers\CameraManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarManager" Collapsed="true">
+    <Position X="10.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEACIAAEAQAAAAMAAAAAAEAAEABMAAAAECkAAABAAgg=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\Mom's Architect\Managers\CarManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CrossManager" Collapsed="true">
+    <Position X="12.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAQAAAAAAAAAAAAAAAAAAAECAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\Mom's Architect\Managers\CrossManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ManagerBase" Collapsed="true">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\Mom's Architect\Managers\ManagerBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProcessingAnsvers" Collapsed="true">
+    <Position X="14.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAQQAAAAAAQAAAAYAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\Mom's Architect\Managers\ProcessingAnsvers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SettingsPlayer" Collapsed="true">
+    <Position X="17" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAABAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\Mom's Architect\Managers\SettingsPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SignManager" Collapsed="true">
+    <Position X="19.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAQAAAAAAACgAAgAAAAAAAAAAAAAAAAAEIQ=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\Mom's Architect\Managers\SignManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimerManager" Collapsed="true">
+    <Position X="1.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAgAAAAAJAAAAAAAABAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\Mom's Architect\Managers\TimerManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrafficLightManager" Collapsed="true">
+    <Position X="3.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAQAAQAAAACAIAAAAEAAEAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\Mom's Architect\Managers\TrafficLightManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIManager" Collapsed="true">
+    <Position X="5.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAQAAkIAIhAIAIAAQAQgAAADAIAASAAAgAAEBA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\Mom's Architect\Managers\UIManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Starter" Collapsed="true">
+    <Position X="35.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\Mom's Architect\Starters\Starter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Timer" Collapsed="true">
+    <Position X="23.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEQAEAAAAAAAAAQAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\Mom's Architect\Timer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ToolBox" Collapsed="true">
+    <Position X="25.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAABAAACAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\Mom's Architect\ToolBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PositionRotation" Collapsed="true">
+    <Position X="34" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQABAMAgAAIAAAEAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\PositionRotationAnimation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RoadSituation" Collapsed="true">
+    <Position X="23.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAQAAAAEBAAIAEACEAABAgA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\RoadSituation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TerrainCollision" Collapsed="true">
+    <Position X="21.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQQAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\TerrainCollision.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VIP" Collapsed="true">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\VIP.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Homebrew.DataGameSession" Collapsed="true">
+    <Position X="37.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Data\DataGameSession.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Homebrew.DataGameSettings" Collapsed="true">
+    <Position X="21.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Data\DataGameSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FastDeb.FastDebug" Collapsed="true">
+    <Position X="30.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAgBASgAAAAAAAAAABAAAAAAICAAAAAAgAAABAAEAAA=</HashCode>
+      <FileName>Assets\[1]Source\Extensions\FastDebug.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets._1_Source.Processing.ProcessingRoadSituation" Collapsed="true">
+    <Position X="35.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Processing\ProcessingRoadSituation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="BeeFly.DataTag" Collapsed="true">
+    <Position X="21.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Assets\[1]Source\Data\DataTag.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="BeeFly.SignalKillCar" Collapsed="true">
+    <Position X="30.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Signals\ForCars\SignalKillCar.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="BeeFly.SignalSetLights" Collapsed="true">
+    <Position X="27" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Signals\ForCars\SignalSetLights.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="BeeFly.SignalSetPriority" Collapsed="true">
+    <Position X="28.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Signals\ForCars\SignalSetPriority.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="BeeFly.SignalDespawn" Collapsed="true">
+    <Position X="23.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Signals\ForMainScript\SignalDespawn.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="BeeFly.SignalInitialSpawn" Collapsed="true">
+    <Position X="27" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Signals\ForMainScript\SignalInitialSpawn.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="BeeFly.SignalNextRound" Collapsed="true">
+    <Position X="32.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Signals\ForMainScript\SignalNextRound.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="BeeFly.SignalSetCamera" Collapsed="true">
+    <Position X="37.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Signals\ForMainScript\SignalSetCamera.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="BeeFly.SignalSetComperativePositions" Collapsed="true">
+    <Position X="21.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Signals\ForMainScript\SignalSetComperativePositions.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="BeeFly.SignalSetCrossData" Collapsed="true">
+    <Position X="23.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Signals\ForMainScript\SignalSetCrossData.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="BeeFly.SignalSpawn" Collapsed="true">
+    <Position X="32.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Signals\ForMainScript\SignalSpawn.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="BeeFly.SignalSetSituations" Collapsed="true">
+    <Position X="30.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Signals\ForSetPositions\SignalSetSituations.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="BeeFly.SIgnalSetGreen" Collapsed="true">
+    <Position X="25.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Signals\ForTrafficLight\SIgnalSetGreen.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="BeeFly.SignalGenerateCrossSituation" Collapsed="true">
+    <Position X="25.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Signals\SignalGenerateCrossSituation.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="BeeFly.SignalPlayCarAnimation" Collapsed="true">
+    <Position X="34" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Signals\SignalPlayCarAnimation.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="BeeFly.SignalRespawn" Collapsed="true">
+    <Position X="35.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Signals\SignalRespawn.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="BeeFly.SignalTEST" Collapsed="true">
+    <Position X="34" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Signals\SignalTEST.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="BeeFly.SignalTurnOffLight" Collapsed="true">
+    <Position X="35.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Signals\SignalTurnOffLight.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="FastDeb.SignalKillCar" Collapsed="true">
+    <Position X="28.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Signals\SignalDebugOut.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="BeeFly.IDirectionable" Collapsed="true">
+    <Position X="23.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\SetPriority\IDirectionitatible.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IAwake" Collapsed="true">
+    <Position X="21.75" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\Mom's Architect\Interfaces\IAwake.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Enums.Priority" Collapsed="true">
+    <Position X="21.75" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAQAAAAAAAAIAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Assets\[1]Source\Scripts\Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

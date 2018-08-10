@@ -20,18 +20,18 @@ namespace BeeFly
             //{
             //    if (comperative.ContainsKey(ComperativeLocation.Left) || comperative.ContainsKey(ComperativeLocation.Right))
             //    {
-            //        settingCar.priority++;
+            //        settingCar.priority++;[0]
             //    }
 
             //    if (comperative.TryGetValue(ComperativeLocation.Left, out observeCarLeft) && comperative.TryGetValue(ComperativeLocation.Right, out observeCarRight))
             //    {
             //        if (observeCarLeft.Direction == Direction.Left && observeCarRight.Direction != Direction.Left)
             //        {
-            //            settingCar.priority++;
+            //            settingCar.priority++;[1]
             //        }
             //        else if (observeCarRight.Direction == Direction.Left && observeCarLeft.Direction != Direction.Left)
             //        {
-            //            settingCar.priority++;
+            //            settingCar.priority++;[2]
             //        }
 
             //    }

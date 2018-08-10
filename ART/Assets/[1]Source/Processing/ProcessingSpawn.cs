@@ -94,7 +94,7 @@ namespace BeeFly
         void SpawnCar(Actor roadSpot, ref ActorCar actorCar, int direction)
         {
             var carSpot = roadSpot.Get<DataCarSpot>().carSpot;
-            var car = Toolbox.Get<FactoryCar>().SpawnCar(carSpot.selfTransform.position, carSpot.selfTransform.rotation, cross.actors[0].selfTransform);
+            var car = Toolbox.Get<FactoryCar>().SpawnCar(carSpot.selfTransform.position, carSpot.selfTransform.rotation, cross.actors[0].selfTransform,Tag.SkateBoard);
             car.name = (roadSpot.Get<DataPosition>().position).ToString();
             actorCar = car.GetComponent<ActorCar>();
             actorCar.Get<DataDirection>().direction = direction;
