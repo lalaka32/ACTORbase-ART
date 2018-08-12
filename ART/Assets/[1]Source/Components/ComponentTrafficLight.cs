@@ -15,7 +15,8 @@ namespace BeeFly
 
         public void HandleSignal(SignalSetColor arg)
         {
-            light1.color = Color.green;
+            light1.color = arg.color;
+            light2.color = arg.color;
         }
         public void HandleSignal()
         {
