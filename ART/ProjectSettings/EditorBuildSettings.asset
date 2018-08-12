@@ -14,3 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/[2]Content/Scenes/Cross.unity
     guid: 70cce5e656f8bf441a0e2f92338a4991
+  - enabled: 1
+    path: Assets/[3]ThirdParty/ShaderForge/Example Scene.unity
+    guid: 2db7122e3ce1796498a39efd913c754a
+  m_configObjects: {}

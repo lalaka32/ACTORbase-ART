@@ -15,7 +15,7 @@ namespace BeeFly
         [Bind] DataPriority priority;
         public void Tick()
         {
-            actor.selfTransform.Find("AbstractBody/PointMain/Body/Priority").GetComponent<TextMeshPro>().text = Convert.ToString(priority.priority);
+            actor.selfTransform.Find("AbstractBody/Body/Priority").GetComponent<TextMeshPro>().text = Convert.ToString(priority.priority);
         }
     }
 }

@@ -28,14 +28,14 @@ namespace BeeFly
                 case Direction.Left:
                     front = dataTurnerPositions.frontLeft;
                     back = dataTurnerPositions.backLeft;
-                    Turners.Add(Toolbox.Get<FactoryRoad>().Spawn(front.position, front.rotation, Tag.Turner,actor.selfTransform.Find("AbstractBody/PointMain")));
-                    Turners.Add(Toolbox.Get<FactoryRoad>().Spawn(back.position, back.rotation, Tag.Turner, actor.selfTransform.Find("AbstractBody/PointMain")));
+                    Turners.Add(Toolbox.Get<FactoryRoad>().Spawn(front.position, front.rotation, Tag.Turner,actor.selfTransform.Find("AbstractBody")));
+                    Turners.Add(Toolbox.Get<FactoryRoad>().Spawn(back.position, back.rotation, Tag.Turner, actor.selfTransform.Find("AbstractBody")));
                     break;
                 case Direction.Right:
                     front = dataTurnerPositions.frontRight;
                     back = dataTurnerPositions.backRight;
-                    Turners.Add(Toolbox.Get<FactoryRoad>().Spawn(front.position, front.rotation, Tag.Turner, actor.selfTransform.Find("AbstractBody/PointMain")));
-                    Turners.Add(Toolbox.Get<FactoryRoad>().Spawn(back.position, back.rotation, Tag.Turner, actor.selfTransform.Find("AbstractBody/PointMain")));
+                    Turners.Add(Toolbox.Get<FactoryRoad>().Spawn(front.position, front.rotation, Tag.Turner, actor.selfTransform.Find("AbstractBody")));
+                    Turners.Add(Toolbox.Get<FactoryRoad>().Spawn(back.position, back.rotation, Tag.Turner, actor.selfTransform.Find("AbstractBody")));
                     break;
             }
         }

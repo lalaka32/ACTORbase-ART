@@ -46,13 +46,13 @@ namespace BeeFly
             switch (sit.trafficLight)
             {
                 case TrafficLight.Off:
-                    SpawnTL(spawnSpot);
+                    SpawnTL(spawnSpot).GetComponent<ComponentTrafficLight>().signals.Send(new SignalSetColor(Color.yellow));
                     break;
                 case TrafficLight.Red:
-                    SpawnTL(spawnSpot);
+                    SpawnTL(spawnSpot).GetComponent<ComponentTrafficLight>().signals.Send(new SignalSetColor(Color.red));
                     break;
                 case TrafficLight.Green:
-                    SpawnTL(spawnSpot);
+                    SpawnTL(spawnSpot).GetComponent<ComponentTrafficLight>().signals.Send(new SignalSetColor(Color.green));
                     break;
                 case TrafficLight.Empty:
                     break;
@@ -73,10 +73,10 @@ namespace BeeFly
                     break;
             }
         }
-        void SpawnTL(Actor roadSpot)
+        Transform SpawnTL(Actor roadSpot)
         {
             var trafficLight = roadSpot.Get<DataTrafficLightSpot>().trafficLightSpot.selfTransform;
-            Toolbox.Get<FactoryRoad>().Spawn(trafficLight.position, trafficLight.rotation, Tag.TrafficLight, cross.actors[0].transform.Find("Lights"));
+            return Toolbox.Get<FactoryRoad>().Spawn(trafficLight.position, trafficLight.rotation, Tag.TrafficLight, cross.actors[0].transform.Find("Lights"));
         }
 
         void SpawnMainSign(Actor roadSpot)

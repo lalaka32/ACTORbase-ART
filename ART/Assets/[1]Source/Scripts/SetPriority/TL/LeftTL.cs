@@ -20,7 +20,7 @@ namespace BeeFly
         //{
         //    if (observeCar.Direction != Direction.Left)
         //    {
-        //        settingCar.priority++;
+        //        settingCar.priority++;[0]
         //    }
         //}
     }
