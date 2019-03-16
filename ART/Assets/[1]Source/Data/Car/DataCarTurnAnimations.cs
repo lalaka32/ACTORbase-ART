@@ -14,12 +14,14 @@ namespace BeeFly
         public Animator animatorCarTurn;
         public void Dispose()
         {
+            animatorCarTurn.End();
             animatorCarTurn = null;
         }
 
         public void Setup(Actor actor)
         {
             animatorCarTurn = actor.selfTransform.GetComponentInChildren<Animator>();
+            animatorCarTurn.Initialize(actor);
         }
     }
 }

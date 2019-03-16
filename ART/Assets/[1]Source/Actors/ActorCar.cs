@@ -37,16 +37,8 @@ namespace BeeFly
             Add<BehaviorDeath>();
             Add<BehaviorPriority>();
             Add<BehaviorTurnOnLight>();
-            Add<BehaviorAnimation>();
             Add<BehaviorCarViewPriority>();
-            //Homebrew.Timer.Add(0.25f, () => AddDebug());
+            //Add<BehaviourStateMoving>();
         }
-        //void AddDebug()
-        //{
-        //    if (Toolbox.Get<DataScene>().debugMode)
-        //    {
-        //        Add<BehaviorCarViewPriority>();
-        //    }
-        //}
     }
 }

@@ -43,21 +43,9 @@ namespace BeeFly
                     SetPlayer(sit.actorCar);
                 }
             }
-            switch (sit.trafficLight)
+            if (sit.trafficLight!=TrafficLight.Empty)
             {
-                case TrafficLight.Off:
-                    SpawnTL(spawnSpot).GetComponent<ComponentTrafficLight>().signals.Send(new SignalSetColor(Color.yellow));
-                    break;
-                case TrafficLight.Red:
-                    SpawnTL(spawnSpot).GetComponent<ComponentTrafficLight>().signals.Send(new SignalSetColor(Color.red));
-                    break;
-                case TrafficLight.Green:
-                    SpawnTL(spawnSpot).GetComponent<ComponentTrafficLight>().signals.Send(new SignalSetColor(Color.green));
-                    break;
-                case TrafficLight.Empty:
-                    break;
-                default:
-                    break;
+                SpawnTL(spawnSpot).GetComponent<ComponentTrafficLight>().signals.Send(new SignalTLSetup(sit.trafficLight,sit.position));
             }
             switch (sit.trafficSign)
             {
@@ -96,6 +84,7 @@ namespace BeeFly
             var carSpot = roadSpot.Get<DataCarSpot>().carSpot;
             var car = Toolbox.Get<FactoryCar>().SpawnCar(carSpot.selfTransform.position, carSpot.selfTransform.rotation, cross.actors[0].selfTransform,Tag.SkateBoard);
             car.name = (roadSpot.Get<DataPosition>().position).ToString();
+            car.transform.localScale = new Vector3(0.0001f,0.0001f,0.0001f);
             actorCar = car.GetComponent<ActorCar>();
             actorCar.Get<DataDirection>().direction = direction;
             Homebrew.Timer.Add(0.1f, () => car.GetComponent<ActorCar>().GetComponent<ActorCar>().signals.Send(new SignalSetLights()));

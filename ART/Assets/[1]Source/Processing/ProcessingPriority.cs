@@ -32,10 +32,10 @@ namespace BeeFly
                     {
                         bool valid = ValidationRule(situation, rule);
                         IncrementPrioriry(situation.actorCar, valid);
-                        Debug.Log(rule + "+=" + valid);
+                        //Debug.Log(rule + "+=" + valid);
 
                     }
-                    Debug.Log("Pri:" + situation.actorCar.daraPriority.priority + " POs: " + situation.position + " Direction: " + situation.actorCar.dataDirection.direction);
+                    //Debug.Log("Pri:" + situation.actorCar.daraPriority.priority + " POs: " + situation.position + " Direction: " + situation.actorCar.dataDirection.direction);
                 }
             }
         }
@@ -61,7 +61,7 @@ namespace BeeFly
             var settingComperative = settingSituation.actorCar.Get<DataComperativeCars>().comperative;
             if (settingSituation.direction.direction == Direction.Left)
             {
-                Debug.Log(validation);
+                //Debug.Log(validation);
             }
             if (validation)
             {
@@ -72,14 +72,12 @@ namespace BeeFly
                     settingComperative.TryGetValue(condition.comperativePosition, out observeSituation);
                     if (observeSituation == null)
                     {
-
                         validation = ValidateNullCondition(condition);
                     }
                     else
                     {
 
                         validation = ValidationCondition(condition, observeSituation);
-
                     }
                     //Debug.Log(validation);
                     if (!validation)

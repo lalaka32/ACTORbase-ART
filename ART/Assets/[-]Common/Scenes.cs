@@ -6,6 +6,6 @@ public enum Scenes
 sceneGame = 0,
 sceneKernel = 1,
 Cross = 2,
-Assets/[3]ThirdParty/ShaderForge/Example Scene = 3
+TL = 3
 }
 public static class ExtScenes	{	public static void To(this Scenes s)	{	ProcessingSceneLoad.To((int) s);	}}}

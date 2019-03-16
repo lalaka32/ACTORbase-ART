@@ -47,8 +47,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Gloss: 0.541
+    - _Gloss: 0.377
     - _node_8: 0.065395094
     m_Colors:
-    - _Diffuse: {r: 1, g: 1, b: 1, a: 1}
-    - _LightWrapping: {r: 1, g: 0, b: 0.96525764, a: 1}
+    - _Diffuse: {r: 0.21586864, g: 0.46226418, b: 0.23412715, a: 1}
+    - _LightWrapping: {r: 1, g: 0.2718977, b: 0, a: 1}

@@ -19,9 +19,8 @@ namespace BeeFly
         }
         public void PlayAnimation()
         {
-            Debug.Log("ANIM");
 
-            ProcessingSignals.Default.Send(new SignalPlayCarAnimation());
+            ProcessingSignals.Default.Send(new SignalAnimationStage());
         }
     }
 }

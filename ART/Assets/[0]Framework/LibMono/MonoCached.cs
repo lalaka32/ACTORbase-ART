@@ -138,7 +138,7 @@ namespace Homebrew
 			state &= ~EntityState.OnHold;
 
 			OnBeforeDestroy();
-
+            ProcessingSignals.Default.Remove(this);
 			if (pool == Pool.None)
 			{
 				Destroy(gameObject, destroyDelayTime == 0 ? Time.DeltaTime : destroyDelayTime);

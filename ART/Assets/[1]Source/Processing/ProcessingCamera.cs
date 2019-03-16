@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace BeeFly
 {
-    class ProcessingCamera : ProcessingBase, IReceive<SignalSetCamera>,ITickFixed
+    class ProcessingCamera : ProcessingBase, IReceive<SignalSetCamera>, ITick
     {
         [GroupBy(Tag.PlayerCar)]
         [GroupExclude(Tag.Dead)]
@@ -51,6 +51,8 @@ namespace BeeFly
 
         Camera camera;
         public float sensitivity = 1F;
+        public float maxRotation = 45f;
+        public float selfRot = 0;
         void RotateCamWithClick()
         {
             if (Input.GetMouseButton(1))
@@ -62,14 +64,38 @@ namespace BeeFly
                 // разница между позицией мышки и центром экрана, делённая на размер экрана
                 //  (чем дальше от центра экрана тем сильнее поворот)
                 // и умножаем угол на чуствительность из параметров
+
                 MyAngle = sensitivity * ((MousePos.x - (Screen.width / 2)) / Screen.width);
-                camera.transform.RotateAround(camGO.transform.position, camera.transform.up, MyAngle);
-                MyAngle = sensitivity * ((MousePos.y - (Screen.height / 2)) / Screen.height);
-                camera.transform.RotateAround(camGO.transform.position, camera.transform.right, -MyAngle);
+                if (Math.Abs(selfRot) < 45f)
+                {
+                    camera.transform.RotateAround(camGO.transform.position, camera.transform.up, MyAngle);
+                    selfRot += MyAngle;
+                }
+                else
+                {
+                    if (selfRot > 0)
+                    {
+                        if (MyAngle < 0)
+                        {
+                            selfRot += MyAngle;
+                        }
+                    }
+                    else
+                    {
+                        if (MyAngle > 0)
+                        {
+                            selfRot += MyAngle;
+                        }
+                    }
+                }
+                Debug.Log(selfRot);
+                //MyAngle = -sensitivity * ((MousePos.y - (Screen.height / 2)) / Screen.height);
+                //camera.transform.RotateAround(camGO.transform.position, camera.transform.up, MyAngle);
+
             }
         }
 
-        public void TickFixed()
+        public void Tick()
         {
             RotateCamWithClick();
         }

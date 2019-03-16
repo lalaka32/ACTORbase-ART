@@ -57,4 +57,4 @@ Material:
     - _Magnitude: 0.23076925
     - _Sharpness: 2.6153843
     m_Colors:
-    - _GlowColor: {r: 0.2829848, g: 0.109803915, b: 1, a: 1}
+    - _GlowColor: {r: 0, g: 0, b: 0, a: 1}

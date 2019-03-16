@@ -8,26 +8,48 @@ using UnityEngine;
 
 namespace BeeFly
 {
-    class ComponentTrafficLight : MonoCached , IReceive<SignalSetColor>
+    public class ComponentTrafficLight : MonoCached , IReceive<SignalTLSetup>,IReceive<SignalTougleColor>
     {
-        Light light1;
-        Light light2;
+        Animator aminator;
 
-        public void HandleSignal(SignalSetColor arg)
+        public int trafficLight;
+        public int position;
+        
+        public void HandleSignal(SignalTLSetup arg)
         {
-            light1.color = arg.color;
-            light2.color = arg.color;
+            trafficLight = arg.trafficLight;
+            position = arg.position;
+            aminator.SetInteger("Traffic Light", trafficLight);
         }
-        public void HandleSignal()
-        {
 
+        public void HandleSignal(SignalTougleColor arg)
+        {
+            TougleColor();
+            Toolbox.Get<DataArtSession>().GetSituation(position).trafficLight = trafficLight;
         }
+        
         protected override void HandleEnable()
         {
             ProcessingSignals.Default.Add(this);
             ProcessingDespawn.Default.Add(this);
-            light1 = transform.Find("turner").GetComponent<Light>();
-            light2 = transform.Find("turner (1)").GetComponent<Light>();
+            aminator = transform.GetComponent<Animator>();
+        }
+        public void TougleColor()
+        {
+            if (trafficLight == TrafficLight.Green)
+            {
+                trafficLight = TrafficLight.Red;
+            }
+            else if(trafficLight == TrafficLight.Red)
+            {
+                trafficLight = TrafficLight.Green;
+            }
+            HandleSetColor(trafficLight);
+        }
+
+        void HandleSetColor(int color)
+        {
+            aminator.SetInteger("TougleColor", color);
         }
     }
 }

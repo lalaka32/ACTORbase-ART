@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb7b54ce37f594a4d8dfc2d7264fe8d0, type: 3}
   m_Name: FactoryCrossSpots
   m_EditorClassIdentifier: 
-  prefabOfCross: {fileID: 1811368680386134, guid: 5dc3c95f473a1ea4da32aa1adf6bec22,
+  prefabOfCross: {fileID: 1152984146527694, guid: 7f8bdc67b30865a46aa1c12971d28f44,
     type: 2}
-  prefabOfTrafficLight: {fileID: 1931974493535202, guid: abb8eb2b32d0fa243b61aa39c340f05f,
+  prefabOfTrafficLight: {fileID: 1073893608891994, guid: 780c65bb54a27634e903fcb54d565032,
     type: 2}
   prefabOfSignMain: {fileID: 1544876069403128, guid: 0c88fa34da8b3da4b823f39322755826,
     type: 2}
