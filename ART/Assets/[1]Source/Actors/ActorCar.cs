@@ -34,11 +34,11 @@ namespace BeeFly
 
         protected override void SetupBehaviors()
         {
+            Add<BehaviourStateMoving>();
             Add<BehaviorDeath>();
             Add<BehaviorPriority>();
             Add<BehaviorTurnOnLight>();
-            Add<BehaviorCarViewPriority>();
-            //Add<BehaviourStateMoving>();
+            //Add<BehaviorCarViewPriority>();
         }
     }
 }
