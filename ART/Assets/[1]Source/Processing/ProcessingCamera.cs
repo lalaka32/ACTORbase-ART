@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace BeeFly
 {
-    class ProcessingCamera : ProcessingBase, IReceive<SignalSetCamera>, ITick
+    class ProcessingCamera : ProcessingBase, IReceive<SignalSetCamera>
     {
         [GroupBy(Tag.PlayerCar)]
         [GroupExclude(Tag.Dead)]
@@ -93,11 +93,6 @@ namespace BeeFly
                 //camera.transform.RotateAround(camGO.transform.position, camera.transform.up, MyAngle);
 
             }
-        }
-
-        public void Tick()
-        {
-            RotateCamWithClick();
         }
     }
 }
