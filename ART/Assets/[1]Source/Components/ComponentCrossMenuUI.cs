@@ -9,9 +9,8 @@ using UnityEngine;
 
 namespace BeeFly
 {
-    class ComponentMenu : MonoCached
+    class ComponentCrossMenuUI : MonoCached
     {
-
         public void Restart()
         {
             Debug.Log("--------------------------------------------" + Toolbox.Get<DataArtSession>().NumberOfQuestion);
@@ -19,8 +18,11 @@ namespace BeeFly
         }
         public void PlayAnimation()
         {
-
             ProcessingSignals.Default.Send(new SignalAnimationStage());
+        }
+        public void BackToMainMenu()
+        {
+            Scenes.MainMenu.To();
         }
     }
 }

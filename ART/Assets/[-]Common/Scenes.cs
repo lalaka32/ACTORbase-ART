@@ -6,6 +6,7 @@ public enum Scenes
 sceneGame = 0,
 sceneKernel = 1,
 Cross = 2,
-TL = 3
+TL = 3,
+MainMenu = 4
 }
 public static class ExtScenes	{	public static void To(this Scenes s)	{	ProcessingSceneLoad.To((int) s);	}}}

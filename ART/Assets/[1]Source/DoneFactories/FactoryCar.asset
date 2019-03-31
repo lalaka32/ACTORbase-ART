@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8527801e92f619f4ab57b957570e7b38, type: 3}
   m_Name: FactoryCar
   m_EditorClassIdentifier: 
-  prefabOfCar: {fileID: 1899696430653444, guid: 4a4ab75f78575af41b4a2a856e887c62,
+  prefabOfCar: {fileID: 1364595750698718, guid: 58e383bbf52ab2147ae2e402c6fb64a3,
     type: 2}
-  prefabOfSkate: {fileID: 1559149856562034, guid: 7cf26adb3acf5e24fa59af833dbdd835,
+  prefabOfSkate: {fileID: 1364595750698718, guid: 58e383bbf52ab2147ae2e402c6fb64a3,
     type: 2}
