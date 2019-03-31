@@ -8,9 +8,16 @@ using UnityEngine;
 
 namespace BeeFly
 {
-    class BehaviourStateMoving : ActorBehavior,IReceive<SignalPlayCarAnimation>, IReceive<SignalTurnOffLight>
+    class BehaviourStateMoving : BaseStateMachineBehavior ,IReceive<SignalPlayCarAnimation>, IReceive<SignalTurnOffLight>
     {
-
+        protected override void OnSetup()
+        {
+            actor.signals.Add(this);
+        }
+        public override void End()
+        {
+            actor.signals.Remove(this);
+        }
         public void HandleSignal(SignalPlayCarAnimation arg)
         {
             if (!actor.tags.Contain(Tag.Dead))
