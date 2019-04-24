@@ -32,15 +32,16 @@ namespace BeeFly
                 if (!string.IsNullOrEmpty(reader.ReadToEnd()))
                 {
                     stream.Position = 0;
-                    securityKey = (SecurityKey)formatter.Deserialize(stream);
+                    //securityKey = (SecurityKey)formatter.Deserialize(stream);
+                    securityKey.key = "53";
                     if (SystemInfo.deviceUniqueIdentifier != securityKey.key)
                     {
-                        Debug.Log("сасат");
+                        Application.Quit();
 
                     }
                     else
                     {
-                        Debug.Log("изи");
+                        Debug.Log("le");
                     }
                 }
                 else
