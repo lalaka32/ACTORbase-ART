@@ -32,8 +32,8 @@ namespace BeeFly
                 if (!string.IsNullOrEmpty(reader.ReadToEnd()))
                 {
                     stream.Position = 0;
-                    //securityKey = (SecurityKey)formatter.Deserialize(stream);
-                    securityKey.key = "53";
+                    securityKey = (SecurityKey)formatter.Deserialize(stream);
+                    
                     if (SystemInfo.deviceUniqueIdentifier != securityKey.key)
                     {
                         Application.Quit();

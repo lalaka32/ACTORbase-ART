@@ -21,7 +21,6 @@ namespace BeeFly
 
         protected override void Setup()
         {
-            Toolbox.Add<ProcessingSecurity>();
 
             for (int i = 0; i < DatesGame.Count; i++)
             {
