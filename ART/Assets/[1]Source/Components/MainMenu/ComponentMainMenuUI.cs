@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Homebrew;
 using UnityEngine;
 using UnityEngine.Experimental.UIElements;
+using UnityEngine.UI;
 using Toggle = UnityEngine.UI.Toggle;
 
 namespace BeeFly
@@ -21,6 +22,16 @@ namespace BeeFly
         public GameObject prefabOfLogin;
 
         public GameObject prefabOfRegister;
+
+        public GameObject prefabOfLoginUserName;
+
+        public GameObject prefabOfLoginUserPassword;
+
+        public GameObject prefabOfRegisterUserName;
+
+        public GameObject prefabOfRegisterUserPassword;
+
+        public GameObject prefabOfRegisterUserConfirmPassword;
 
         public void Play()
         {
@@ -82,6 +93,15 @@ namespace BeeFly
         {
             Toolbox.Get<DataChances>().defaultType = TypeOfCross.UnQvalent;
             prefabOfRegularity.GetComponent<Toggle>().isOn = false;
+        }
+        public void Login()
+        {
+            ProcessingSignals.Default.Send(new SignalLogin(prefabOfLoginUserName, prefabOfLoginUserPassword);
+        }
+
+        public void Register()
+        {
+            ProcessingSignals.Default.Send(new SignalRegister(prefabOfRegisterUserName, prefabOfRegisterUserPassword, prefabOfRegisterUserConfirmPassword));
         }
     }
 }
