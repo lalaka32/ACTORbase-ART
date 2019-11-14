@@ -18,6 +18,10 @@ namespace BeeFly
 
         public GameObject prefabOfUnqvalent;
 
+        public GameObject prefabOfLogin;
+
+        public GameObject prefabOfRegister;
+
         public void Play()
         {
             Scenes.Cross.To();
@@ -46,6 +50,26 @@ namespace BeeFly
         public void CloseCrossSettings()
         {
             prefabOfSettings.active = false;
+        }
+
+        public void OpenLogin()
+        {
+            prefabOfLogin.active = true;
+        }
+
+        public void CloseLogin()
+        {
+            prefabOfLogin.active = false;
+        }
+
+        public void OpenRegister()
+        {
+            prefabOfRegister.active = true;
+        }
+
+        public void CloseRegister()
+        {
+            prefabOfRegister.active = false;
         }
 
         public void SetRegularity(bool turn)
