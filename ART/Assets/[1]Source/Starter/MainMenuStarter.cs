@@ -17,6 +17,8 @@ namespace BeeFly
             {
                 Toolbox.Add(DatesGame[i]);
             }
+            Toolbox.Add<ProcessingAuthorisation>();
+
         }
     }
 }

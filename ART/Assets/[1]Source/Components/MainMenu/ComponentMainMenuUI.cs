@@ -23,15 +23,15 @@ namespace BeeFly
 
         public GameObject prefabOfRegister;
 
-        public GameObject prefabOfLoginUserName;
+        public InputField prefabOfLoginUserName;
 
-        public GameObject prefabOfLoginUserPassword;
+        public InputField prefabOfLoginUserPassword;
 
-        public GameObject prefabOfRegisterUserName;
+        public InputField prefabOfRegisterUserName;
 
-        public GameObject prefabOfRegisterUserPassword;
+        public InputField prefabOfRegisterUserPassword;
 
-        public GameObject prefabOfRegisterUserConfirmPassword;
+        public InputField prefabOfRegisterUserConfirmPassword;
 
         public void Play()
         {
@@ -96,7 +96,7 @@ namespace BeeFly
         }
         public void Login()
         {
-            ProcessingSignals.Default.Send(new SignalLogin(prefabOfLoginUserName, prefabOfLoginUserPassword);
+            ProcessingSignals.Default.Send(new SignalLogin(prefabOfLoginUserName, prefabOfLoginUserPassword));
         }
 
         public void Register()

@@ -1860,7 +1860,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1425916182}
-        m_MethodName: 
+        m_MethodName: Register
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1921,7 +1921,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1094628592
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1994,7 +1994,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1124702357
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2561,6 +2561,11 @@ MonoBehaviour:
   prefabOfUnqvalent: {fileID: 1300738898}
   prefabOfLogin: {fileID: 1124702356}
   prefabOfRegister: {fileID: 1094628591}
+  prefabOfLoginUserName: {fileID: 924837078}
+  prefabOfLoginUserPassword: {fileID: 802168368}
+  prefabOfRegisterUserName: {fileID: 856466915}
+  prefabOfRegisterUserPassword: {fileID: 1174199502}
+  prefabOfRegisterUserConfirmPassword: {fileID: 1944227607}
 --- !u!114 &1425916183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2676,7 +2681,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.573, y: 0.14072973}
   m_AnchorMax: {x: 0.77971727, y: 0.2806892}
-  m_AnchoredPosition: {x: 0, y: -3}
+  m_AnchoredPosition: {x: 0, y: -3.0000153}
   m_SizeDelta: {x: -1.3000183, y: 3.5999908}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1430678527
@@ -3472,7 +3477,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1425916182}
-        m_MethodName: 
+        m_MethodName: Login
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

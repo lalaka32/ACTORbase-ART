@@ -4,16 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace BeeFly
 {
     struct SignalRegister
     {
-        public GameObject prefabOfRegisterUserName;
-        public GameObject prefabOfRegisterUserPassword;
-        public GameObject prefabOfRegisterUserConfirmPassword;
+        public InputField prefabOfRegisterUserName;
+        public InputField prefabOfRegisterUserPassword;
+        public InputField prefabOfRegisterUserConfirmPassword;
 
-        public SignalRegister(GameObject prefabOfRegisterUserName, GameObject prefabOfRegisterUserPassword, GameObject prefabOfRegisterUserConfirmPassword)
+        public SignalRegister(InputField prefabOfRegisterUserName, InputField prefabOfRegisterUserPassword, InputField prefabOfRegisterUserConfirmPassword)
         {
             this.prefabOfRegisterUserName = prefabOfRegisterUserName;
             this.prefabOfRegisterUserPassword = prefabOfRegisterUserPassword;
