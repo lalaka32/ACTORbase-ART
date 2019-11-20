@@ -16,6 +16,10 @@ namespace BeeFly
         {
             StartCoroutine(PostUnityWebRequest(url, byteData));
         }
+        public void StartLogin(string url, byte[] byteData)
+        {
+            StartCoroutine(PostUnityWebRequest(url, byteData));
+        }
 
         IEnumerator PostUnityWebRequest(string url, byte[] byteData)
         {
@@ -33,9 +37,13 @@ namespace BeeFly
             else
             {
                 Debug.Log("Form upload complete! Status Code: " + www.responseCode);
+                string token = www.downloadHandler.text;
+                Debug.Log(token);
+                ProcessingSignals.Default.Send(new SignalToken(token));
             }
-            Debug.Log(www.downloadHandler.text);
+            
             www.Dispose();
         }
+
     }
 }

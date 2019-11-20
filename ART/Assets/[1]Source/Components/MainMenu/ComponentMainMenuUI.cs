@@ -11,7 +11,7 @@ using Toggle = UnityEngine.UI.Toggle;
 
 namespace BeeFly
 {
-    class ComponentMainMenuUI : MonoCached
+    class ComponentMainMenuUI : MonoCached, IReceive<SignalHideAuth>
     {
         public GameObject prefabOfSettings;
 
@@ -32,6 +32,10 @@ namespace BeeFly
         public InputField prefabOfRegisterUserPassword;
 
         public InputField prefabOfRegisterUserConfirmPassword;
+       
+        public GameObject loginButton;
+
+
 
         public void Play()
         {
@@ -40,6 +44,8 @@ namespace BeeFly
 
         protected override void HandleEnable()
         {
+            ProcessingSignals.Default.Add(this);
+
             prefabOfSettings.active = false;
             var type = Toolbox.Get<DataChances>().defaultType;
             switch (type)
@@ -51,6 +57,13 @@ namespace BeeFly
                     prefabOfUnqvalent.GetComponent<Toggle>().isOn = true;
                     break;
             }
+        }
+
+        public void HandleSignal(SignalHideAuth arg)
+        {
+            prefabOfLogin.active = false;
+            prefabOfRegister.active = false;
+            loginButton.active = false;
         }
 
         public void OpenCrossSettings()

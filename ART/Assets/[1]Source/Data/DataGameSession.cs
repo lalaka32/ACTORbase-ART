@@ -13,8 +13,10 @@ namespace Homebrew
 	[CreateAssetMenu(fileName = "DataGameSession", menuName = "Data/DataGameSession")]
 	public class DataGameSession : DataGame
 	{
+        public string Token { get; set; }
 		public void CleanSession()
 		{
+            Token = null;
 		}
 
 
